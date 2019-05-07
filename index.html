@@ -109,16 +109,16 @@
 
 
 
-<meta name="description" content="This is a long vacation.Everything will be fine.">
+<meta name="description" content="此博客记录学习中遇到的问题，方便以后查询回顾。同时不定期更新日常。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tsuki&#39;s CodeLife">
 <meta property="og:url" content="https://tsuki419.github.io/index.html">
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
-<meta property="og:description" content="This is a long vacation.Everything will be fine.">
+<meta property="og:description" content="此博客记录学习中遇到的问题，方便以后查询回顾。同时不定期更新日常。">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tsuki&#39;s CodeLife">
-<meta name="twitter:description" content="This is a long vacation.Everything will be fine.">
+<meta name="twitter:description" content="此博客记录学习中遇到的问题，方便以后查询回顾。同时不定期更新日常。">
 
 
 
@@ -301,7 +301,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/uncategorized/2019/05/07/hello-world.html" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/uncategorized/2019/05/07/hello-world.html" itemprop="url">初次搭建博客</a></h1>
         
 
         <div class="post-meta">
@@ -353,15 +353,14 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>Welcome to my world.This is my very first post.<br>先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法</p>
+<h2 id="Let’s-start"><a href="#Let’s-start" class="headerlink" title="Let’s start!!!"></a>Let’s start!!!</h2><h3 id="修改hosts访问google"><a href="#修改hosts访问google" class="headerlink" title="修改hosts访问google"></a>修改hosts访问google</h3><p>首先是ipconfig/flushdns 无法使用，解决方法<a href="https://blog.csdn.net/hi_boy_/article/details/78059189" target="_blank" rel="noopener">设置path</a></p>
+<h3 id="安装node-js和git"><a href="#安装node-js和git" class="headerlink" title="安装node.js和git"></a>安装node.js和git</h3><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>报错：local hexo not found in xxx:<br>在网上各种搜索都没有解决问题，删除项目中的package.json,执行npm init生成新的package.json替换，虽然不再报错，但是出现了新问题，返回usage信息，hexo命令干脆不能用了，倒腾一晚上，最后考虑是环境变量问题。<br>第二天重装node.js确认，问题是node.js版本过低所致。</p>
+<h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><p>报错：could not read from remote repository<br>经过检查发现是github项目名称写错</p>
+<h3 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h3><p>多半是编码问题，换个编码方式编辑。换为UTF-8编码方式，成功解决。</p>
+<h3 id="如何更新博客"><a href="#如何更新博客" class="headerlink" title="如何更新博客"></a>如何更新博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<h3 id="网易云音乐产生外部链接"><a href="#网易云音乐产生外部链接" class="headerlink" title="网易云音乐产生外部链接"></a>网易云音乐产生外部链接</h3><p><a href="http://link.hhtjim.com/163/xxx.mps" target="_blank" rel="noopener">http://link.hhtjim.com/163/xxx.mps</a> 将歌曲链接的对应id替换xxx位置即可</p>
+<p>The end</p>
 
           
         
@@ -435,7 +434,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="tsuki">
             
               <p class="site-author-name" itemprop="name">tsuki</p>
-              <p class="site-description motion-element" itemprop="description">This is a long vacation.Everything will be fine.</p>
+              <p class="site-description motion-element" itemprop="description">此博客记录学习中遇到的问题，方便以后查询回顾。同时不定期更新日常。</p>
           </div>
 
           <nav class="site-state motion-element">
