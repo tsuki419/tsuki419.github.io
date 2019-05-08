@@ -118,17 +118,17 @@
 
 
 
-<meta name="description" content="Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法 Let’s start!!!修改hosts访问google首先是ipconfig/fl">
+<meta name="description" content="Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初次搭建博客">
 <meta property="og:url" content="https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html">
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
-<meta property="og:description" content="Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法 Let’s start!!!修改hosts访问google首先是ipconfig/fl">
+<meta property="og:description" content="Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-08T08:02:37.290Z">
+<meta property="og:updated_time" content="2019-05-08T09:26:11.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初次搭建博客">
-<meta name="twitter:description" content="Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法 Let’s start!!!修改hosts访问google首先是ipconfig/fl">
+<meta name="twitter:description" content="Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法">
 
 
 
@@ -339,6 +339,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/uncategorized/2019/05/07/hello-world.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="uncategorized/2019/05/07/hello-world.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -394,7 +404,7 @@
       
 
       
-        <p>Welcome to my world.This is my very first post.<br>先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法</p>
+        <p>Welcome to my world.This is my very first post.<br>先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法<br><a id="more"></a> </p>
 <h2 id="Let’s-start"><a href="#Let’s-start" class="headerlink" title="Let’s start!!!"></a>Let’s start!!!</h2><h3 id="修改hosts访问google"><a href="#修改hosts访问google" class="headerlink" title="修改hosts访问google"></a>修改hosts访问google</h3><p>首先是ipconfig/flushdns 无法使用，解决方法<a href="https://blog.csdn.net/hi_boy_/article/details/78059189" target="_blank" rel="noopener">设置path</a></p>
 <h3 id="安装node-js和git"><a href="#安装node-js和git" class="headerlink" title="安装node.js和git"></a>安装node.js和git</h3><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>报错：local hexo not found in xxx:<br>在网上各种搜索都没有解决问题，删除项目中的package.json,执行npm init生成新的package.json替换，虽然不再报错，但是出现了新问题，返回usage信息，hexo命令干脆不能用了，倒腾一晚上，最后考虑是环境变量问题。<br>第二天重装node.js确认，问题是node.js版本过低所致。</p>
 <h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><p>报错：could not read from remote repository<br>经过检查发现是github项目名称写错</p>
@@ -464,6 +474,12 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="uncategorized/2019/05/07/hello-world.html" data-title="初次搭建博客" data-url="https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html">
+      </div>
+    </div>
 
   
 
@@ -757,25 +773,35 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
-	
 
 
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -812,8 +838,13 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+	
+		<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+		<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+		<script type="text/javascript" src="/js/src/fireworks.js"></script>
+	
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.95},"log":false});</script></body>
 </html>
 
 <!-- ҳ����С���� -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<!--<script type="text/javascript" src="/js/src/clicklove.js"></script>-->
