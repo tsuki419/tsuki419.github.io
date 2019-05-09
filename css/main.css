@@ -1912,7 +1912,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8aff41;
+  background: #ffe3c9;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3034,12 +3034,22 @@ hr {
   }
 }
 .container {
-  background-color: rgba(255,255,255,0.75);
+  background-color: rgba(255,255,255,0.5);
 }
 .brand {
   background-color: rgba(255,255,255,0);
   margin-top: 15px;
   padding: 0px;
+}
+.posts-expand .post:first-child {
+  margin-top: 0;
+  background-color: rgba(255,255,255,0.9);
+}
+.posts-collapse {
+  position: relative;
+  z-index: 1010;
+  margin-left: 0;
+  background-color: rgba(255,255,255,0.9);
 }
 .site-author-image {
   border-radius: 30%;
