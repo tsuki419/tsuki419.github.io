@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tsuki419.github.io/"/>
-  <updated>2019-05-09T13:55:33.754Z</updated>
+  <updated>2019-05-10T02:50:12.422Z</updated>
   <id>https://tsuki419.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html"/>
     <id>https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html</id>
     <published>2019-05-07T02:42:25.758Z</published>
-    <updated>2019-05-09T13:55:33.754Z</updated>
+    <updated>2019-05-10T02:50:12.422Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to my world.This is my very first post.<br>先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法<br><a id="more"></a> </p><h2 id="Let’s-start"><a href="#Let’s-start" class="headerlink" title="Let’s start!!!"></a>Let’s start!!!</h2><h3 id="修改hosts访问google"><a href="#修改hosts访问google" class="headerlink" title="修改hosts访问google"></a>修改hosts访问google</h3><p>首先是ipconfig/flushdns 无法使用，解决方法<a href="https://blog.csdn.net/hi_boy_/article/details/78059189" target="_blank" rel="noopener">设置path</a></p><h3 id="安装node-js和git"><a href="#安装node-js和git" class="headerlink" title="安装node.js和git"></a>安装node.js和git</h3><p><img src="https://i.loli.net/2019/05/09/5cd41d6fa31f5.jpg" alt="e479556c0a901d66f3869036ded5ab07.jpg"></p><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>报错：local hexo not found in xxx:<br>在网上各种搜索都没有解决问题，删除项目中的package.json,执行npm init生成新的package.json替换，虽然不再报错，但是出现了新问题，返回usage信息，hexo命令干脆不能用了，倒腾一晚上，最后考虑是环境变量问题。<br>第二天重装node.js确认，问题是node.js版本过低所致。</p><h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><p>报错：could not read from remote repository<br>经过检查发现是github项目名称写错</p><h3 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h3><p>多半是编码问题，换个编码方式编辑。换为UTF-8编码方式，成功解决。</p><h3 id="如何更新博客"><a href="#如何更新博客" class="headerlink" title="如何更新博客"></a>如何更新博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><h3 id="网易云音乐产生外部链接"><a href="#网易云音乐产生外部链接" class="headerlink" title="网易云音乐产生外部链接"></a>网易云音乐产生外部链接</h3><p><a href="http://link.hhtjim.com/163/xxx.mps" target="_blank" rel="noopener">http://link.hhtjim.com/163/xxx.mps</a> 将歌曲链接的对应id替换xxx位置即可</p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to my world.This is my very first post.<br>先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法<br><a id="more"></a> </p><h2 id="Let’s-start"><a href="#Let’s-start" class="headerlink" title="Let’s start!!!"></a>Let’s start!!!</h2><h3 id="修改hosts访问google"><a href="#修改hosts访问google" class="headerlink" title="修改hosts访问google"></a>修改hosts访问google</h3><p>首先是ipconfig/flushdns 无法使用，解决方法<a href="https://blog.csdn.net/hi_boy_/article/details/78059189" target="_blank" rel="noopener">设置path</a></p><h3 id="安装node-js和git"><a href="#安装node-js和git" class="headerlink" title="安装node.js和git"></a>安装node.js和git</h3><p><img src="https://i.loli.net/2019/05/09/5cd41d6fa31f5.jpg" alt="e479556c0a901d66f3869036ded5ab07.jpg"><br><div class="video-container"><iframe src="//www.youtube.com/embed/zqUopiAYdRg" frameborder="0" allowfullscreen></iframe></div></p><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>报错：local hexo not found in xxx:<br>在网上各种搜索都没有解决问题，删除项目中的package.json,执行npm init生成新的package.json替换，虽然不再报错，但是出现了新问题，返回usage信息，hexo命令干脆不能用了，倒腾一晚上，最后考虑是环境变量问题。<br>第二天重装node.js确认，问题是node.js版本过低所致。</p><h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><p>报错：could not read from remote repository<br>经过检查发现是github项目名称写错</p><h3 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h3><p>多半是编码问题，换个编码方式编辑。换为UTF-8编码方式，成功解决。</p><h3 id="如何更新博客"><a href="#如何更新博客" class="headerlink" title="如何更新博客"></a>如何更新博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><h3 id="网易云音乐产生外部链接"><a href="#网易云音乐产生外部链接" class="headerlink" title="网易云音乐产生外部链接"></a>网易云音乐产生外部链接</h3><p><a href="http://link.hhtjim.com/163/xxx.mps" target="_blank" rel="noopener">http://link.hhtjim.com/163/xxx.mps</a> 将歌曲链接的对应id替换xxx位置即可</p>]]></content>
     
     <summary type="html">
     
@@ -32,7 +32,11 @@
     </summary>
     
     
+      <category term="hosts" scheme="https://tsuki419.github.io/tags/hosts/"/>
+    
       <category term="blog" scheme="https://tsuki419.github.io/tags/blog/"/>
+    
+      <category term="hexo" scheme="https://tsuki419.github.io/tags/hexo/"/>
     
   </entry>
   
