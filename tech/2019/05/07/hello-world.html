@@ -134,11 +134,11 @@
 <meta name="keywords" content="hosts,blog,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建博客初体验">
-<meta property="og:url" content="https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html">
+<meta property="og:url" content="https://tsuki419.github.io/tech/2019/05/07/hello-world.html">
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-10T13:55:56.317Z">
+<meta property="og:updated_time" content="2019-05-10T14:06:09.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客初体验">
 <meta name="twitter:description" content="Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法.">
@@ -171,7 +171,7 @@
 
 
 
-  <link rel="canonical" href="https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html">
+  <link rel="canonical" href="https://tsuki419.github.io/tech/2019/05/07/hello-world.html">
 
 
 
@@ -363,7 +363,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html">
+    <link itemprop="mainEntityOfPage" href="https://tsuki419.github.io/tech/2019/05/07/hello-world.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tsuki">
@@ -403,6 +403,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">-tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -411,26 +433,14 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/uncategorized/2019/05/07/hello-world.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="uncategorized/2019/05/07/hello-world.html" itemprop="commentCount"></span>
+                <a href="/tech/2019/05/07/hello-world.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="tech/2019/05/07/hello-world.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-          
-             <span id="/uncategorized/2019/05/07/hello-world.html" class="leancloud_visitors" data-flag-title="搭建博客初体验">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-				 <span>��</span>
-             </span>
           
 
           
@@ -448,7 +458,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  394
+                  401
                 </span>
               
 
@@ -474,20 +484,13 @@
 
       
         <p>Welcome to my world.This is my very first post.<br>先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。<br>建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。<br>ORZ记录一下遇到的问题和解决方法.<br><a id="more"></a> </p>
-<h2 id="Let’s-start"><a href="#Let’s-start" class="headerlink" title="Let’s start!!!"></a>Let’s start!!!</h2><h3 id="修改hosts访问google"><a href="#修改hosts访问google" class="headerlink" title="修改hosts访问google"></a>修改hosts访问google</h3><p>首先是ipconfig/flushdns 无法使用，解决方法<a href="https://blog.csdn.net/hi_boy_/article/details/78059189" target="_blank" rel="noopener">设置path</a></p>
-<h3 id="安装node-js和git"><a href="#安装node-js和git" class="headerlink" title="安装node.js和git"></a>安装node.js和git</h3><div class="note default"><p>default</p></div>
-
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>报错：local hexo not found in xxx:<br>在网上各种搜索都没有解决问题，删除项目中的package.json,执行npm init生成新的package.json替换，虽然不再报错，但是出现了新问题，返回usage信息，hexo命令干脆不能用了，倒腾一晚上，最后考虑是环境变量问题。<br>第二天重装node.js确认，问题是node.js版本过低所致。</p>
-<h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><p>报错：could not read from remote repository<br>经过检查发现是github项目名称写错</p>
-<h3 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h3><p>多半是编码问题，换个编码方式编辑。换为UTF-8编码方式，成功解决。</p>
-<h3 id="如何更新博客"><a href="#如何更新博客" class="headerlink" title="如何更新博客"></a>如何更新博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<h3 id="网易云音乐产生外部链接"><a href="#网易云音乐产生外部链接" class="headerlink" title="网易云音乐产生外部链接"></a>网易云音乐产生外部链接</h3><p><a href="http://link.hhtjim.com/163/xxx.mps" target="_blank" rel="noopener">http://link.hhtjim.com/163/xxx.mps</a> 将歌曲链接的对应id替换xxx位置即可<br>
-        <div id="aplayer-xJzpRPTg" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+<h2 id="Let’s-start"><a href="#Let’s-start" class="headerlink" title="Let’s start!!!"></a>Let’s start!!!</h2><p>可以边听边看哦！<br>
+        <div id="aplayer-jtuiKPFf" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-xJzpRPTg"),
+            element: document.getElementById("aplayer-jtuiKPFf"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -502,6 +505,14 @@
           window.aplayers || (window.aplayers = []);
           window.aplayers.push(ap);
         </script></p>
+<h3 id="修改hosts访问google"><a href="#修改hosts访问google" class="headerlink" title="修改hosts访问google"></a>修改hosts访问google</h3><p>首先是ipconfig/flushdns 无法使用，解决方法<a href="https://blog.csdn.net/hi_boy_/article/details/78059189" target="_blank" rel="noopener">设置path</a></p>
+<h3 id="安装node-js和git"><a href="#安装node-js和git" class="headerlink" title="安装node.js和git"></a>安装node.js和git</h3><div class="note default"><p>default</p></div>
+
+<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>报错：local hexo not found in xxx:<br>在网上各种搜索都没有解决问题，删除项目中的package.json,执行npm init生成新的package.json替换，虽然不再报错，但是出现了新问题，返回usage信息，hexo命令干脆不能用了，倒腾一晚上，最后考虑是环境变量问题。<br>第二天重装node.js确认，问题是node.js版本过低所致。</p>
+<h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><p>报错：could not read from remote repository<br>经过检查发现是github项目名称写错</p>
+<h3 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h3><p>多半是编码问题，换个编码方式编辑。换为UTF-8编码方式，成功解决。</p>
+<h3 id="如何更新博客"><a href="#如何更新博客" class="headerlink" title="如何更新博客"></a>如何更新博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br><span class="line">$ hexo clean</span><br><span class="line">$ hexo g -d</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<h3 id="网易云音乐产生外部链接"><a href="#网易云音乐产生外部链接" class="headerlink" title="网易云音乐产生外部链接"></a>网易云音乐产生外部链接</h3><p><a href="http://link.hhtjim.com/163/xxx.mps" target="_blank" rel="noopener">http://link.hhtjim.com/163/xxx.mps</a> 将歌曲链接的对应id替换xxx位置即可</p>
 <hr>
 
 
@@ -522,12 +533,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/uncategorized/2019/05/07/hello-world.html">搭建博客初体验</a></p>
+  <p><span>本文标题:</span><a href="/tech/2019/05/07/hello-world.html">搭建博客初体验</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2019.05.07 - 10:42</p>
-  <p><span>最后更新:</span>2019.05.10 - 21:55</p>
-  <p><span>原始链接:</span><a href="/uncategorized/2019/05/07/hello-world.html" title="搭建博客初体验">https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html" aria-label="复制成功！"></i></span>
+  <p><span>最后更新:</span>2019.05.10 - 22:06</p>
+  <p><span>原始链接:</span><a href="/tech/2019/05/07/hello-world.html" title="搭建博客初体验">https://tsuki419.github.io/tech/2019/05/07/hello-world.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/tech/2019/05/07/hello-world.html" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -621,7 +632,7 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="uncategorized/2019/05/07/hello-world.html" data-title="搭建博客初体验" data-url="https://tsuki419.github.io/uncategorized/2019/05/07/hello-world.html">
+      <div class="ds-thread" data-thread-key="tech/2019/05/07/hello-world.html" data-title="搭建博客初体验" data-url="https://tsuki419.github.io/tech/2019/05/07/hello-world.html">
       </div>
     </div>
 
@@ -686,6 +697,15 @@
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -777,7 +797,7 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 394</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 401</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
@@ -1325,113 +1345,6 @@
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("Sl6SOtznfVOyW4m3pP99cvCc-gzGzoHsz", "35abc3WS2si9P7alcp3oAn5b");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 
