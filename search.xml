@@ -2,11 +2,8 @@
 <search>
   <entry>
     <title><![CDATA[搭建博客初体验]]></title>
-    <url>%2Ftech%2F2019%2F05%2F07%2Fhello-world.html</url>
-    <content type="text"><![CDATA[Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法. Let’s start!!!修改hosts访问google可以边听边看哦！ var ap = new APlayer({ element: document.getElementById("aplayer-sEHcLKEm"), narrow: false, autoplay: false, showlrc: false, music: { title: "Hit and Run", author: "Lolo", url: "https://link.hhtjim.com/163/28987151.mp3", pic: "https://i.loli.net/2019/05/09/5cd41d6fa31f5.jpg", lrc: "" } }); window.aplayers || (window.aplayers = []); window.aplayers.push(ap); 首先是ipconfig/flushdns 无法使用，解决方法设置path 安装node.js和gitdefault 安装hexo报错：local hexo not found in xxx:在网上各种搜索都没有解决问题，删除项目中的package.json,执行npm init生成新的package.json替换，虽然不再报错，但是出现了新问题，返回usage信息，hexo命令干脆不能用了，倒腾一晚上，最后考虑是环境变量问题。第二天重装node.js确认，问题是node.js版本过低所致。 部署到github报错：could not read from remote repository经过检查发现是github项目名称写错 中文乱码多半是编码问题，换个编码方式编辑。换为UTF-8编码方式，成功解决。 如何更新博客1234$ hexo new "My New Post"$ hexo clean$ hexo g -d$ hexo s 网易云音乐产生外部链接http://link.hhtjim.com/163/xxx.mps 将歌曲链接的对应id替换xxx位置即可]]></content>
-      <categories>
-        <category>-tech</category>
-      </categories>
+    <url>%2Funcategorized%2F2019%2F05%2F07%2Fhello-world.html</url>
+    <content type="text"><![CDATA[Welcome to my world.This is my very first post.先随便写几句，折腾了两天hexo配合github搭建博客成功，距离大大绚丽的页面还有好远。建博客的过程中，遇到了好多问题，看教程的时候仿佛大家都水到渠成，只有我和成功之间隔着千山万水。ORZ记录一下遇到的问题和解决方法. Let’s start!!!可以边听边看哦！ var ap = new APlayer({ element: document.getElementById("aplayer-YaQelVbr"), narrow: false, autoplay: false, showlrc: false, music: { title: "Hit and Run", author: "Lolo", url: "https://link.hhtjim.com/163/28987151.mp3", pic: "https://i.loli.net/2019/05/09/5cd41d6fa31f5.jpg", lrc: "" } }); window.aplayers || (window.aplayers = []); window.aplayers.push(ap); 修改hosts访问google首先是ipconfig/flushdns 无法使用，解决方法设置path 安装node.js和gitdefault 安装hexo报错：local hexo not found in xxx:在网上各种搜索都没有解决问题，删除项目中的package.json,执行npm init生成新的package.json替换，虽然不再报错，但是出现了新问题，返回usage信息，hexo命令干脆不能用了，倒腾一晚上，最后考虑是环境变量问题。第二天重装node.js确认，问题是node.js版本过低所致。 部署到github报错：could not read from remote repository经过检查发现是github项目名称写错 中文乱码多半是编码问题，换个编码方式编辑。换为UTF-8编码方式，成功解决。 如何更新博客1234$ hexo new "My New Post"$ hexo clean$ hexo g -d$ hexo s 网易云音乐产生外部链接http://link.hhtjim.com/163/xxx.mps 将歌曲链接的对应id替换xxx位置即可]]></content>
       <tags>
         <tag>hosts</tag>
         <tag>blog</tag>
