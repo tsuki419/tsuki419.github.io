@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff824f;
+  background: #2d73ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3212,6 +3212,18 @@ blockquote.question {
 }
 img.img-topic {
   width: 100%;
+}
+.github-ribbon {
+  position: float;
+  top: -35px;
+  right: -114px;
+  padding: 1px 0;
+  transform-origin: top left;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 @-moz-keyframes heartAnimate {
   0%, 100% {
