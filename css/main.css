@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff4dff;
+  background: #4e7da4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3138,6 +3138,7 @@ hr {
 .container {
   background-image: linear-gradient(90deg, #6dba82 0%, #07b39b 33%, #1098ad 66%, #5073b8 100%);
   background-color: rgba(255,255,255,0.5);
+  opacity: 0.92;
 }
 .v .vwrap {
   border: 1px solid #b7b4b4;
@@ -3218,6 +3219,14 @@ blockquote.question {
 }
 img.img-topic {
   width: 100%;
+}
+a {
+  color: #5073b8;
+  border-bottom-color: #5073b8;
+}
+a:hover {
+  color: #a166ab;
+  border-bottom-color: #a166ab;
 }
 .posts-collapse {
   background-color: rgba(255,255,255,0.9);
