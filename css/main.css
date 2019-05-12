@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4e7da4;
+  background: #c3b0d2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3120,19 +3120,20 @@ hr {
 .site-meta .site-title {
   font-size: 50px;
   font-weight: 700;
-  margin-top: 30px;
+  margin-top: 0px;
   color: #030;
+  line-height: 104px;
 }
 .container .header-inner {
   width: 100%;
 }
 .header-inner {
-  padding: 2px 0 2px;
+  padding: 0px;
+  height: 198px;
 }
 .menu {
   float: none;
-  margin: px 0 0 0;
-  margin-bottom: auto;
+  margin: 14px 0px;
   opacity: 0.85;
 }
 .container {
