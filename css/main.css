@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f0fbf6;
+  background: #586714;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3364,7 +3364,7 @@ blockquote.question {
 }
 @media (max-width: 767px) {
   .main {
-    padding-bottom: 100px;
+    padding-bottom: 160px;
   }
   .posts-expand {
     margin: 0px;
