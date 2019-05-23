@@ -1975,7 +1975,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff57;
+  background: #f0fbf6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3349,29 +3349,28 @@ img:hover {
   margin: 0 auto;
   text-align: center;
 }
+blockquote.question {
+  color: #555;
+  border-left: 4px solid #1098ad;
+  background-color: #e3f2fd;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  margin-bottom: 20px;
+}
 @media (max-width: 1023px) {
   .container {
     background-color: rgba(0,0,0,0);
   }
-  .sidebar {
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-  .feed-link {
-    display: none !important;
-  }
 }
 @media (max-width: 767px) {
   .main {
-    padding-bottom: 120px;
+    padding-bottom: 100px;
   }
   .posts-expand {
     margin: 0px;
-    padding-top: 70px;
   }
   .posts-expand .post-title {
-    font-size: 22px;
+    font-size: 20px;
   }
   .posts-expand .post-meta {
     font-size: 10px;
@@ -3419,23 +3418,25 @@ img:hover {
   .site-nav {
     top: initial;
     background-color: rgba(255,255,255,0.75);
-    border-top: none;
-    border-bottom: none;
     position: relative;
     z-index: 1024;
   }
 }
 @media (max-width: 767px) {
   .site-title {
-    font-size: 17px !important;
+    font-size: 38px !important;
     letter-spacing: 0px !important;
-  }
-  .site-subtitle {
-    letter-spacing: 0px !important;
-    padding-bottom: 0px !important;
   }
   .site-meta {
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+  }
+  .site-meta .brand {
+    height: 140px;
+    width: 100%;
+    margin-top: 2px;
+  }
+  .site-meta .site-title {
+    line-height: 138px;
   }
   .menu .menu-item {
     margin: 0px 10px !important;
