@@ -117,7 +117,7 @@
 
 
 
-  <meta name="keywords" content="code,blog,hexo">
+  <meta name="keywords" content="Java,">
 
 
 
@@ -130,16 +130,18 @@
 
 
 
-<meta name="description" content="此博客记录学习中遇到的问题，方便以后查询回顾。同时不定期更新日常。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tsuki&#39;s CodeLife">
-<meta property="og:url" content="https://tsuki419.github.io/tags/人像摄影/index.html">
+<meta name="description" content="c#, Python都是动态语言，可以在运行时改变自身结构。而反射是Java非常重要的动态特性">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java反射机制">
+<meta property="og:url" content="https://tsuki419.github.io/JAVA反射机制.html">
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
-<meta property="og:description" content="此博客记录学习中遇到的问题，方便以后查询回顾。同时不定期更新日常。">
+<meta property="og:description" content="c#, Python都是动态语言，可以在运行时改变自身结构。而反射是Java非常重要的动态特性">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-06-01T13:35:00.195Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tsuki&#39;s CodeLife">
-<meta name="twitter:description" content="此博客记录学习中遇到的问题，方便以后查询回顾。同时不定期更新日常。">
+<meta name="twitter:title" content="Java反射机制">
+<meta name="twitter:description" content="c#, Python都是动态语言，可以在运行时改变自身结构。而反射是Java非常重要的动态特性">
 
 
 
@@ -169,13 +171,13 @@
 
 
 
-  <link rel="canonical" href="https://tsuki419.github.io/tags/人像摄影/">
+  <link rel="canonical" href="https://tsuki419.github.io/JAVA反射机制.html">
 
 
 
 
 
-  <title>标签: 人像摄影 | tsuki's CodeLife</title>
+  <title>Java反射机制 | tsuki's CodeLife</title>
   
 
 
@@ -210,7 +212,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -346,65 +348,310 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>人像摄影<small>标签</small>
-        </h2>
-      </div>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tsuki419.github.io/JAVA反射机制.html">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tsuki">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
 
-      
-      
-      
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tsuki's CodeLife">
+    </span>
 
-      
+    
+      <header class="post-header">
+
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
+        
+          <h2 class="post-title" itemprop="name headline">Java反射机制</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-06-01T21:35:55+08:00">
+                2021-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/Java/反射/" itemprop="url" rel="index">
+                    <span itemprop="name">反射</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/JAVA反射机制.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="JAVA反射机制.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  718
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>c#, Python都是动态语言，可以在运行时改变自身结构。而<strong>反射是Java非常重要的动态特性</strong></p>
+<a id="more"></a> 
+<blockquote>
+<p><strong>思考：方法变量化是不是也是一种动态性的体现？</strong></p>
+</blockquote>
+<h3 id="理解Class类并获取Class类的实例"><a href="#理解Class类并获取Class类的实例" class="headerlink" title="理解Class类并获取Class类的实例"></a>理解Class类并获取Class类的实例</h3><p>Class的实例就对应一个运行时类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式一：调用运行时类的属性：.classs</span></span><br><span class="line">Class clazz1 = Person.class;</span><br><span class="line"><span class="comment">//方式二：通过运行时类的对象调用getClass()</span></span><br><span class="line">Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">Class clazz2 = p1.getClass();</span><br><span class="line"><span class="comment">//方式三：调用Class的静态方法：forName(String classPath)，实际中应用多，体现了反射的动态性</span></span><br><span class="line">Class clazz3 = Class.forname(<span class="string">"java.lang.String"</span>);</span><br></pre></td></tr></table></figure>
+<p>补充一点，后续学到编译内容是再更新。</p>
+<p><strong>类的加载过程</strong></p>
+<p>Load=&gt;Link=&gt;Initialize</p>
+<p>Load:将class文件读入内存，并在堆里为之创建<strong>一个</strong>java.lang.Class对象。此过程由类加载器完成。</p>
+<p>Link:将类的二进制数据合并到JRE中</p>
+<p>Initialize: JVM负责对类进行初始化</p>
+<h3 id="创建运行时类的对象"><a href="#创建运行时类的对象" class="headerlink" title="创建运行时类的对象"></a>创建运行时类的对象</h3><p>反射机制应用最多的地方来了！</p>
+<p>创建类的对象：调用Class对象的newInstance()方法</p>
+<p>要求类必须有一个无参构造器，类的构造器访问权限要足够。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Person.class;</span><br><span class="line">Person obj = clazz.newInstance();</span><br></pre></td></tr></table></figure>
+<p>没有无参的构造器也可以创建对象，调用类中的指定构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Class.forName(<span class="string">"aa.Java.Person"</span>);</span><br><span class="line"><span class="comment">//获取指定构造器</span></span><br><span class="line">Constructor con = clazz.getDeclaredConstructor(String.class,Integer.class);</span><br><span class="line">con.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"><span class="comment">//调用此构造器创建运行时类的对象</span></span><br><span class="line">Person p2 = (Person)con.newInstance(<span class="string">"Peter"</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="调用运行时类的指定结构"><a href="#调用运行时类的指定结构" class="headerlink" title="调用运行时类的指定结构"></a>调用运行时类的指定结构</h3><h4 id="调用指定属性"><a href="#调用指定属性" class="headerlink" title="调用指定属性"></a>调用指定属性</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Person.class;</span><br><span class="line"><span class="comment">//创建运行时类的对象</span></span><br><span class="line">Person p = (Person)clazz.newInstance();</span><br><span class="line"><span class="comment">//获取运行时类中指定变量名的属性</span></span><br><span class="line">Field name = clazz.getDeclaredField(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">//保证当前属性是可访问的</span></span><br><span class="line">name.setAccessible(ture);</span><br><span class="line"><span class="comment">//设置指定对象的此属性值</span></span><br><span class="line">name.set(p,<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="调用指定方法同理"><a href="#调用指定方法同理" class="headerlink" title="调用指定方法同理"></a>调用指定方法同理</h4><p>实例化class==&gt;找到方法==&gt;调用方法invoke()</p>
+<p>使用频率更高。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Person.class;</span><br><span class="line">Method show = clazz.getDeclaredMethod(<span class="string">"show"</span>, String.class);</span><br><span class="line">show.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">Object returnValue = show.invoke(p, <span class="string">"CHN"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="调用指定构造器"><a href="#调用指定构造器" class="headerlink" title="调用指定构造器"></a>调用指定构造器</h4><p>已经在创建运行时类的对象部分介绍过。</p>
+<h3 id="反射的应用–动态代理"><a href="#反射的应用–动态代理" class="headerlink" title="反射的应用–动态代理"></a>反射的应用–动态代理</h3><p>补充：静态代理，以设计模式中的工厂模式做例，实际上是多态性的体现。</p>
+<blockquote>
+<p>碎碎念，到处都存在的多态性和解耦合操作。</p>
+</blockquote>
+<p>分别有三个对象，提供一个接口，代理类和被代理类。代理类通过聚合的方式调用接口，被代理类实现接口中的目标方法。从而利用多态特点，代理类调用被代理类实现的目标方法。听起来比较绕口，就举个例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProxyClothFactory</span> <span class="keyword">implements</span> <span class="title">ClothFactory</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ClothFactory factory;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxyClothFactory</span><span class="params">(ClothFactory factory)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.factory = factory;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">produceCloth</span><span class="params">()</span></span>&#123;</span><br><span class="line">        factory.produceCloth();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>动态代理内容有待补充。后续更新。</p>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        ﻿
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/JAVA反射机制.html">Java反射机制</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
+  <p><span>发布时间:</span>2021.06.01 - 21:35</p>
+  <p><span>最后更新:</span>2021.06.01 - 21:35</p>
+  <p><span>原始链接:</span><a href="/JAVA反射机制.html" title="Java反射机制">https://tsuki419.github.io/JAVA反射机制.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/JAVA反射机制.html" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+	
+    
+
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE END-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
         </div>
       
       
 
-        
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Endnotes.html" rel="next" title="Endnotes">
+                <i class="fa fa-chevron-left"></i> Endnotes
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/人像摄影与后期.html" itemprop="url">
-              
-                <span itemprop="name">数码人像摄影读书笔记与实战</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-24T14:28:22+08:00" content="2019-05-24">
-          05-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-    </div>
-
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -412,6 +659,16 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="JAVA反射机制.html" data-title="Java反射机制" data-url="https://tsuki419.github.io/JAVA反射机制.html">
+      </div>
+    </div>
+
+  
+
+
 
 
         </div>
@@ -435,8 +692,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -516,6 +782,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解Class类并获取Class类的实例"><span class="nav-number">1.</span> <span class="nav-text">理解Class类并获取Class类的实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建运行时类的对象"><span class="nav-number">2.</span> <span class="nav-text">创建运行时类的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用运行时类的指定结构"><span class="nav-number">3.</span> <span class="nav-text">调用运行时类的指定结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#调用指定属性"><span class="nav-number">3.1.</span> <span class="nav-text">调用指定属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用指定方法同理"><span class="nav-number">3.2.</span> <span class="nav-text">调用指定方法同理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用指定构造器"><span class="nav-number">3.3.</span> <span class="nav-text">调用指定构造器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反射的应用–动态代理"><span class="nav-number">4.</span> <span class="nav-text">反射的应用–动态代理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -680,7 +962,9 @@
   
 
   
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
 
 
   
@@ -1104,6 +1388,23 @@
   </script>
 
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 18431,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
