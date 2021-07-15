@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="第一次用latex排版，记录一下使用过程中遇到的问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-06-29T09:12:00.940Z">
+<meta property="og:updated_time" content="2021-07-15T08:42:31.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Latex">
 <meta name="twitter:description" content="第一次用latex排版，记录一下使用过程中遇到的问题。">
@@ -479,7 +479,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  862
+                  975
                 </span>
               
 
@@ -527,7 +527,7 @@
 <p>如何<a href="https://blog.csdn.net/sinat_38816924/article/details/84347665" target="_blank" rel="noopener">排版公式</a>，善用&amp;符号。</p>
 <h2 id="图片篇"><a href="#图片篇" class="headerlink" title="图片篇"></a>图片篇</h2><p>加入宏包 <code>\usepackage{graphicx}</code></p>
 <p>如何插入图片，<a href="https://blog.csdn.net/qq_38526623/article/details/103737589" target="_blank" rel="noopener">看这里</a>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;figure&#125;[htbp]</span><br><span class="line">    \centering</span><br><span class="line">    \includegraphics[width=2.5in]&#123;1.eps&#125;</span><br><span class="line">    \caption&#123;name&#125;</span><br><span class="line">    \label&#123;label&#125;</span><br><span class="line">\end&#123;figure&#125; </span><br><span class="line">%如何解决路径问题</span><br><span class="line">graphicspath&#123;&#123;img/&#125;&#125;%当前路径下存放图片的文件夹</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;figure&#125;[htbp]</span><br><span class="line">    \centering</span><br><span class="line">    \includegraphics[width=2.5in]&#123;fig1.eps&#125;</span><br><span class="line">    \caption&#123;name&#125;</span><br><span class="line">    \label&#123;fig1&#125;</span><br><span class="line">\end&#123;figure&#125; </span><br><span class="line">%如何解决路径问题</span><br><span class="line">graphicspath&#123;&#123;img/&#125;&#125;%当前路径下存放图片的文件夹</span><br></pre></td></tr></table></figure>
 <p>如何插入eps图片，简单粗暴，我是直接PS另存为解决了。其他解决方法<a href="https://blog.csdn.net/lqhbupt/article/details/20545297" target="_blank" rel="noopener">看这里</a>。</p>
 <h2 id="文献篇"><a href="#文献篇" class="headerlink" title="文献篇"></a>文献篇</h2><p>如何插入文献？</p>
 <ol>
@@ -544,7 +544,18 @@
 <p>如何插入链接型的文献呢？<a href="https://blog.csdn.net/techfield/article/details/19933589" target="_blank" rel="noopener">看这里</a></p>
 <p>我是手动修改的.bib文件，不知道有没有更便捷准确的方法，如果有人看的话，欢迎邮件交流。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Misc&#123;timmurphy.org,</span><br><span class="line">howpublished = &#123;[EB/OL]&#125;,</span><br><span class="line">note = &#123;\url&#123;http://timmurphy.org/2009/07/22/line-spacing-in-latex-documents/&#125; Accessed April 4, 2010&#125;,</span><br><span class="line">title = &#123;Line Spacing in LaTeX documents&#125;,</span><br><span class="line">author = &#123;Murphy, Timothy I&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在插入链接型参考文献的时候，引申一下EB/OL](<a href="https://blog.csdn.net/shanshu12/article/details/7561274)的含义。" target="_blank" rel="noopener">https://blog.csdn.net/shanshu12/article/details/7561274)的含义。</a></p>
+<p>在插入链接型参考文献的时候，引申一下<a href="https://blog.csdn.net/shanshu12/article/details/7561274" target="_blank" rel="noopener">EB/OL</a>的含义。</p>
+<h2 id="交叉引用"><a href="#交叉引用" class="headerlink" title="交叉引用"></a>交叉引用</h2><p>通过图片和公式的交叉引用，无论公式挪动到哪里都能正确的编号，省了自己费劲数的功夫，还不会产生失误。</p>
+<p><code>\ref</code>命令配合<code>\label</code>的使用基本就解决了图片公式以及文献的引用，一个ref走天下。</p>
+<ul>
+<li><p>引用图片 <code>\ref{fig1}</code></p>
+</li>
+<li><p>引用文献 <code>\ref{ref1}</code></p>
+</li>
+<li><p>引用方程 <code>\ref{equation1}</code> 此外还可以导入amsmath包用 <code>\eqref{equation1}</code></p>
+</li>
+</ul>
+<p><em>参考文章： <a href="https://blog.csdn.net/robert_chen1988/article/details/53315012" target="_blank" rel="noopener">文章1</a> <a href="https://blog.csdn.net/sinat_36301420/article/details/79334728" target="_blank" rel="noopener">文章2</a></em></p>
 <h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>在学习latex的过程中，刷到了一篇关于如何写好论文的<a href="http://panpei.site/2014/02/02/how-to-write-a-paper/" target="_blank" rel="noopener">博客</a>，给迷茫的我上了一课。</p>
 <blockquote>
 <p>写paper的两种方式:</p>
@@ -573,7 +584,7 @@
   <p><span>本文标题:</span><a href="/latex.html">Latex</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2021.06.29 - 16:45</p>
-  <p><span>最后更新:</span>2021.06.29 - 17:12</p>
+  <p><span>最后更新:</span>2021.07.15 - 16:42</p>
   <p><span>原始链接:</span><a href="/latex.html" title="Latex">https://tsuki419.github.io/latex.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/latex.html" aria-label="复制成功！"></i></span>
   </p>
@@ -819,7 +830,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载模板"><span class="nav-number">1.</span> <span class="nav-text">下载模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公式篇"><span class="nav-number">2.</span> <span class="nav-text">公式篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片篇"><span class="nav-number">3.</span> <span class="nav-text">图片篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文献篇"><span class="nav-number">4.</span> <span class="nav-text">文献篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#碎碎念"><span class="nav-number">5.</span> <span class="nav-text">碎碎念</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载模板"><span class="nav-number">1.</span> <span class="nav-text">下载模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公式篇"><span class="nav-number">2.</span> <span class="nav-text">公式篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片篇"><span class="nav-number">3.</span> <span class="nav-text">图片篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文献篇"><span class="nav-number">4.</span> <span class="nav-text">文献篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉引用"><span class="nav-number">5.</span> <span class="nav-text">交叉引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#碎碎念"><span class="nav-number">6.</span> <span class="nav-text">碎碎念</span></a></li></ol></div>
             
 
           </div>
@@ -842,7 +853,7 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 11.3k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 11.5k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2021</span>
