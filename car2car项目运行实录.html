@@ -1,0 +1,1655 @@
+﻿<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+
+
+  <meta name="keywords" content="Java,SpringBoot,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="tsuki's CodeLife" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，因此记录一下尝试的过程和途中遇到的bug…">
+<meta name="keywords" content="Java,SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="car2car项目运行实录">
+<meta property="og:url" content="https://tsuki419.github.io/car2car项目运行实录.html">
+<meta property="og:site_name" content="tsuki&#39;s CodeLife">
+<meta property="og:description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，因此记录一下尝试的过程和途中遇到的bug…">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-12-27T12:40:04.922Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="car2car项目运行实录">
+<meta name="twitter:description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，因此记录一下尝试的过程和途中遇到的bug…">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"perspectiveLeftIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tsuki419.github.io/car2car项目运行实录.html">
+
+
+
+
+
+  <title>car2car项目运行实录 | tsuki's CodeLife</title>
+  
+
+
+
+
+
+
+
+
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/src/FunnyTitle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139938464-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139938464-1');
+</script>
+  
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!-- github-ribbon -->
+<a href="https://github.com/tsuki419"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_orange_ff7600.png?resize=149%2C149" class="github-ribbon" alt="Fork me on GitHub" data-recalc-dims="1"></a>			  
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+	<div class="top-scroll-bar"></div>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tsuki's CodeLife</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+	
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tsuki419.github.io/car2car项目运行实录.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tsuki">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tsuki's CodeLife">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">car2car项目运行实录</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-27T20:40:04+08:00">
+                2021-12-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-27T20:40:04+08:00">
+                2021-12-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/Java/项目/" itemprop="url" rel="index">
+                    <span itemprop="name">项目</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/Java/项目/cart/" itemprop="url" rel="index">
+                    <span itemprop="name">cart</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/car2car项目运行实录.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="car2car项目运行实录.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.9k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，因此记录一下尝试的过程和途中遇到的bug…</p>
+<a id="more"></a> 
+<h2 id="car2car"><a href="#car2car" class="headerlink" title="car2car"></a>car2car</h2><p>本来是打算在原项目的基础上做的，所以最开始选择了导入jar包然后添加到项目中。jar包的下载就是度娘。然后导入项目。</p>
+<ul>
+<li><p>本项目用到了以下几个额外的jar包</p>
+<p>POI： 读取excel数据</p>
+<p>net.sf.json.JSONObject：转换beans，maps，collections, java arrays, xml等为JSON对象和反转换的java库</p>
+<p>Gson是Google提供的用来在Java对象和JSON数据之间映射的JAVA类库</p>
+<p>commons.fileupload.jar为web应用程序或者servlet提供文件上传功能。</p>
+</li>
+<li><p>IDEA项目导入jar包的方法有<a href="https://blog.csdn.net/Golden_soft/article/details/80952243" target="_blank" rel="noopener">两个</a></p>
+<ol>
+<li>File –&gt; Project Structure-&gt;Modules-&gt;Dependencies，点绿色的加号导入</li>
+<li>需要导入的Jar包上，点击右键，选择Add as Library…</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>如何判断什么时候需要抓异常。</p>
+<p><a href="https://lbs.amap.com/api/javascript-api/guide/abc/quickstart" target="_blank" rel="noopener">amap</a>的使用方法</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage" target="_blank" rel="noopener">sessionStorage</a>对象</p>
+<p>GPS所获取的信息</p>
+</blockquote>
+<h2 id="修改为maven项目"><a href="#修改为maven项目" class="headerlink" title="修改为maven项目"></a>修改为maven项目</h2><p>但是导jar包配置各种东西真的太麻烦了，于是决定用maven管理老项目，pom.xml配置真香。</p>
+<ol>
+<li><p><a href="https://blog.csdn.net/weixin_30348133/article/details/114560553" target="_blank" rel="noopener">打包成maven项目</a></p>
+<ol>
+<li>.classpath 文件：指定了源文件位置，con容器为JRE，编译输出位置。指定了java项目在逻辑结构与文件系统的物理结构之间的对应关系。</li>
+<li>右键选择 JavaDemo（项目名称），选择“Configure –&gt; Convert to Maven Project”， 填写“Group ID”和“Artifact Id”都为“JavaDemo”</li>
+<li>完成pom.xml的修改—复制了一部分itheima的项目配置</li>
+<li>参照标准的目录结构修修补补总算是弄好了</li>
+</ol>
+</li>
+<li><p>部署在tomcat上</p>
+<ol>
+<li><p>报错：<code>org.apache.catalina.LifecycleException: Failed to start component [StandardEngine[Tomcat]....</code>搜索了好几个回答，发现相似点是jar包问题，就试着删除web目录下的lib目录，证实报错原因是jar包的重复，问题解决。</p>
+</li>
+<li><p>原来的项目编码是gbk的，编译出错。为了方便改为UTF-8，可以使用<a href="https://blog.csdn.net/qq_33204709/article/details/110821783" target="_blank" rel="noopener">批量处理脚本</a>，完美解决</p>
+</li>
+<li><p>报错2：<code>Skipping non-war project</code> tomcat没有启动，无tomcat日志信息，解决方法：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itheima<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven_web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> <span class="comment">&lt;!--加这一句--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>到这里为止，终于部署到tomcat成功，但是页面乱码了，不要紧，肯定是编码问题。</p>
+</li>
+<li><p>报错3：<a href="https://blog.csdn.net/qq_43682690/article/details/109364514" target="_blank" rel="noopener">Servlet不能正常访问</a>，论版本兼容的重要性。tomcat各版本的<a href="https://blog.csdn.net/qq_37651267/article/details/94592106" target="_blank" rel="noopener">兼容</a>，其实是在运行其他项目时遇到的问题，一并归纳。</p>
+</li>
+</ol>
+</li>
+<li><p>数据库设计</p>
+<p>编码问题解决好了，那就进入数据库的连接。原本的数据库与前端页面的交互代码写得比较繁杂，这里可以优化为采用数据库连接池和Spring框架提供的JDBCTemplate来进行优化。</p>
+<p>数据库的设计方面，数值范围是一个讨论问题。</p>
+<ol>
+<li>报错：运行tomcat时无法连接到数据库，本地测试和连接其他的项目都可以，唯独这个项目不可以。尝试了给数据库更高的权限，尝试了改密码，都没有解决。啊卡了好久，<font color="red">解决无果</font>。</li>
+<li>本地测试了jdbc工具类和连接池工具类都没有问题。</li>
+</ol>
+</li>
+<li><p>优化注解注入，简化web.xml的配置</p>
+</li>
+<li><p><strong>了解已知代码的逻辑实现和已有的功能。</strong></p>
+</li>
+<li><p>功能设计</p>
+<ol>
+<li><strong>文献查询，聚类分析的基本方式和基于LoRa的应用</strong></li>
+<li>选取合适的模型进行坐标点的分类</li>
+<li>编写逻辑代码</li>
+</ol>
+</li>
+</ol>
+<h2 id="修改项目框架为Springboot"><a href="#修改项目框架为Springboot" class="headerlink" title="修改项目框架为Springboot"></a>修改项目框架为Springboot</h2><h3 id="新建一个模块module"><a href="#新建一个模块module" class="headerlink" title="新建一个模块module"></a>新建一个模块module</h3><h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><ol>
+<li>一边学一边做，首先使用之前新建的数据库，采用新学Mybatis框架</li>
+<li>编写实体类 domain.User/domain.Data</li>
+<li>编写dao接口 UserMapper/DataMapper</li>
+<li>测试</li>
+<li>数据库设计的<font color="red">三大范式</font></li>
+</ol>
+<h3 id="导入静态资源和页面"><a href="#导入静态资源和页面" class="headerlink" title="导入静态资源和页面"></a>导入静态资源和页面</h3><p>​        静态资源放在static.asserts下面，页面放置在templates下</p>
+<p>无法加载样式—莫名其妙又可以加载了</p>
+<ul>
+<li><p>代替jsp使用<a href="https://www.cainiaojc.com/springboot/springboot-thymeleaf-view.html" target="_blank" rel="noopener">Thymeleaf</a> ,不是前后端分离的。</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/JeasonIsCoding/p/13232648.html" target="_blank" rel="noopener">前后端分离</a>都提到了解决跨域问题，所以什么事<strong>跨域问题</strong>？<strong>nginx</strong>是什么？如何使用<strong>redis</strong>？<em>参考<a href="https://blog.csdn.net/qq_43875413/article/details/107609745" target="_blank" rel="noopener">1</a></em></p>
+</li>
+<li><p>用json和ajax实现前后端分离—-原项目就是采用了前后端分离的做法，所以正好保留</p>
+</li>
+</ul>
+<h3 id="实现登录功能-伪"><a href="#实现登录功能-伪" class="headerlink" title="实现登录功能(伪)"></a>实现登录功能(伪)</h3><p>视图映射的优化 </p>
+<p>如何在最大化保留原有代码的情况下，实现项目运行？</p>
+<p>使用SpringMVC的话就直接砍掉了servlet，使用Contoller替换掉servlet，SpringMVC嵌入了自动的<strong>json</strong>转换，只需要加一个<strong>@ResponseBody</strong></p>
+<p>反正折腾了半天是可以实现登录成功了，但是跳转了wmap.html页面。</p>
+<h3 id="添加了lombok"><a href="#添加了lombok" class="headerlink" title="添加了lombok"></a>添加了lombok</h3><p>Lombok表达式—面向函数编程</p>
+<p><em>参考<a href="https://www.jianshu.com/p/2543c71a8e45" target="_blank" rel="noopener">1</a> <a href="https://www.cnblogs.com/zhangyinhua/p/8623018.html" target="_blank" rel="noopener">2</a></em></p>
+<h3 id="MybatisGenerator"><a href="#MybatisGenerator" class="headerlink" title="MybatisGenerator"></a>MybatisGenerator</h3><p>使用Mybatis Generator可以快速根据数据库中已经建立好的表来创建mybatis代码</p>
+<ul>
+<li><p>发生错误，<code>The specified target project directory mall-tiny-01\src\main\resources does not exist</code>  路径不对，参考<a href="https://blog.csdn.net/ZY_201803/article/details/105781696" target="_blank" rel="noopener">博客</a>解决，查看edit configuration拼接路径</p>
+<p>生成的文件到了另一模块上，果然还是路径错了</p>
+</li>
+<li><p>未报错但是没有产生文件，参考<a href="https://blog.csdn.net/Hedon954/article/details/106235296" target="_blank" rel="noopener">博客</a>修改路径中的\为/，成功生成文件</p>
+</li>
+<li><p>报错 <code>Column id, specified as an identity column in  does not exist in the table.</code> 参考<a href="https://www.lovesofttech.com/mybatis/MBGForMySQL8.html" target="_blank" rel="noopener">博客</a>解决，在生成器的配置文件里的数据库连接地址中添加: <code>nullCatalogMeansCurrent=true</code></p>
+</li>
+<li><p>路径追加问题 <em><a href="https://blog.csdn.net/u010696826/article/details/86306113" target="_blank" rel="noopener">参考博客</a></em></p>
+</li>
+<li><p><em><a href="https://blog.csdn.net/weixin_44368212/article/details/109283097" target="_blank" rel="noopener"><font color="orange">参考博客1</font></a>–详细介绍了generator 参考<a href="https://blog.csdn.net/m0_37989980/article/details/104521920" target="_blank" rel="noopener">2</a>步骤详细。</em></p>
+</li>
+<li><p>使用@MapperScan注解扫描多个包，<em><a href="https://blog.csdn.net/manchengpiaoxue/article/details/84937257" target="_blank" rel="noopener">参考</a></em></p>
+</li>
+<li><p>启动项目异常，<code>Result Maps collection already contains value for</code>，原因是Mybatis gennerator生成xml，但是如果同名xml之前已经存在，那么生成的时候会在xml里面在之前的代码后面继续追加，而不会覆盖同名的语句。因此有可能报这个错误。如果是再次生成代码，必须先将已经生成的代码删除，仔细检查一下xml文件看是否存在两个id为BaseResultMap的resultMap，删除多余的，只保留一个就可以解决问题。<a href="https://www.jianshu.com/p/c3e91f2d1a05" target="_blank" rel="noopener"><em>参考博客</em></a></p>
+</li>
+</ul>
+<h3 id="Swagger-UI"><a href="#Swagger-UI" class="headerlink" title="Swagger-UI"></a>Swagger-UI</h3><ul>
+<li><p>使用步骤</p>
+<ol>
+<li>添加项目依赖</li>
+<li>添加Swagger2Config配置类</li>
+<li>给Controller加注解</li>
+<li>启动项目，线上观看结果 <em><a href="http://localhost:8080/swagger-ui.html" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html</a></em>。</li>
+</ol>
+</li>
+<li><p>报错： <code>Plugin &#39;org.springframework.boot:spring-boot-maven-plugin:&#39; not found</code></p>
+<p>解释最清楚的<a href="https://blog.csdn.net/u014163312/article/details/106986010" target="_blank" rel="noopener">博客</a>，解决方法是添加版本号</p>
+<blockquote>
+<p>spring-boot-maven-plugin没有设置version，它会先去远程仓库找最新的版本，然后download到本地，然后完成maven操作等。但是远程仓库里没有相应的jar包，导致执行maven编译出错。因为远程仓库里已经有了最新版本的路径，它就不会使用已经存在的版本。</p>
+</blockquote>
+</li>
+<li><p>CommentGenerator自定义注释生成中，<code>org.mybatis.generator.api.dom.java.CompilationUnit;</code>中方法解析失败，<code>Cannot resolve method &#39;isJavaInterface&#39; in &#39;CompilationUnit&#39;</code> 果真是版本问题，Mybatis generator的版本由1.4.0改为1.3.7就好了。本菜鸡一个个试出来的，不知道有没有更好的方法。</p>
+</li>
+<li><p>项目启动出错，<code>Failed to start bean &#39;documentationPluginsBootstrapper&#39;; nested exception is java.lang.NullPointerException</code> 据说是版本号的冲突，心累，<font color="red">未解决，把Swagger-UI和MybatisGenerator都删了，然后回到开始实现登录功能</font>哈哈哈哈我又回来了，Springboot版本号改成了2.1.3.RELEASE，原来用的2.6.1，感谢<a href="https://blog.csdn.net/qq_31795591/article/details/121742434" target="_blank" rel="noopener">博主</a>的提供的思路。</p>
+</li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/71140571" target="_blank" rel="noopener">逆向工程</a></p>
+<ul>
+<li><p><code>The server time zone value &#39;???ú±ê×??±??&#39; is unrecognized or represents more than one time zone.</code> 数据库和系统时区差异所造成的，解决方法加<code>serverTimezone=GMT%2B8</code>，<em>参考<a href="https://blog.csdn.net/pannubi/article/details/81193445" target="_blank" rel="noopener">博客</a></em></p>
+</li>
+<li><p>总之成功了^w^</p>
+</li>
+<li><p>修改Mybatis Generator注释生成规则—-<font color="red">待解决</font></p>
+<blockquote>
+<p>CommentGenerator为MyBatis Generator的自定义注释生成器，修改addFieldComment方法使其生成Swagger的@ApiModelProperty注解来取代原来的方法注释，添加addJavaFileComment方法，使其能在import中导入@ApiModelProperty，否则需要手动导入该类，在需要生成大量实体类时，是一件非常麻烦的事。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="SpringSecurity-JWT登录控制"><a href="#SpringSecurity-JWT登录控制" class="headerlink" title="SpringSecurity+JWT登录控制"></a>SpringSecurity+JWT登录控制</h2><p>学习了新项目有了新的想法，使用SpringSecurity实现登录功能。</p>
+<p>实现登录功能有的几个方式：<a href="https://www.cnblogs.com/greyzeng/p/12926834.html#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" target="_blank" rel="noopener">参考1</a>，<a href="https://blog.csdn.net/qq_45950109/article/details/116357184" target="_blank" rel="noopener">参考2</a></p>
+<h3 id="传统的Session认证方式"><a href="#传统的Session认证方式" class="headerlink" title="传统的Session认证方式"></a>传统的Session认证方式</h3><p>http协议本身是一种无状态的协议，也就是每发起一次请求就要进行一次用户密码验证。因此我们在服务器存储一份用户登录的信息，这份登录信息会在响应时传递给浏览器，告诉其保存为cookie，以便下次请求时发送应用，应用就能识别请求来自哪个用户了，这就是传统的基于<strong>session认证</strong>。</p>
+<p>总的来说登录验证就一下几步：</p>
+<ol>
+<li>获取用户信息</li>
+<li>调用service查询user</li>
+<li>判断用户是否存在：有（存到Session，并跳转首页） 否（跳转到登录页面）</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//吐槽一下老旧的代码，甚至逻辑也不太清晰</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br><span class="line">    PrintWriter out = response.getWriter();</span><br><span class="line">    <span class="comment">//从请求中获取用户名和密码</span></span><br><span class="line">    String name=request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">    String password=request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">    <span class="comment">//设置session信息</span></span><br><span class="line">    session.setAttribute(<span class="string">"name"</span>, name);</span><br><span class="line">    <span class="comment">//获取用户</span></span><br><span class="line">    UserDao ud=DaoFactory.getInstance().getUserDao();</span><br><span class="line">    JSONObject jsondata = <span class="keyword">new</span> JSONObject();</span><br><span class="line">    <span class="comment">//获取用户等级---查询user</span></span><br><span class="line">    jsondata=ud.getGrade(name, password);</span><br><span class="line">    <span class="comment">//判断用户是否存在</span></span><br><span class="line">    <span class="keyword">if</span>(jsondata.getString(<span class="string">"grade"</span>) !=<span class="string">"0"</span>)&#123;</span><br><span class="line">        out.write(jsondata.toString());</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        request.setAttribute(<span class="string">"msg"</span>, <span class="string">"您的用户名和密码不正确"</span>);</span><br><span class="line">        request.getRequestDispatcher(<span class="string">"/login.html"</span>).forward(request,response);</span><br><span class="line">    &#125;</span><br><span class="line">    out.write(jsondata.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通常认证的记录被保存在内存中，传统的方式存在服务器开销大，扩展性差等问题。</p>
+<h3 id="基于token控制"><a href="#基于token控制" class="headerlink" title="基于token控制"></a>基于token控制</h3><p>也是无状态的，但是它不需要在服务端去保留用户的认证信息或者会话信息。流程上是这样的：</p>
+<ul>
+<li>用户使用用户名密码来请求服务器</li>
+<li>服务器进行验证用户的信息</li>
+<li>服务器通过验证发送给用户一个token</li>
+<li>客户端存储token，并在每次请求时附送上这个token值</li>
+<li>服务端验证token值，并返回数据</li>
+</ul>
+<p>这个token必须要在每次请求时传递给服务端，它应该保存在请求头里， 另外，服务端要支持<code>CORS(跨来源资源共享)</code>策略，一般我们在服务端这么做就可以了<code>Access-Control-Allow-Origin: *</code>。</p>
+<p><em>以上分析参考自文章<a href="https://www.jianshu.com/p/576dbf44b2ae" target="_blank" rel="noopener">什么是JWT</a></em></p>
+<p>配合本篇博客<a href="https://zhuanlan.zhihu.com/p/349962352" target="_blank" rel="noopener">Spring Security-安全管理框架</a>，更好的进行验证。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>Springboot使用pagehelper</p>
+<p>pagehelper的<a href="https://blog.csdn.net/csdn_huzeliang/article/details/79350425" target="_blank" rel="noopener">使用方法</a>有两种，集成成功。</p>
+<ul>
+<li>错误：SpringBoot单元测试使用@Test没有run方法的问题  <a href="https://blog.csdn.net/qq374461948/article/details/106226475" target="_blank" rel="noopener">参考</a> 因为改成了2.1.7.RELEASE，版本不同，项目的结构也不同。测试方法的public没了。然后改回了2.6.0.版本，但是仍然有问题。pagehelper循环依赖的问题。项目启动不了，我版本又改回了<a href="https://blog.csdn.net/layonly/article/details/121436957" target="_blank" rel="noopener">2.5.6</a>，会标红但是可以运行。</li>
+<li>引发了新问题，需要登陆才能查看swagger文档，但是登录密码错误，<font color="red">待解决</font>，好像知道原因了，是因为添加了security和token，虽然还没有集成完全。</li>
+</ul>
+<p>继续完成security—-需要更改数据库</p>
+<p>因为需要自定义</p>
+<ul>
+<li>UserDetailsService:SpringSecurity定义的核心接口，用于根据用户名获取用户信息，需要自行实现；</li>
+<li>UserDetails：SpringSecurity定义用于封装用户信息的类（主要是用户信息和权限），需要自行实现；</li>
+<li>设计数据库—用MybatisGenerator生成model和mapper—完成service—controller</li>
+</ul>
+<h3 id="SpringSecurity的核心类"><a href="#SpringSecurity的核心类" class="headerlink" title="SpringSecurity的核心类"></a>SpringSecurity的核心类</h3><p><a href="https://blog.csdn.net/qq_36882793/article/details/102568589" target="_blank" rel="noopener">Spring Security 使用、实现权限访问控制</a></p>
+<p><a href="https://blog.csdn.net/qq_22078107/article/details/106654924" target="_blank" rel="noopener">Spring Security的GrantedAuthority（已授予的权限）</a></p>
+<p><a href="https://blog.csdn.net/wangb_java/article/details/86579694" target="_blank" rel="noopener">UserDetails用户详情</a>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDetails</span> <span class="keyword">extends</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	Collection&lt;? extends GrantedAuthority&gt; getAuthorities();<span class="comment">//权限 </span></span><br><span class="line">	<span class="function">String <span class="title">getPassword</span><span class="params">()</span></span>;    <span class="comment">//密码</span></span><br><span class="line">	<span class="function">String <span class="title">getUsername</span><span class="params">()</span></span>;    <span class="comment">//用户名</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isAccountNonExpired</span><span class="params">()</span></span>;   <span class="comment">//账号是否未过期</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isAccountNonLocked</span><span class="params">()</span></span>;    <span class="comment">//账号是否未锁定</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isCredentialsNonExpired</span><span class="params">()</span></span>;<span class="comment">//密码是否未过期</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isEnabled</span><span class="params">()</span></span>;        <span class="comment">//是否激活</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Hibernate-validator校验框架（待添加）"><a href="#Hibernate-validator校验框架（待添加）" class="headerlink" title="Hibernate-validator校验框架（待添加）"></a>Hibernate-validator校验框架（待添加）</h3><p><a href="http://159.138.37.243/article/weixin_34205076/92387445" target="_blank" rel="noopener">使用教程</a></p>
+<h3 id="角色权限"><a href="#角色权限" class="headerlink" title="角色权限"></a>角色权限</h3><ul>
+<li><p>错误：<code>Could not resolve placeholder &#39;jwt.secret&#39; in value &quot;${jwt.secret}&quot;</code> 忘记配置了</p>
+</li>
+<li><p>获取权限列表，因为我的项目是简化版本的权限只需要，mall项目是四表联查找到权限封装为Permission对象，Security究竟是如何读取权限的呢</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleGrantedAuthority</span> <span class="keyword">implements</span> <span class="title">GrantedAuthority</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">510L</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String role;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleGrantedAuthority</span><span class="params">(String role)</span> </span>&#123;</span><br><span class="line">        Assert.hasText(role, <span class="string">"A granted authority textual representation is required"</span>);</span><br><span class="line">        <span class="keyword">this</span>.role = role;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用Swagger测试接口时一直没反应，后来发现是Swagger配置类没有增加登录认证功能</p>
+</li>
+<li><p>错误：<code>Encoded password does not look like BCrypt</code> 密码的加密方式不对，找到原因了，数据库取出的代码是未加密的，而mall的项目中数据库存的密码是加过密的，偷个懒先把他的密码拷贝过来试试。</p>
+</li>
+<li><p>茅塞顿开，救命我会用debug了，找寻一个项目的运行逻辑可以打断点一步步运行。（迟来的领悟，其实之前看视频看到过）</p>
+</li>
+<li><p>错误：<code>java.lang.String is in module java.base of loader &#39;bootstrap&#39;; com.tsuki.cartocar.mbg.model.UserInfo is in unnamed module of loader &#39;app&#39;</code>类型转换错误</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//AdminUserDetails，仍旧是权限定义错误</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Collection&lt;? extends GrantedAuthority&gt; getAuthorities() &#123;</span><br><span class="line">    <span class="comment">//返回当前用户的权限</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考了<a href="https://segmentfault.com/a/1190000008423240" target="_blank" rel="noopener">博客</a> </p>
+<p>List&lt;? extends Number&gt; 定义了泛型的<code>上界</code>是 Number, 即 List 中包含的元素类型是 Number 及其子类. 而 List&lt;? super Number&gt; 定义了泛型的<code>下界</code>, 即 List 中包含的是 Number 及其父类.</p>
+</blockquote>
+</li>
+<li><p>permissionlist.stream() <a href="https://blog.51cto.com/u_15082397/2590753" target="_blank" rel="noopener">Stream API的聚合使用</a></p>
+<p>获取权限的修改主要在三个文件，UserServiceImpl.java &amp; SecurityConfig.java &amp; AdminUserDetails.java &amp; UserController.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//UserController</span></span><br><span class="line">    <span class="meta">@ApiOperation</span>(<span class="string">"获取用户所有权限（包括+-权限）"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"/permission/&#123;userId&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> CommonResult&lt;List&lt;UserInfo&gt;&gt; getPermissionList(<span class="meta">@PathVariable</span> String userId) &#123;</span><br><span class="line">        UserInfo userInfo = userInfoMapper.selectByPrimaryKey(userId);</span><br><span class="line">        List&lt;UserInfo&gt; permissionList = userService.getPermissionList(userInfo);</span><br><span class="line">        <span class="keyword">return</span> CommonResult.success(permissionList);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//UserServiceImpl	</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;UserInfo&gt; <span class="title">getPermissionList</span><span class="params">(UserInfo userInfo)</span> </span>&#123;</span><br><span class="line">        List&lt;UserInfo&gt; permission = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="comment">//String roleId = userInfo.getRoleId();</span></span><br><span class="line">        permission.add(userInfo);</span><br><span class="line">        <span class="keyword">return</span> permission;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//SecurityConfig</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserDetailsService <span class="title">userDetailsService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取登录用户信息</span></span><br><span class="line">        <span class="keyword">return</span> username -&gt; &#123;</span><br><span class="line">            UserInfo userInfo = userService.getUserByUsername(username);</span><br><span class="line">            <span class="keyword">if</span> (userInfo != <span class="keyword">null</span>) &#123;</span><br><span class="line">                List&lt;UserInfo&gt; permissionList = userService.getPermissionList(userInfo);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> AdminUserDetails(userInfo,permissionList);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UsernameNotFoundException(<span class="string">"用户名或密码错误"</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//AdminUserDetails</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Collection&lt;? extends GrantedAuthority&gt; getAuthorities() &#123;</span><br><span class="line">        <span class="comment">//返回当前用户的权限</span></span><br><span class="line">        <span class="keyword">return</span> permissionList.stream()</span><br><span class="line">                .filter(permission -&gt; permission.getRoleId()!=<span class="keyword">null</span>)</span><br><span class="line">                .map(permission -&gt;<span class="keyword">new</span> SimpleGrantedAuthority(userInfo.getRoleId()))</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>错误：<code>org.springframework.web.bind.MissingPathVariableException: Required URI template variable &#39;userId&#39; for method parameter type String is not present</code> 主要是自己对注解的理解不清楚导致的，@PathVariable请求路径名称写错了。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/qq_32224047/article/details/108615301" target="_blank" rel="noopener">自定义UserDetails实现用户登录访问</a> – <a href="https://blog.csdn.net/qq_32224047/article/details/108607746" target="_blank" rel="noopener">从数据库读取数据实现用户登录访问</a></p>
+</li>
+<li><p>错误：<code>java.sql.SQLException: Field &#39;id&#39; doesn&#39;t have a default value</code>  是因为MybatisGenerator生成的Mapper.xml中插入默认主键是自增的从而不插入主键，而我的不是。暂时的解决方式是修改主键为自增，参考<a href="https://blog.csdn.net/weixin_42585386/article/details/109203750" target="_blank" rel="noopener">博客</a>也并没有解决。主键自增要求键值为int类型。都要改。。所以修改mapper中的insert方法，添加插入主键，成功！</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">parameterType</span>=<span class="string">"com.tsuki.cartocar.mbg.model.UserInfo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span> <span class="attr">order</span>=<span class="string">"AFTER"</span> <span class="attr">resultType</span>=<span class="string">"java.lang.String"</span>&gt;</span></span><br><span class="line">    SELECT LAST_INSERT_ID()</span><br><span class="line">  <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></span><br><span class="line">  insert into user_info (id, username, password, role_id, </span><br><span class="line">    devID)</span><br><span class="line">  values (#&#123;id, jdbcType=VARCHAR&#125;, #&#123;username,jdbcType=VARCHAR&#125;, #&#123;password,jdbcType=VARCHAR&#125;, #&#123;roleId,jdbcType=VARCHAR&#125;, </span><br><span class="line">    #&#123;devid,jdbcType=VARCHAR&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<font color="green" size="4"><strong>到目前为止，用户的登录注册就完成了！大功告成！</strong></font>
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        ﻿
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/car2car项目运行实录.html">car2car项目运行实录</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
+  <p><span>发布时间:</span>2021.12.27 - 20:40</p>
+  <p><span>最后更新:</span>2021.12.27 - 20:40</p>
+  <p><span>原始链接:</span><a href="/car2car项目运行实录.html" title="car2car项目运行实录">https://tsuki419.github.io/car2car项目运行实录.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/car2car项目运行实录.html" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+	
+    
+
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE END-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/MyBatis.html" rel="next" title="Mybatis">
+                <i class="fa fa-chevron-left"></i> Mybatis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="car2car项目运行实录.html" data-title="car2car项目运行实录" data-url="https://tsuki419.github.io/car2car项目运行实录.html">
+      </div>
+    </div>
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+			<a href="/about/">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="tsuki">
+            
+              <p class="site-author-name" itemprop="name">tsuki</p>
+			 </a>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tsuki419" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:nognoll@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#car2car"><span class="nav-number">1.</span> <span class="nav-text">car2car</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改为maven项目"><span class="nav-number">2.</span> <span class="nav-text">修改为maven项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改项目框架为Springboot"><span class="nav-number">3.</span> <span class="nav-text">修改项目框架为Springboot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个模块module"><span class="nav-number">3.1.</span> <span class="nav-text">新建一个模块module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库连接"><span class="nav-number">3.2.</span> <span class="nav-text">数据库连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入静态资源和页面"><span class="nav-number">3.3.</span> <span class="nav-text">导入静态资源和页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现登录功能-伪"><span class="nav-number">3.4.</span> <span class="nav-text">实现登录功能(伪)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加了lombok"><span class="nav-number">3.5.</span> <span class="nav-text">添加了lombok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MybatisGenerator"><span class="nav-number">3.6.</span> <span class="nav-text">MybatisGenerator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swagger-UI"><span class="nav-number">3.7.</span> <span class="nav-text">Swagger-UI</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringSecurity-JWT登录控制"><span class="nav-number">4.</span> <span class="nav-text">SpringSecurity+JWT登录控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的Session认证方式"><span class="nav-number">4.1.</span> <span class="nav-text">传统的Session认证方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于token控制"><span class="nav-number">4.2.</span> <span class="nav-text">基于token控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">4.3.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringSecurity的核心类"><span class="nav-number">4.4.</span> <span class="nav-text">SpringSecurity的核心类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate-validator校验框架（待添加）"><span class="nav-number">4.5.</span> <span class="nav-text">Hibernate-validator校验框架（待添加）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#角色权限"><span class="nav-number">4.6.</span> <span class="nav-text">角色权限</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 22k</span>
+</div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tsuki</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/custom/custom.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 18431,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+    <!-- 点击烟花特效 -->
+	
+		<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+		<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+		<script type="text/javascript" src="/js/src/fireworks.js"></script>
+	
+  <!-- 背景图片更换 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("https://i.loli.net/2019/05/10/5cd55b4dc91a0.jpg");
+  </script> 
+  
+  <!-- 雪花特效 -->
+<!--  <script type="text/javascript" src="/js/src/snow.js"></script> -->
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.95},"log":false});</script></body>
+</html>
+
+<!-- 样式二（飘动的彩带） -->
+<script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
+
+
+<!-- 页面点击小红心 -->
+<!--<script type="text/javascript" src="/js/src/clicklove.js"></script>-->
