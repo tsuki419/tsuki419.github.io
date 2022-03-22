@@ -1,0 +1,1793 @@
+﻿<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+
+
+  <meta name="keywords" content="数据库,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="tsuki's CodeLife" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="数据库的基础学习笔记，跟着哈工大的老师视频学习。从关系代数到SQL语言，以及一些进阶数据库操作的简单学习。">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库基础">
+<meta property="og:url" content="https://tsuki419.github.io/数据库.html">
+<meta property="og:site_name" content="tsuki&#39;s CodeLife">
+<meta property="og:description" content="数据库的基础学习笔记，跟着哈工大的老师视频学习。从关系代数到SQL语言，以及一些进阶数据库操作的简单学习。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-03-22T13:55:39.052Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库基础">
+<meta name="twitter:description" content="数据库的基础学习笔记，跟着哈工大的老师视频学习。从关系代数到SQL语言，以及一些进阶数据库操作的简单学习。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"perspectiveLeftIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tsuki419.github.io/数据库.html">
+
+
+
+
+
+  <title>数据库基础 | tsuki's CodeLife</title>
+  
+
+
+
+
+
+
+
+
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/src/FunnyTitle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139938464-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139938464-1');
+</script>
+  
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!-- github-ribbon -->
+<a href="https://github.com/tsuki419"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_orange_ff7600.png?resize=149%2C149" class="github-ribbon" alt="Fork me on GitHub" data-recalc-dims="1"></a>			  
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+	<div class="top-scroll-bar"></div>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tsuki's CodeLife</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+	
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tsuki419.github.io/数据库.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tsuki">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tsuki's CodeLife">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">数据库基础</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-22T21:43:06+08:00">
+                2022-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2022-03-22T21:55:39+08:00">
+                2022-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/数据库.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="数据库.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.1k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>数据库的基础学习笔记，跟着哈工大的老师<a href="https://www.bilibili.com/video/BV1PJ411F78b" target="_blank" rel="noopener">视频</a>学习。从关系代数到SQL语言，以及一些进阶数据库操作的简单学习。</p>
+<a id="more"></a>
+<h2 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h2><ul>
+<li><p>关系运算</p>
+<ul>
+<li><p>关系代数</p>
+<p>基于集合的运算</p>
+<p>基于关系代数的数据库语言</p>
+</li>
+<li><p>关系演算</p>
+<ul>
+<li><p>元组演算</p>
+<p>基于逻辑的运算</p>
+</li>
+<li><p>域演算</p>
+<p>基于示例的运算</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2><p>列的取值范围就是域，域有相同的数据类型</p>
+<p>笛卡儿积（每一个元素成为n-元组）：多个域的排列组合</p>
+<ul>
+<li><p>笛卡儿积中具有某个意义的元组称为<strong>关系</strong></p>
+<p>域名和属性名不一样，为每一列起的名字叫属性名，不同列可能来自同一个域。</p>
+</li>
+</ul>
+<p>外码连接两个或者多个关系。</p>
+<h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2><p>是一种抽象的语言</p>
+<p>前提：满足并相容性，才能进行运算</p>
+<ul>
+<li><p>基本操作：</p>
+<p>并，差，笛卡儿积，选择（选择行操作），投影（选择列进行操作）</p>
+</li>
+<li><p>扩展操作</p>
+<p>交，theta-Join（直接使用连接操作比笛卡儿积加一个选择操作快，DBMS可以进行直接操作），等值连接，特殊连接，自然连接</p>
+</li>
+<li><p>关系代数操作的组合和应用训练</p>
+<ul>
+<li>要特别注意语义</li>
+</ul>
+</li>
+<li><p>关系代数的复杂扩展操作</p>
+<ul>
+<li>除运算（包含了全部的，所有的）</li>
+<li>外链接：左外连接（不丢失左侧元组数据），右外连接，全外连接</li>
+</ul>
+</li>
+</ul>
+<p>集合操作的特性 </p>
+<ul>
+<li><p><strong>关系代数与sql语言的对应关系</strong></p>
+<p>Select  From Where</p>
+<p>sql查询语句就是关于代数的组合</p>
+<p>数据库管理系统就是解析这样的组合，拆解开，按照一定的次序分解开，调用基本的操作算法来予以实现。</p>
+</li>
+</ul>
+<h2 id="关系演算"><a href="#关系演算" class="headerlink" title="关系演算"></a>关系演算</h2><p><strong>元组演算</strong>（<strong>有难度的位置</strong>）：一种逻辑表达，以元祖为基本单位循环遍历。与关系代数可以相互转换。</p>
+<ul>
+<li>存在量词 对r中的每一个t进行F(t)检验</li>
+<li>全称量词 </li>
+</ul>
+<p><strong>关系域演算</strong>：过程性非常差，适合用户使用来表达查询条件</p>
+<p><strong>QBE域演算语言</strong></p>
+<p>通过填表的方式，高度非过程化的查询语言。</p>
+<p><strong>安全性</strong></p>
+<p>关系运算不一定是安全的。不产生无穷关系和无穷验证的运算被称为是安全的。</p>
+<h3 id="关系运算总结"><a href="#关系运算总结" class="headerlink" title="关系运算总结"></a>关系运算总结</h3><p>关系运算有三种：关系代数，关系元组演算，关系域演算，都是抽象的数学关系，体现了三种不同的思维。关系代数是基于集合的操作思维，后两者是基于逻辑的思维。关系代数是安全的。三种关系运算都可以说是非过程性的。</p>
+<p><strong>ISBL语言</strong>：基于关系代数的数据库语言。</p>
+<p><strong>QUEL语言</strong></p>
+<h2 id="数据库语言SQL"><a href="#数据库语言SQL" class="headerlink" title="数据库语言SQL"></a>数据库语言SQL</h2><ol>
+<li>DDL 定义数据库</li>
+<li>DML操纵数据库</li>
+</ol>
+<p>Structured Query Language(SQL)</p>
+<ol>
+<li><p>建立数据库：定义数据库和表，添加元组。</p>
+<p><code>Create datebase xxx</code> </p>
+<p><code>Create table Students(Snumber char(8) not null, Sname char(10), Ssex char(2));</code></p>
+</li>
+<li><p>利用数据库进行简单的查询</p>
+<p><code>Select ... From ... Where...</code></p>
+<ol>
+<li><p>结果唯一性问题 DISTINCT</p>
+</li>
+<li><p>结果排序问题order by 列名 【asc/desc】</p>
+</li>
+<li><p>模糊查询</p>
+<p><code>Select Sname From Student Where Sname Like &#39;张__&#39;;</code></p>
+</li>
+</ol>
+<ul>
+<li>% ： 零个或者多个字符</li>
+<li>_ ： 单个字符</li>
+<li>\： 转义字符</li>
+</ul>
+<ol start="4">
+<li><p>多表联合查询</p>
+<p>表示笛卡儿积操作。</p>
+<p><code>Select S1.Snumber From SC S1, SC S2 Where S1.Snumber = S2.Snumber and ...</code></p>
+</li>
+</ol>
+</li>
+<li><p>SQL的更新操作</p>
+<ol>
+<li>增 INSERT<ol>
+<li><code>Insert Into Teacher Values (&quot;005&quot;,&quot;张三&quot;);</code></li>
+<li><code>Insert Into St(S#, Sname) Select S#, Sname From Student Order By Sname;</code>批元组新增</li>
+</ol>
+</li>
+<li>删 DELETE<ol>
+<li><code>Delete From Student Where S# =&#39;100&#39;;</code></li>
+<li><code>Update Teacher Set Salary = Salary * 1.05 Where D# in (...)</code></li>
+</ol>
+</li>
+<li>修正与撤销<ol>
+<li><code>Alter Table Student Add Saddr char[40],PID char[18];</code></li>
+<li><code>Alter Table Student Modify Sname char(10);</code></li>
+<li><code>Alter Table Student Drop Unique(Sname);</code></li>
+<li><code>Drop Table Student;</code>撤销学生表Student；delete语句知识删除表中的元组，而drop table 的操作撤销包含表格式，表中所有元组，由该白哦导出的视图等所有相关内容。</li>
+</ol>
+</li>
+<li>指定与关闭命令<ol>
+<li>Use Student</li>
+<li>Close Student</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>DBMS交换环境简介</p>
+</li>
+</ol>
+<h2 id="利用SQL语言表达复杂查询"><a href="#利用SQL语言表达复杂查询" class="headerlink" title="利用SQL语言表达复杂查询"></a>利用SQL语言表达复杂查询</h2><ol>
+<li><p>子查询</p>
+<ol>
+<li><p>IN 和 NOT IN</p>
+<p>列出选修了001号课程的学生的学号和姓名</p>
+<p><code>Select S#, Sname From Student Where S# in (Select S# From SC Where C# = &#39;001&#39;);</code></p>
+<p>既学过001号课程又学过002号课程的学生的学号</p>
+<p><code>Select S# From SC Where C# = &#39;001&#39; and S# in(Select S# From SC Where C# = &#39;002&#39;);</code></p>
+<blockquote>
+<p>非相关子查询和相关子查询</p>
+</blockquote>
+</li>
+<li><p>theta some / theta all类似于全称量词和存在量词</p>
+<ol>
+<li><p>找出工资最低的教师姓名</p>
+<p><code>Select Tname From Teacher Where Salary &lt;= all(Select Salary From Teacher);</code></p>
+</li>
+<li><p>找出001号课程成绩不是最高的所有学生的学号</p>
+<p><code>Select S# From SC Where C# = &#39;001&#39; and Score &lt; some(Select Score From SC Where C# = &#39;001&#39;);</code></p>
+</li>
+<li><p>等价性变换需要注意</p>
+<ol>
+<li>some 等价于in</li>
+<li>not in 等价于 &lt;&gt;all</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>EXIST</p>
+<ol>
+<li><p>not Exists可以实现很多新功能</p>
+</li>
+<li><p>检索学过001号教师主讲的所有课程的所有同学的姓名</p>
+<p><code>Select Sname From Student Where not exists (Select * From Course Where Course.T#=&#39;001&#39; and not exists(Select * From SC Where S# = Student.S# and C# = Course.C#));</code></p>
+<p>不存在/ 有一门001号老师讲的课程/ 该同学没学过</p>
+</li>
+<li><p>列出没学过李明老师讲授的任何一门课程的所有同学的姓名</p>
+<p><code>Select Sname From Student Where not exists(Select * From SC, Course, Teacher Where Tname = &#39;liming&#39; and Course .T# = Teacher.T# and Course.C# = SC.C# and Student.S# = SC.S#)</code></p>
+<p>不存在/ 学过一门课程</p>
+<font color="red">从肯定过度到否定之否定</font>
+</li>
+<li><p>列出至少学过9803号同学学过的所有课程的同学的学号</p>
+<p><code>Select DISTINC S# From SC SC1 Where not exists (Select * From SC SC2 Where S# = &#39;9803&#39; and not exists (Select * From SC Where C# = SC2.C# and S# = SC1.S#))</code></p>
+<p>不存在// 9803的some一门课程 //该同学 没学过</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="利用SQL语言进行计算"><a href="#利用SQL语言进行计算" class="headerlink" title="利用SQL语言进行计算"></a>利用SQL语言进行计算</h2><ol>
+<li><p>聚集函数 count sum avg max min</p>
+<p>求有差额的任意两位教师的薪水差额</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> T1.Tname <span class="keyword">as</span> TR1, T2.Tname <span class="keyword">as</span> TR2,T1.Salary-T2.Salary <span class="keyword">From</span> Teacher T1, Teacher T2 <span class="keyword">Where</span> T1.Salary &gt;T2.Salary;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Select</span> S.S<span class="comment">#, S.Sname, 2015-S.Sage+1 as Syear From Student S;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Select</span> <span class="keyword">Sum</span>(Salary) <span class="keyword">From</span> Teacher;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Select</span> <span class="keyword">AVG</span>(Score) <span class="keyword">From</span> Course C, SC <span class="keyword">Where</span> C.Cname=<span class="string">'数据库'</span> <span class="keyword">and</span> C.C<span class="comment"># = SC.C#;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分组聚集计算与分组过滤计算</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#求每一个学生的平均成绩</span></span><br><span class="line"><span class="keyword">Select</span> S<span class="comment">#, AVG(Score) From SC Group by S#;</span></span><br><span class="line"><span class="comment">#求每一门的平均成绩</span></span><br><span class="line"><span class="keyword">Select</span> C<span class="comment">#, AVG(Score) From SC　Group by C#;</span></span><br><span class="line"><span class="comment">#求不及格课程超过两门的同学的学号</span></span><br><span class="line"><span class="keyword">Select</span> S<span class="comment"># From SC Where Score&lt;60 Group by S# Having Count(*)&gt;2;</span></span><br><span class="line"><span class="comment">#求有两门以上不及格课程同学的学号及其平均成绩</span></span><br><span class="line"><span class="keyword">Select</span> S<span class="comment">#,AVG(Score) From SC Where S# in(Select S# From SC Where Score&lt;60 Group by S# Having Count(*)&gt;2) Group by S#;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现并交差</p>
+<p>UNION/ /INTERSECT/ /EXCEPT </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Select</span> S<span class="comment"># From SC Where C#='002'</span></span><br><span class="line"><span class="keyword">INTERSECT</span></span><br><span class="line"><span class="keyword">Select</span> S<span class="comment"># From SC Where C# = '003';</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>空值</p>
+<p><code>Select Sname From Student Where Sage is null;</code></p>
+</li>
+<li><p>内连接，外连接</p>
+<ol>
+<li>求所有教师的任课情况并按教师号排序</li>
+</ol>
+<p><code>Select Teacher.T#, Tname ,Cname From Teacher Inner Join Course On Teacher.T#=Course.T# Order by Teacher.T# ASC;</code></p>
+</li>
+<li><p>SQL视图</p>
+</li>
+</ol>
+<h2 id="数据库完整性"><a href="#数据库完整性" class="headerlink" title="数据库完整性"></a>数据库完整性</h2><p>完整性约束条件（OPAR）</p>
+<ul>
+<li>O： 约束的对象</li>
+<li>P：谓词条件，什么样的约束</li>
+<li>A：触发条件</li>
+<li>R：响应动作，不满足时怎么办</li>
+</ul>
+<p>约束分类</p>
+<ol>
+<li>静态约束，通过Create语句来完成， 在任一时候均满足的约束</li>
+</ol>
+<ul>
+<li><p>域完整性约束：施加在某一列</p>
+<ul>
+<li><p>举例</p>
+</li>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Create</span> <span class="keyword">Table</span> Student(S<span class="comment"># char(8) not null unique, Sname char(10), Ssex char(2) constraint ctssex check(Ssex='男' or Ssex ='女')， Sage integer check(Sage&gt;=1 and Sage&lt;150),D# char(2) references Dept(D#) on delete cascade, Sclass char(6));</span></span><br></pre></td></tr></table></figure>
+<p>check()加约束条件，同where的使用</p>
+<p>on delete cascade，外键，删除关联（查询）</p>
+</li>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Create</span> <span class="keyword">Table</span> SC(S<span class="comment"># char(8) check(S# in (select S# from Student)), C# char(3) check(C# in (select C# from course)), Score float(1) constraint ctscore check (Score &gt;= 0.0 and Score &lt;= 100.0)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>关系完整性约束：施加在关系/表上</p>
+</li>
+<li><p>断言，会影响数据库的效率增加数据库的负担，慎用</p>
+<ul>
+<li><code>Create assertion xxx check (条件)</code></li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>动态约束 ：从一状态到另一状态时应满足的约束</li>
+</ol>
+<ul>
+<li><p>触发器， Trigger</p>
+<ul>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> delS<span class="comment"># after delete on Student referencing old oldi</span></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span> </span><br><span class="line">	<span class="keyword">begin</span> </span><br><span class="line">		<span class="keyword">delete</span> sc <span class="keyword">where</span> S<span class="comment"># = :oldi.S#</span></span><br><span class="line">	<span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据库安全性"><a href="#数据库安全性" class="headerlink" title="数据库安全性"></a>数据库安全性</h2><p>SOTP</p>
+<ol>
+<li>自主安全性的实现方式<ol>
+<li>存储矩阵</li>
+<li>视图</li>
+<li>SQL语言授权和收回授权<ul>
+<li><code>Grant Select On Employee To UserB WITH GRANT OPTION</code></li>
+</ul>
+</li>
+<li>授权过程，注意授权的传播范围（深度，广度）。</li>
+</ol>
+</li>
+<li>强制安全性</li>
+</ol>
+<h2 id="嵌入式SQL"><a href="#嵌入式SQL" class="headerlink" title="嵌入式SQL"></a>嵌入式SQL</h2><p>高级语言与SQL语言结合</p>
+<ol>
+<li><p>变量声明与数据库连接</p>
+<ul>
+<li>exec sql connect to default;</li>
+<li>exec sql disconnect current;</li>
+<li>exec sql commit release;(Oracle)</li>
+<li>exec sql rollback release;(Oracle)</li>
+</ul>
+<p><font color="red"><strong>事务</strong></font>：具有ACID特性的若干数据库基本操作的组合体</p>
+<p>ACID：原子性，一致性，隔离性，持久性</p>
+<p>事物处理是DBMS的核心技术</p>
+<p>declare section; SQL错误捕获语句；SQL connect；SQL commit work；SQL rollback  and disconnect;</p>
+</li>
+<li><p>数据集和游标</p>
+<p>检索多行结果用到<strong>游标</strong>，游标定义一次，多次打开，多次执行，多次关闭。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">exec sql declare cur_student cursor for </span><br><span class="line">	select Sno, Sname from Student where Scalss = :vclass</span><br><span class="line">	order by Sno</span><br><span class="line">	for read only;</span><br><span class="line">exec sql open cur_student;</span><br><span class="line">...</span><br><span class="line">exec sql fetch cur_student into :vSno, :vSname;</span><br><span class="line">...</span><br><span class="line">exec sql close cur_student;</span><br><span class="line">#开关游标	</span><br><span class="line">exec sql open cursor_name;</span><br><span class="line">exec sql close cursor_name;</span><br></pre></td></tr></table></figure>
+<p>可滚动游标：可使指针在数据集之间灵活移动。</p>
+<ul>
+<li><p>数据库的更新与删除：分两种，查找更新与定位更新；查找删除和定位删除</p>
+</li>
+<li><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">exec sql <span class="keyword">declare</span> stud <span class="keyword">cursor</span> <span class="keyword">for</span> </span><br><span class="line">	<span class="keyword">select</span>* <span class="keyword">from</span> student s <span class="keyword">where</span> s.sclass=<span class="string">'000'</span> <span class="keyword">for</span> <span class="keyword">update</span> <span class="keyword">of</span> sclass;</span><br><span class="line">	exec sql open stud</span><br><span class="line">	While(TRUE)&#123;</span><br><span class="line">	exec sql fetch stud into :vSno, :vSname;</span><br><span class="line">	exec sql <span class="keyword">update</span> student <span class="keyword">set</span> sclass=<span class="string">'002'</span> <span class="keyword">where</span> <span class="keyword">current</span> <span class="keyword">of</span> stud;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>异常状态捕获及错误处理机制</p>
+<p>状态是嵌入式SQL语句的执行状态，尤其指一些出错状态。状态捕获和处理包括三部分：</p>
+<ul>
+<li>设置sql通信区：<code>exec sql include sqlca;</code></li>
+<li>设置状态捕获语句： <code>exec sql whenever sqlerror goto report_error;</code></li>
+<li>状态处理语句：<code>report_error:exec sql rollback;</code></li>
+</ul>
+<p>状态捕获语句可能出现无限循环</p>
+<p><code>handle_error: exec sql whenever sqlerror continue;</code></p>
+<p>错误捕获语句的作用域</p>
+</li>
+<li><p>动态SQL</p>
+<p>静态SQL：冒号传递，游标读取。</p>
+<p>动态SQL，构造sql的字符串，然后交给DBMS执行。</p>
+<p>动态sql语句的执行方式</p>
+<ul>
+<li><p>立即执行（text语句一定是完整的）</p>
+</li>
+<li><p>延迟执行</p>
+</li>
+</ul>
+<p>数据字典与SQLDA：系统目录，类似于查找索引的东西</p>
+</li>
+</ol>
+<h2 id="ODBC"><a href="#ODBC" class="headerlink" title="ODBC"></a>ODBC</h2><p>是一种标准，open database connection</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引文件：索引字段和行指针</p>
+<p>创建一个索引： create index  idxName on student(sname)</p>
+<p>撤销索引：drop index idxName</p>
+<p>是否建立：考虑插入时间删除时间访问时间与空间负载的问题。既要改善性能又要控制代价。</p>
+<p><strong>稠密索引和稀疏索引</strong></p>
+<p>稀疏索引（要求排序存储），稠密索引（候选键属性和非候选键属性）</p>
+<p><strong>主索引和辅助索引</strong></p>
+<p>主索引通常是聚簇索引（以磁盘块为索引项。</p>
+<p><strong>倒排索引</strong></p>
+<p>以关键词指向的文档， key {doc1, doc2, doc3…}</p>
+<p><strong>多级索引：B+树</strong></p>
+<h2 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h2><p>在连接和乘积运算之前尽早做选择运算</p>
+<p><strong>语义优化</strong></p>
+<p><strong>语法优化</strong>：逻辑查询优化（关系代数操作次序），10个等价性交换定理。</p>
+<p><strong>执行优化</strong>：物理执行优化–代价估算（准确性有待商量）–算法选择和装配次序</p>
+<p>在DML编译器执行</p>
+<h2 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h2><p><strong>并发控制</strong></p>
+<p>因为数据共享会有不一致发生</p>
+<p>三种典型的不一致现象：丢失修改，不能重复读，脏读</p>
+<blockquote>
+<p>类似于操作系统进程控制</p>
+</blockquote>
+<p><strong>事务</strong>： 数据库管理系统提供的控制数据操作的一种手段， ACID</p>
+<p>封锁协议要考虑：封锁的类型，封锁的粒度（基本在元组），相容性矩阵（一个事务上锁后其他事务的权限），封锁的时机（分为四个）</p>
+<p><strong>故障</strong>：故障恢复包括原子性和持久性</p>
+<p>故障恢复程序占百分之十。是核心技术。</p>
+<ul>
+<li><p><strong>事务故障</strong>： 重做事务Redo和撤销事务Undo</p>
+</li>
+<li><p><strong>系统故障</strong>：掉电，非正常关机。会影响到数据库缓存区。通过运行日志的手段。运行日志定期设置和更新检查点（为了判断从哪一点开始恢复）。</p>
+</li>
+<li><p><strong>介质故障</strong>：磁盘坏了，用副本。确定备份时刻，转储点，运行日志至少要包括在转储点之前。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        ﻿
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/数据库.html">数据库基础</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
+  <p><span>发布时间:</span>2022.03.22 - 21:43</p>
+  <p><span>最后更新:</span>2022.03.22 - 21:55</p>
+  <p><span>原始链接:</span><a href="/数据库.html" title="数据库基础">https://tsuki419.github.io/数据库.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/数据库.html" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+	
+    
+
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE END-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/爬虫练手.html" rel="next" title="Java爬虫">
+                <i class="fa fa-chevron-left"></i> Java爬虫
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/数据库II.html" rel="prev" title="JDBC和Druid">
+                JDBC和Druid <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="数据库.html" data-title="数据库基础" data-url="https://tsuki419.github.io/数据库.html">
+      </div>
+    </div>
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+			<a href="/about/">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="tsuki">
+            
+              <p class="site-author-name" itemprop="name">tsuki</p>
+			 </a>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tsuki419" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:nognoll@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关系模型"><span class="nav-number">1.</span> <span class="nav-text">关系模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系"><span class="nav-number">2.</span> <span class="nav-text">关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系代数"><span class="nav-number">3.</span> <span class="nav-text">关系代数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系演算"><span class="nav-number">4.</span> <span class="nav-text">关系演算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算总结"><span class="nav-number">4.1.</span> <span class="nav-text">关系运算总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库语言SQL"><span class="nav-number">5.</span> <span class="nav-text">数据库语言SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用SQL语言表达复杂查询"><span class="nav-number">6.</span> <span class="nav-text">利用SQL语言表达复杂查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用SQL语言进行计算"><span class="nav-number">7.</span> <span class="nav-text">利用SQL语言进行计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库完整性"><span class="nav-number">8.</span> <span class="nav-text">数据库完整性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库安全性"><span class="nav-number">9.</span> <span class="nav-text">数据库安全性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入式SQL"><span class="nav-number">10.</span> <span class="nav-text">嵌入式SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ODBC"><span class="nav-number">11.</span> <span class="nav-text">ODBC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">12.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询优化"><span class="nav-number">13.</span> <span class="nav-text">查询优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务处理"><span class="nav-number">14.</span> <span class="nav-text">事务处理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 28.9k</span>
+</div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tsuki</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/custom/custom.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bM139YnQtmQQ9kvJ6WWXNLtT-MdYXbMMI',
+        appKey: 'Q1UyAWdYhKPkkKfYoXQmyaVV',
+        placeholder: 'just go go!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 18431,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+    <!-- 点击烟花特效 -->
+	
+		<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+		<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+		<script type="text/javascript" src="/js/src/fireworks.js"></script>
+	
+  <!-- 背景图片更换 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("https://i.loli.net/2019/05/10/5cd55b4dc91a0.jpg");
+  </script> 
+  
+  <!-- 雪花特效 -->
+<!--  <script type="text/javascript" src="/js/src/snow.js"></script> -->
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.95},"log":false});</script></body>
+</html>
+
+<!-- 样式二（飘动的彩带） -->
+<script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
+
+
+<!-- 页面点击小红心 -->
+<!--<script type="text/javascript" src="/js/src/clicklove.js"></script>-->
