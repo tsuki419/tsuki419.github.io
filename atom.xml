@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tsuki419.github.io/"/>
-  <updated>2022-03-22T14:10:52.678Z</updated>
+  <updated>2022-03-23T14:00:51.027Z</updated>
   <id>https://tsuki419.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fly bird</title>
+    <link href="https://tsuki419.github.io/flappy-bird.html"/>
+    <id>https://tsuki419.github.io/flappy-bird.html</id>
+    <published>2022-03-23T13:55:28.695Z</published>
+    <updated>2022-03-23T14:00:51.027Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>爬虫练手</p><a id="more"></a> <p>搞点好玩的，这个简单的项目实现主要就是画面数值的精确计算。<a href="https://git.nowcoder.com/999991353/fly-bird" target="_blank" rel="noopener">fly bird</a></p><h2 id="绘制分析"><a href="#绘制分析" class="headerlink" title="绘制分析"></a>绘制分析</h2><p>画面总的分为三部分，运行画面，开始画面和结束画面。设置<strong>状态转换</strong>，点击开始画面进入运行状态，点击结束画面回到开始状态（重新加载地图）。运行状态的设计是游戏核心。分析游戏的运行是通过鼠标点击来改变小鸟的运动，因此要对界面添加一个监听器，监听鼠标的变化。</p><p><strong>地面类和柱子类</strong>都只需要计算好初始化位置和平移位置。</p><p>主要的逻辑在<strong>小鸟类</strong>实现。小鸟的飞行动作由加载的一系列图片循环加载完成。每一次点击都是完成一次抛物运动，因此涉及到了初速度，角度，重力加速度（伪）属性，以及时间属性。小鸟的位移只有垂直位移，移动的效果是通过地面和柱子的移动完成的。视觉上小鸟在做抛物线是由小鸟的旋转角度变化实现的。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alpha = Math.atan(s / <span class="number">8</span>);</span><br></pre></td></tr></table></figure><p>最后就是要判定游戏得分条件和结束条件。</p><h2 id="Java-Swing"><a href="#Java-Swing" class="headerlink" title="Java Swing"></a>Java Swing</h2><p>游戏用到了Java SWing，<a href="https://www.runoob.com/w3cnote/java-swing-demo-intro.html" target="_blank" rel="noopener">Swing</a>是一个用于Java GUI的工具包。</p><blockquote><p><strong>JFrame</strong> – java的GUI程序的基本思路是以JFrame为基础，它是屏幕上window的对象，能够最大化、最小化、关闭。<br><strong>JPanel</strong> – Java图形用户界面(GUI)工具包swing中的面板容器类，包含在javax.swing 包中，可以进行嵌套，功能是对窗体中具有相同逻辑功能的组件进行组合，是一种轻量级容器，可以加入到JFrame窗体中。</p></blockquote><p>在main程序中new JFrame()，添加了BirdGame()，其中BirdGame()继承自JPanel。</p><p><strong><a href="http://c.biancheng.net/view/1235.html" target="_blank" rel="noopener">监听器</a></strong></p><h3 id="BufferedImage"><a href="#BufferedImage" class="headerlink" title="BufferedImage"></a>BufferedImage</h3><p> <a href="https://blog.csdn.net/jiachunchun/article/details/89670721" target="_blank" rel="noopener">BufferedImage</a>是Image的一个子类，主要作用是将一幅图片加载到内存中。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BufferedImage image = ImageIO.read(new FileInputStream(imgPath));</span><br></pre></td></tr></table></figure><p>显示BufferedImage用Graphics: Graphics.drawImage()</p><p><strong>Graphics</strong>提供基本绘图和显示格式化文字的方法，Graphics2D提供了更强大的绘图能力。</p><p><a href="https://blog.csdn.net/liuxinhua2013/article/details/38261571" target="_blank" rel="noopener">repaint</a>: 重绘此组件。如果组件是轻量组件，则此方法会尽快调用此组件的 paint 方法。否则此方法会尽快调用此组件的 update 方法。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;爬虫练手&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://tsuki419.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Java" scheme="https://tsuki419.github.io/categories/%E6%8A%80%E6%9C%AF/Java/"/>
+    
+      <category term="项目" scheme="https://tsuki419.github.io/categories/%E6%8A%80%E6%9C%AF/Java/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="Java" scheme="https://tsuki419.github.io/tags/Java/"/>
+    
+      <category term="Swing" scheme="https://tsuki419.github.io/tags/Swing/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL</title>
@@ -99,7 +127,7 @@
     <link href="https://tsuki419.github.io/%E7%88%AC%E8%99%AB%E7%BB%83%E6%89%8B.html"/>
     <id>https://tsuki419.github.io/爬虫练手.html</id>
     <published>2022-03-19T13:06:09.825Z</published>
-    <updated>2022-03-19T13:25:27.332Z</updated>
+    <updated>2022-03-23T13:59:58.949Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>爬虫练手</p><a id="more"></a> <p>该项目是牛客网的项目，基于webmagic开源项目制作一个高效爬虫。项目采用了springboot框架。</p><h2 id="webmagic"><a href="#webmagic" class="headerlink" title="webmagic"></a>webmagic</h2><p><em><a href="https://www.cnblogs.com/B-rabbit/p/13781986.html" target="_blank" rel="noopener">使用相关博客</a></em></p><p><em><a href="http://webmagic.io/docs/zh/posts/ch1-overview/architecture.html" target="_blank" rel="noopener">官方中文文档</a></em></p><p>最需要关心的是PageProcessor接口。</p><p>自定义的Processor继承PageProcessor接口，重写process(Page page)方法编写抽取逻辑。调用page.putField()将结果存起来。调用page.addTargetRequest()可以存入一个url作为下一个爬取的页面地址。</p><p>如果是单纯的爬取到现在就可以实现了，官方给出的代码做了很多的解耦和扩展。还用到了被我遗忘很久的设计模式。</p><h3 id="策咯模式"><a href="#策咯模式" class="headerlink" title="策咯模式"></a><strong>策咯模式</strong></h3><p>是把process()中处理也页面的方法抽取出来，用继承接口ProcessStrategy()的方式进行，使得代码解耦合。</p><blockquote><p><strong>面向接口编程而不要面向实现编程。</strong></p></blockquote><p>并且对process方法做了增强，前后都留了处理方法。这就是程序扩展性。</p><blockquote><p>如果需要处理的数据超过两条，那么将他们封装成一个model吧！</p></blockquote><h3 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a><strong>装饰模式</strong></h3><p>在单页爬取的基础上实现多页迭代爬取。</p><p>对ProcessStrategy()进行虚假的实现，通过重载构造方法的方式将单页面处理方法组合进去。再创建一个子类继承这个虚假装饰类，做真正的实现。</p><blockquote><p>插播：<a href="https://blog.csdn.net/willlu10/article/details/79346948" target="_blank" rel="noopener">组合和聚合的区别</a></p><p>组合是较为紧密的关系，部分和整体共存亡，一般通过构造的方式成为整体的一部分。</p><p>聚合式较为松散的关系，部分和整体的生命周期未必一致。部分的实例化过程在整体外进行，通常以属性的方式成为整体的一部分。这是我的理解。</p></blockquote><h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a><strong>观察者模式</strong></h3><p>Pipeline会在一个爬取任务完成后被调用，比如存入数据库，或者打印到控制台。 当Pipeline准备好结果时主动去推送结果。</p><p>Observer可以是多个观察者（项目），Observable处理观察者的添加删除通知，自定义的pipeline继承Observable通知观察者（实现接口Observer，又是多态）。</p><h2 id="Jsoup和XPath"><a href="#Jsoup和XPath" class="headerlink" title="Jsoup和XPath"></a>Jsoup和XPath</h2><p>基本思路就是寻找有唯一表示的div，根据class一层层定位（最好直接根据id定位，因为id是唯一的），最后找到想要的元素和属性。</p><p><a href="https://www.yiibai.com/jsoup/jsoup-quick-start.html" target="_blank" rel="noopener">Jsoup是用于解析HTML</a></p><p>XPath 使用路径表达式来选取 XML 文档中的节点或节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。</p><p>爬取数据的注意点：</p><p>听说很费IP (doge.jpg)，还容易犯错，爬虫被封IP最直接的因素的是访问速度过快。谨慎爬取。建议使用代理ip。</p>]]></content>
     
@@ -539,38 +567,6 @@
       <category term="读书笔记" scheme="https://tsuki419.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
       <category term="人像摄影" scheme="https://tsuki419.github.io/tags/%E4%BA%BA%E5%83%8F%E6%91%84%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>风光摄影读书笔记</title>
-    <link href="https://tsuki419.github.io/%E9%A3%8E%E5%85%89%E6%91%84%E5%BD%B1.html"/>
-    <id>https://tsuki419.github.io/风光摄影.html</id>
-    <published>2019-05-22T11:30:25.000Z</published>
-    <updated>2019-05-28T09:16:47.893Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Everything you need to know about landscape photography techniques and subjects.<br>一直都很想学习摄影，虽然没有专业器材，但用手机镜头记录下生活的点点滴滴也是一件美好的事情。正值毕业季，为了在校园拍出美美的回忆，去图书馆补充了一下专业知识《风光摄影圣经》。本篇博客作为一个风光摄影的读书笔记。<br><a id="more"></a> </p><h2 id="风光摄影的前期准备"><a href="#风光摄影的前期准备" class="headerlink" title="风光摄影的前期准备"></a>风光摄影的前期准备</h2><p>在进行摄影之前需要先对摄影的器材和名词了解一下。</p><h3 id="相机相关概念"><a href="#相机相关概念" class="headerlink" title="相机相关概念"></a>相机相关概念</h3><p>风光摄影要求照片的暗部细节有很好的表现，意味着相机要有较高的色彩宽容度和分辨率。</p><ol><li>镜头的分类</li></ol><ul><li>广角镜头分两种，普通广角镜头焦距一般在24~38mm，超广角镜头的焦距为13~24mm。广角镜头景深比较大，可以有效的夸张前景和表现景物的远近层次。</li><li>标准镜头是与人眼的视角相近的镜头，国际标准为50mm。一般用于空中拍摄，或者近距离风光拍摄和中景特写。</li><li>长焦镜头通常焦距在70~400mm之间。长焦镜头可以将远处的景物拉近拍摄，产生空间压缩的效果，还可以作为特写镜头。</li><li>变焦镜头的画质要略逊色于定焦镜头。<div class="note info"><font color="darkslategrey"><p>镜头的分类在使用AE搭建场景的时候已经初步接触，在这里再次遇到做个整理。贴上AE中运用摄像机做的<a href="https://www.bilibili.com/video/av13904884" target="_blank" rel="noopener">镜头模仿练习</a>。</p></font></div></li></ul><ol start="2"><li>光圈和景深</li></ol><ul><li>光圈是相机上用来控制镜头孔径大小的部件。<br>光圈f值=镜头的焦距/镜头口径的直径。光圈f值越小，在同一单位时间内的进光量便越多，而且上一级的进光量刚好比下一级的多一倍。<br>利用小光圈可以获得大景深。在风光摄影中，中景，全景，远景等景别适合用小光圈拍摄增加纵深感。</li><li>景深是焦点前后的一段能清晰显示的景物的清晰度范围。拍摄花和昆虫的照片中将背景拍的很模糊为小景深，将背景与被摄主体拍的一样清晰为大景深。影响景深的因为有光圈，焦距和物距三大方面。<div class="note info"><font color="darkslategrey"><p>景深的使用，在3d建模的过程中接触过，保留模型的景深导入AE进行后期处理，可以营造很好的空间效果。</p></font></div></li></ul><ol start="3"><li>不同的快门<br>低速快门可以虚化动体，制造出虚实相衬的效果，将画面拍出动感，比如烟雾缭绕的感觉。而高速快门可以凝固动体，可以清晰的记录快速运动中的物体，高速快门的应用在于时机的捕捉。下图为低速快门图，图源网络。<br><img src="https://i.loli.net/2019/05/23/5ce61827b15a976558.jpg" alt><div class="note info"><font color="darkslategrey"><p>第一次见到低速快门拍照的照片，真实的仙境感。</p></font></div></li></ol><h3 id="取景"><a href="#取景" class="headerlink" title="取景"></a>取景</h3><p>拍摄可以根据景物的特点选择横画幅和竖画幅，拍照时将手机持平，使照片内的地平线水平，给人以平稳安定的感觉，一般忌讳将地平线居中。照片要吸引观众的视线，给人留下深刻印象，这就要画面的趣味点，我们可以用前景的物体使得普通的风光照片更有趣味性。<br>不同的景别：</p><ul><li>近景所展现的主体细节更丰富。中景经常记录我们眼前发生的事物，常常以动作或情节取胜。全景可以完整的表现主体的形体及周遭环境。远景画面开阔，景深悠远。</li></ul><h2 id="用光与构图"><a href="#用光与构图" class="headerlink" title="用光与构图"></a>用光与构图</h2><p>光影变换塑造了不同风格的画面，是拍照中不可忽略的因素，虽然影子影响画面的美观，但是用好影子也会有意想不到的效果。</p><h3 id="光线"><a href="#光线" class="headerlink" title="光线"></a>光线</h3><ul><li>顺光拍摄给人明亮晴朗的感觉。</li><li>侧光拍摄可以产生具有明显方向性的投影，具有非常好的造型效果。<br>前侧光使画面更加丰富；<br>正侧光是的画面有一个非常明显的过渡，除了拍摄要求显示凹凸明显的碑刻等物体外，很少使用；<br>后侧光多用于艺术创作，纵深感强。</li><li>逆光塑造独特的效果。拍摄透明，半透明的物体逆光为最佳光线。</li><li>眩光在光线和拍摄主题合适时，只要曝光合适，再结合良好的构图和被摄主体，往往会得到神奇的戏剧化效果。</li></ul><h3 id="构图"><a href="#构图" class="headerlink" title="构图"></a>构图</h3><p>巧妙的构图是一种艺术，是一种美学概念。</p><p><div class="note info"><font color="darkslategrey"><p>总感觉自己拍出来的照片很难看，原来是从来没有注意过构图，一直都是凭感觉瞎拍，学了构图以后也可以实践一番了。构图不仅在拍照中会用到，画画和搭建场景中都会用到。</p></font></div></p><ol><li>经典的三分法即黄金分割法。</li><li>S形构图动感效果强，既动又稳。远景俯拍效果最佳，适合山川河流的自然起伏和人体动物物体的曲线排列变化。</li><li>A形构图具有向上的冲击力和强劲的视觉引导力。适合拍摄眼神的长路，长桥和高耸的建筑物。</li><li>O形构图稳定感强。</li><li>斜线构图能形成深度空间，使画面具有活力，还能形成指向性，同时给人以三位空间感。溪流、铁轨、小路、围栏、墙壁、篱笆、电线以及远景中的道路桥梁都可以做斜线。</li><li>对角线构图，具有方向感，动感和活泼。线条汇聚，吸引人们的视线。</li><li>曲线构图。</li><li>稳定的三角形构图。</li><li>漂亮的放射形构图，常用于要突出主体，而场面又复杂的场合。</li><li>突出主体的框架式构图，一般用于有前景的拍摄， 比如利用门窗，山洞口，其他框架作为前景。<br>本文没能加入很多的图片说明，这里有前人的<a href="https://blog.csdn.net/qq_34129814/article/details/80271516" target="_blank" rel="noopener">构图总结</a>。希望在今后的拍照运用中逐渐实践学到的方法，创建属于自己的作品图库。</li></ol><h2 id="色彩探索"><a href="#色彩探索" class="headerlink" title="色彩探索"></a>色彩探索</h2><p><blockquote class="question">不同的色彩能使人产生不同的官能感觉。暖色调使人感到热烈兴奋，冷色调使人感到优雅，宁静。在摄影中如何搭配色彩构成画面，什么样的色彩搭配在一起更加漂亮，这是每个摄影人必须学会的理论知识。<br>色彩之间的搭配主要有富有烘托效果的同类色(45deg)，具有表现效果的互补色(150~180deg)，效果和谐的相邻色(90deg以内)，突出主体的对比色(对比形式多样，有冷暖，补色，明暗的对比。红与绿，蓝与黄石互补色。)等几个分类。</blockquote></p><p><div style="width:200px;margin:0 auto;"><img src="https://i.loli.net/2019/05/23/5ce631ff6466814579.jpg" alt></div></p><p><div class="note primary"><font color="darkslategrey"><p>有时会觉得拍照就是一个高级的绘画过程，逼真的展现事物的原貌，同样考虑到了构图，光影，色彩，可以说艺术是相通的吧。读书笔记中有很多没有记录到的内容，比如测光与曝光，焦点的选择，滤镜的选择。这本书后几章的拍摄实践包括山水美景，冰雪云雾和日月星辰，提供了很多实用的拍摄tips，但是技巧都是在实践中磨练的，就不在这里记录了。等上手实践之后再来更新。</p></font></div><br>    参考书籍：风光摄影圣经 –创造影像</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Everything you need to know about landscape photography techniques and subjects.&lt;br&gt;一直都很想学习摄影，虽然没有专业器材，但用手机镜头记录下生活的点点滴滴也是一件美好的事情。正值毕业季，为了在校园拍出美美的回忆，去图书馆补充了一下专业知识《风光摄影圣经》。本篇博客作为一个风光摄影的读书笔记。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="生活" scheme="https://tsuki419.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="摄影" scheme="https://tsuki419.github.io/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/"/>
-    
-      <category term="风光摄影" scheme="https://tsuki419.github.io/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/%E9%A3%8E%E5%85%89%E6%91%84%E5%BD%B1/"/>
-    
-    
-      <category term="风光摄影" scheme="https://tsuki419.github.io/tags/%E9%A3%8E%E5%85%89%E6%91%84%E5%BD%B1/"/>
-    
-      <category term="镜头" scheme="https://tsuki419.github.io/tags/%E9%95%9C%E5%A4%B4/"/>
-    
-      <category term="构图" scheme="https://tsuki419.github.io/tags/%E6%9E%84%E5%9B%BE/"/>
-    
-      <category term="读书笔记" scheme="https://tsuki419.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
