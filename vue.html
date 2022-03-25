@@ -1,0 +1,1573 @@
+﻿<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+
+
+  <meta name="keywords" content="vue,element-ui,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="tsuki's CodeLife" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="vue的简单学习，面向项目学习。包括了一些名词的解释学习和两个前端项目的学习。">
+<meta name="keywords" content="vue,element-ui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue学习">
+<meta property="og:url" content="https://tsuki419.github.io/vue.html">
+<meta property="og:site_name" content="tsuki&#39;s CodeLife">
+<meta property="og:description" content="vue的简单学习，面向项目学习。包括了一些名词的解释学习和两个前端项目的学习。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-03-25T12:20:07.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue学习">
+<meta name="twitter:description" content="vue的简单学习，面向项目学习。包括了一些名词的解释学习和两个前端项目的学习。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"perspectiveLeftIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tsuki419.github.io/vue.html">
+
+
+
+
+
+  <title>vue学习 | tsuki's CodeLife</title>
+  
+
+
+
+
+
+
+
+
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/src/FunnyTitle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139938464-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139938464-1');
+</script>
+  
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!-- github-ribbon -->
+<a href="https://github.com/tsuki419"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_orange_ff7600.png?resize=149%2C149" class="github-ribbon" alt="Fork me on GitHub" data-recalc-dims="1"></a>			  
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+	<div class="top-scroll-bar"></div>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tsuki's CodeLife</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+	
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tsuki419.github.io/vue.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tsuki">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tsuki's CodeLife">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">vue学习</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-25T19:44:48+08:00">
+                2022-03-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2022-03-25T20:20:07+08:00">
+                2022-03-25
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/前端/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/vue.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="vue.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>vue的简单学习，面向项目学习。包括了一些名词的解释学习和两个前端项目的学习。</p>
+<a id="more"></a>
+<h2 id="vue入门"><a href="#vue入门" class="headerlink" title="vue入门"></a>vue入门</h2><p>vue.js 的<a href="https://cn.vuejs.org/v2/api/#vm-emit" target="_blank" rel="noopener">API文档</a></p>
+<p>下载vue.min.js，使用script标签引入。</p>
+<p> Vue 构造器中有一个el 参数，它是 DOM 元素中的 id。<strong>data</strong> 用于定义属性，<strong>methods</strong> 用于定义的函数，可以通过 return 来返回函数值。双花括号用于输出对象属性和函数返回值</p>
+<p>使用 v-html 指令用于输出 html 代码</p>
+<p>HTML 属性中的值应使用 v-bind 指令。</p>
+<p>指令是带有 v- 前缀的特殊属性。指令用于在表达式的值改变时，将某些行为应用到 DOM 上</p>
+<p>在 input 输入框中我们可以使用 v-model 指令来实现双向数据绑定</p>
+<p>按钮的事件我们可以使用 v-on 监听事件，并对用户的输入进行响应。</p>
+<p>组件（Component）是 Vue.js 最强大的功能之一。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>cnpm install -g @vue/cli</code></p>
+<p><a href="mailto:node@10.15.3" target="_blank" rel="noopener">node@10.15.3</a>版本太低，不匹配<a href="mailto:vue@3.x" target="_blank" rel="noopener">vue@3.x</a>的版本</p>
+<p><a href="https://www.jianshu.com/p/c46a45d177cb" target="_blank" rel="noopener">升级node</a>，</p>
+<ol>
+<li><p>通过n模块</p>
+<p><code>npm install -g n</code>报错，改为 <code>npm i -g n --force</code>，安装成功了，但是n命令不能使用。</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/13c0b3ca7c71" target="_blank" rel="noopener">通过nvm</a></p>
+<p>下载nvm，github太不稳定了，下载不了，感谢博主的<a href="https://blog.csdn.net/qq_44401643/article/details/90400626" target="_blank" rel="noopener">百度云链接</a>，然后<a href="https://www.jianshu.com/p/13c0b3ca7c71" target="_blank" rel="noopener">参照文章</a>进行安装，几个注意点：文件夹名<strong>不要出现</strong> <code>中文</code> 和 <code>空格</code>；在运行<code>nvm install</code> 的时候，有可能会出现无权限安装的问题，如果遇到此问题，请 <code>以管理员身份运行</code> cmd。</p>
+<font color="orange">node安装成功但是npm不能安装。有坑</font>
+
+<p><a href="https://blog.csdn.net/Deleven_Blog/article/details/100077732" target="_blank" rel="noopener">nvm安装后node生效但是npm不生效</a></p>
+<p>在nvm安装目录，找到 setting.txt用记事本打开添加如下两行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/ </span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>   手动去安装，<a href="https://npm.taobao.org/mirrors/npm/" target="_blank" rel="noopener">下载地址</a>，</p>
+<ol>
+<li>自己下载node对应的npm版本</li>
+<li>解压后将文件夹重命名为npm并复制到node_modules目录下</li>
+<li><p>最后将npm中bin目录下的npm以及npm.cmd复制到与node_modules目录同级目录下</p>
+<font color="orange">完美解决。</font>
+
+<p><a href="https://www.cnblogs.com/fighxp/p/7410235.html" target="_blank" rel="noopener">如何从Windows中删除Node.js</a>：</p>
+</li>
+</ol>
+<p>​    C:\Program Files (x86)\Nodejs<br>   ​    C:\Program Files\Nodejs<br>​    C:\Users{User}\AppData\Roaming\npm（或%appdata%\npm）<br>   ​    C:\Users{User}\AppData\Roaming\npm-cache（或%appdata%\npm-cache）</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">nvm install 14.5.0 // 安装14.5.0版本node</span><br><span class="line">   nvm install latest // 安装最新版本node</span><br><span class="line">   </span><br><span class="line">   nvm list // 显示已安装的版本（同 nvm list installed）</span><br><span class="line">   nvm list installed // 显示已安装的版本</span><br><span class="line">nvm list available // 显示所有可以下载的版本</span><br><span class="line">   </span><br><span class="line">nvm use 14.5.0 // 使用14.5.0版本node</span><br><span class="line">   nvm uninstall 14.5.0 // 卸载14.5.0版本node</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p><a href="https://www.jianshu.com/p/c46a45d177cb" target="_blank" rel="noopener">通过gnvm</a>，方法二成功了，未尝试方法三</p>
+</li>
+<li><p><a href="https://dkvirus.gitbooks.io/-npm/content/di-wu-zhang/52-npm-ban-ben-zhi-shi-zong-jie.html" target="_blank" rel="noopener">nvm知识补充</a></p>
+</li>
+</ol>
+<p><strong>idea创建vue项目</strong>（<a href="https://www.bilibili.com/video/BV14y4y1M7Nc?p=1" target="_blank" rel="noopener">参考视频</a>，<a href="https://blog.csdn.net/qq_29247945/article/details/95601148" target="_blank" rel="noopener">参考博客</a></p>
+<ol>
+<li><a href="mailto:npm@v8.3.1" target="_blank" rel="noopener">npm@v8.3.1</a>好像有<a href="https://github.com/npm/cli/issues/4234" target="_blank" rel="noopener">bug</a>，创建项目出错，<code>npm ERR! Unexpected token &#39;.&#39;</code></li>
+<li>更换版本，<a href="mailto:node@v14.16.0" target="_blank" rel="noopener">node@v14.16.0</a>，<a href="mailto:npm@v6.14.1" target="_blank" rel="noopener">npm@v6.14.1</a>，成功创建</li>
+</ol>
+<p>正式进入开发</p>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>下载了一个开源模板，RuoYI-Vue，对应的说明文档<a href="https://juejin.cn/post/6844903476661583880" target="_blank" rel="noopener">手摸手，带你用vue撸后台</a>，选择了基础模板==&gt;vueAdmin-template<a href="https://juejin.cn/post/6844903486241374221" target="_blank" rel="noopener">（对应文档）</a>。本篇前端用了element-ui</p>
+<p>后续进行主页面定位的开发，参考开源的代码，博客<a href="https://www.jianshu.com/p/9df016cd65fa" target="_blank" rel="noopener">GPS定位系统(四)——Vue前端</a>，本篇前端用了<a href="https://github.com/iview/iview-admin" target="_blank" rel="noopener">ivew-admin</a>，后台github地址<a href="https://github.com/fly7632785/GpsServer" target="_blank" rel="noopener">GpsServer</a></p>
+<h3 id="项目1目录结构"><a href="#项目1目录结构" class="headerlink" title="项目1目录结构"></a>项目1目录结构</h3><p>router路径映射，通过地址可以访问界面。</p>
+<p>components+views一些代码通过组件的方式打包，在别的界面进行引入。</p>
+<p>搭建页面：使用element组件，参考mall项目，先搭后台管理页面。</p>
+<p>在研读vue-admin-template项目代码前，有必要搞清楚vue项目结构关系。</p>
+<p>而index.html中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>来自index.html正文中的内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面有一个id为app的挂载点，之后我们的Vue根实例就会挂载到该挂载点上；</p>
+<p>main.js作为项目的入口文件，在main.js中，新建了一个Vue实例，在Vue实例中，通过</p>
+<p>告诉该实例要挂载的地方；（即实例装载到index.html中的位置）</p>
+<p><a href="https://blog.csdn.net/bandaoyu/article/details/104832809" target="_blank" rel="noopener">参考文章1</a>，<a href="https://blog.csdn.net/qq_20967969/article/details/98470766" target="_blank" rel="noopener">文章2</a></p>
+<h3 id="项目2"><a href="#项目2" class="headerlink" title="项目2"></a>项目2</h3><p>建立数据库和修改连接池配置，虽然出了点小问题，但是意外的很快跑起来了。完美~接下来进行项目的学习，该项目很像我正在做的项目。</p>
+<h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p>观察路由表，地图相关的有：now-gps; gps-history可以参考。</p>
+<p>store文件夹中user.js, 对user信息的增删改查，处理登录信息，处理轨迹信息。调用了util.js实现对user信息的操控。</p>
+<p>瞎折腾项目gps添加swagger-ui莫名其妙的出问题，</p>
+<ol>
+<li>先是添加版本号解决了插件找不到问题，</li>
+<li><a href="https://www.cnblogs.com/guanghe/p/10238990.html" target="_blank" rel="noopener">swagger报错No handler found for GET /swagger-ui.html</a> 按照博客的方法，添加映射之后，仍然有问题：<code>com.jafir.springboot.exception.TokenException: null</code>，懒得继续搞了，无意义。</li>
+</ol>
+<h2 id="element-ui"><a href="#element-ui" class="headerlink" title="element-ui"></a>element-ui</h2><p><a href="https://element.eleme.cn/#/zh-CN/component/i18n" target="_blank" rel="noopener">参考文档</a>，适配vue2</p>
+<p><a href="https://element-plus.gitee.io/zh-CN/component/pagination.html" target="_blank" rel="noopener">element-plus参考文档</a>，适配vue3</p>
+<h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p><a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">参考文档</a></p>
+<p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式 + 库</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+<h2 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h2><p><a href="https://www.axios-http.cn/docs/intro" target="_blank" rel="noopener">参考文档</a></p>
+<p>Axios 是一个基于 <em><a href="https://javascript.info/promise-basics" target="_blank" rel="noopener">promise</a></em> 网络请求库，作用于<a href="https://nodejs.org/" target="_blank" rel="noopener"><code>node.js</code></a> 和浏览器中。 它是 <em><a href="https://www.lullabot.com/articles/what-is-an-isomorphic-application" target="_blank" rel="noopener">isomorphic</a></em> 的(即同一套代码可以运行在浏览器和node.js中)。在服务端它使用原生 node.js <code>http</code> 模块, 而在客户端 (浏览端) 则使用 XMLHttpRequests。</p>
+<h2 id="mock"><a href="#mock" class="headerlink" title="mock"></a>mock</h2><p>测试用，数据模拟生成器</p>
+<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p>本质上，<em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)</em>。当 webpack 处理应用程序时，它会递归地构建一个<em>依赖关系图(dependency graph)</em>，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 <em>bundle</em>。</p>
+<p>vue<a href="https://www.cnblogs.com/JerryMouseLi/p/11032840.html" target="_blank" rel="noopener">程序的调试</a></p>
+<h2 id="MARK"><a href="#MARK" class="headerlink" title="MARK"></a>MARK</h2><h3 id="pro1"><a href="#pro1" class="headerlink" title="pro1"></a>pro1</h3><ol>
+<li><a href="https://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="noopener">Promise</a> 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大—–异步请求？</li>
+<li>JavaScript.trim() 方法用于删除字符串的头尾空白符.</li>
+<li>在接收服务器数据时一般是字符串。我们可以使用 JSON.parse() 方法将数据转换为 JavaScript 对象。</li>
+<li>富文本</li>
+</ol>
+<h3 id="pro2"><a href="#pro2" class="headerlink" title="pro2"></a>pro2</h3><ol>
+<li><p>vm.$emit( event, arg ) //触发当前实例上的事件，<a href="https://cn.vuejs.org/v2/api/#vm-emit" target="_blank" rel="noopener">api文档</a></p>
+</li>
+<li><p>.env.development（开发环境）、.env.prodction（正式环境）、自定义环境，<a href="https://blog.csdn.net/qq_42855675/article/details/114261585" target="_blank" rel="noopener">参考博客</a>，vue-cli<a href="https://blog.csdn.net/qq_42855675/article/details/114261585" target="_blank" rel="noopener">官方文档</a></p>
+</li>
+<li><p>前端开发：<a href="https://xie.infoq.cn/article/c5b343c3d8e900ca748df7ac3" target="_blank" rel="noopener">npm run serve 和 npm run dev 的区别</a></p>
+<p>package.json文件中的’scripts’字段定义了怎么启动项目。</p>
+</li>
+</ol>
+<h2 id="登录token处理"><a href="#登录token处理" class="headerlink" title="登录token处理"></a>登录token处理</h2><p><a href="https://blog.csdn.net/qq_41399901/article/details/89070139" target="_blank" rel="noopener">参考博客</a></p>
+<p>通过设置 ajax 拦截器，将 token 放在header 中，使每次请求带上 token，在每次发送请求时，让后台先判断 token 是否合法，再进行下一步操作。</p>
+<p>此处将token临时存储到cookie中。</p>
+<p>登录：当用户填写完账号和密码后向服务端验证是否正确，验证通过之后，服务端会返回一个<strong>token</strong>，拿到token之后（我会将这个token存贮到cookie中，保证刷新页面后能记住用户登录状态），前端会根据token再去拉取一个 <strong>user_info</strong> 的接口来获取用户的详细信息（如用户权限，用户名等等信息）。</p>
+<p>权限验证：通过token获取用户对应的 <strong>role</strong>，动态根据用户的 role 算出其对应有权限的路由，通过 <strong>router.addRoutes</strong> 动态挂载这些路由。<br>链接：<a href="https://juejin.cn/post/6844903478880370701" target="_blank" rel="noopener">https://juejin.cn/post/6844903478880370701</a></p>
+<h2 id="js-cookie"><a href="#js-cookie" class="headerlink" title="js-cookie"></a>js-cookie</h2><p>因为HTTP协议是无状态协议，一旦本次会话结束，客户端与服务器的连接就会关闭，下次需要重新建立连接，服务器就无法跟踪上次会话了。为了跟踪会话，需要使用Cookie</p>
+<p><a href="https://www.kancloud.cn/cy23/vuejs/367166" target="_blank" rel="noopener">参考文档</a></p>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><p>无论是前端还是后台项目的编写都用到了ES6语法。<a href="https://www.cnblogs.com/liubn/p/5694902.html" target="_blank" rel="noopener">参考文章</a></p>
+<p>ES6是JavaScript语言的新一代标准，加入了一些新的功能和语法。</p>
+<ol>
+<li><p>ES6中可以使用 =&gt; 作为函数表达形式，极简风格，参数＋ =&gt; ＋函数体。</p>
+</li>
+<li><p>ES6 推荐在函数中使用 let 定义变量</p>
+<p>const 用来声明一个常量，但也并非一成不变的</p>
+<p>let 和 const 只在最近的一个块中（花括号中）有效</p>
+</li>
+<li><p>ES6 中可以通过 Symbol.iterator 给对象设置默认的遍历器，直到状态为true退出。</p>
+</li>
+<li><p>ES6还是有很多棒棒的语法，有利于精简代码，高效开发；只不过一些低级别浏览器不支持，可以用Babel等工具把ES6转化成ES5，但是有些语法还是不够完善</p>
+</li>
+</ol>
+<p>@TableId(value=”id”, type=IdType.AUTO) 设置id自增</p>
+<h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><p>类似面向对象的继承机制，定义一个基类，继承自基类，可以复用代码，<a href="https://cn.vuejs.org/v2/guide/mixins.html" target="_blank" rel="noopener">参考文档</a></p>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        ﻿
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/vue.html">vue学习</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
+  <p><span>发布时间:</span>2022.03.25 - 19:44</p>
+  <p><span>最后更新:</span>2022.03.25 - 20:20</p>
+  <p><span>原始链接:</span><a href="/vue.html" title="vue学习">https://tsuki419.github.io/vue.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/vue.html" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+	
+    
+
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE END-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+            <a href="/tags/element-ui/" rel="tag"><i class="fa fa-tag"></i> element-ui</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mall开源项目记录.html" rel="next" title="mall学习记录">
+                <i class="fa fa-chevron-left"></i> mall学习记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/My-Blog运行记录.html" rel="prev" title="My Blog项目学习">
+                My Blog项目学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="vue.html" data-title="vue学习" data-url="https://tsuki419.github.io/vue.html">
+      </div>
+    </div>
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+			<a href="/about/">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="tsuki">
+            
+              <p class="site-author-name" itemprop="name">tsuki</p>
+			 </a>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tsuki419" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:nognoll@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue入门"><span class="nav-number">1.</span> <span class="nav-text">vue入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发"><span class="nav-number">3.</span> <span class="nav-text">开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目1目录结构"><span class="nav-number">3.1.</span> <span class="nav-text">项目1目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目2"><span class="nav-number">3.2.</span> <span class="nav-text">项目2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目录结构"><span class="nav-number">3.2.1.</span> <span class="nav-text">目录结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element-ui"><span class="nav-number">4.</span> <span class="nav-text">element-ui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vuex"><span class="nav-number">5.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Axios"><span class="nav-number">6.</span> <span class="nav-text">Axios</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mock"><span class="nav-number">7.</span> <span class="nav-text">mock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number">8.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MARK"><span class="nav-number">9.</span> <span class="nav-text">MARK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pro1"><span class="nav-number">9.1.</span> <span class="nav-text">pro1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pro2"><span class="nav-number">9.2.</span> <span class="nav-text">pro2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录token处理"><span class="nav-number">10.</span> <span class="nav-text">登录token处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-cookie"><span class="nav-number">11.</span> <span class="nav-text">js-cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6"><span class="nav-number">12.</span> <span class="nav-text">ES6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mixin"><span class="nav-number">13.</span> <span class="nav-text">mixin</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 33.2k</span>
+</div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tsuki</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/custom/custom.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bM139YnQtmQQ9kvJ6WWXNLtT-MdYXbMMI',
+        appKey: 'Q1UyAWdYhKPkkKfYoXQmyaVV',
+        placeholder: 'just go go!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 18431,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+    <!-- 点击烟花特效 -->
+	
+		<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+		<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+		<script type="text/javascript" src="/js/src/fireworks.js"></script>
+	
+  <!-- 背景图片更换 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("https://i.loli.net/2019/05/10/5cd55b4dc91a0.jpg");
+  </script> 
+  
+  <!-- 雪花特效 -->
+<!--  <script type="text/javascript" src="/js/src/snow.js"></script> -->
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.95},"log":false});</script></body>
+</html>
+
+<!-- 样式二（飘动的彩带） -->
+<script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
+
+
+<!-- 页面点击小红心 -->
+<!--<script type="text/javascript" src="/js/src/clicklove.js"></script>-->

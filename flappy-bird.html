@@ -130,18 +130,18 @@
 
 
 
-<meta name="description" content="爬虫练手">
+<meta name="description" content="搞点好玩的，这个简单的项目实现主要就是画面数值的精确计算。fly bird">
 <meta name="keywords" content="Java,Swing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fly bird">
 <meta property="og:url" content="https://tsuki419.github.io/flappy-bird.html">
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
-<meta property="og:description" content="爬虫练手">
+<meta property="og:description" content="搞点好玩的，这个简单的项目实现主要就是画面数值的精确计算。fly bird">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-03-23T14:00:51.027Z">
+<meta property="og:updated_time" content="2022-03-24T01:52:59.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fly bird">
-<meta name="twitter:description" content="爬虫练手">
+<meta name="twitter:description" content="搞点好玩的，这个简单的项目实现主要就是画面数值的精确计算。fly bird">
 
 
 
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-03-23T22:00:51+08:00">
-                2022-03-23
+              <time title="更新于" itemprop="dateModified" datetime="2022-03-24T09:52:59+08:00">
+                2022-03-24
               </time>
             
           </span>
@@ -491,7 +491,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  583
+                  579
                 </span>
               
 
@@ -516,9 +516,8 @@
       
 
       
-        <p>爬虫练手</p>
+        <p>搞点好玩的，这个简单的项目实现主要就是画面数值的精确计算。<a href="https://git.nowcoder.com/999991353/fly-bird" target="_blank" rel="noopener">fly bird</a></p>
 <a id="more"></a> 
-<p>搞点好玩的，这个简单的项目实现主要就是画面数值的精确计算。<a href="https://git.nowcoder.com/999991353/fly-bird" target="_blank" rel="noopener">fly bird</a></p>
 <h2 id="绘制分析"><a href="#绘制分析" class="headerlink" title="绘制分析"></a>绘制分析</h2><p>画面总的分为三部分，运行画面，开始画面和结束画面。设置<strong>状态转换</strong>，点击开始画面进入运行状态，点击结束画面回到开始状态（重新加载地图）。运行状态的设计是游戏核心。分析游戏的运行是通过鼠标点击来改变小鸟的运动，因此要对界面添加一个监听器，监听鼠标的变化。</p>
 <p><strong>地面类和柱子类</strong>都只需要计算好初始化位置和平移位置。</p>
 <p>主要的逻辑在<strong>小鸟类</strong>实现。小鸟的飞行动作由加载的一系列图片循环加载完成。每一次点击都是完成一次抛物运动，因此涉及到了初速度，角度，重力加速度（伪）属性，以及时间属性。小鸟的位移只有垂直位移，移动的效果是通过地面和柱子的移动完成的。视觉上小鸟在做抛物线是由小鸟的旋转角度变化实现的。</p>
@@ -554,7 +553,7 @@
   <p><span>本文标题:</span><a href="/flappy-bird.html">fly bird</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2022.03.23 - 21:55</p>
-  <p><span>最后更新:</span>2022.03.23 - 22:00</p>
+  <p><span>最后更新:</span>2022.03.24 - 09:52</p>
   <p><span>原始链接:</span><a href="/flappy-bird.html" title="fly bird">https://tsuki419.github.io/flappy-bird.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/flappy-bird.html" aria-label="复制成功！"></i></span>
   </p>
@@ -634,6 +633,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mall开源项目记录.html" rel="prev" title="mall学习记录">
+                mall学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -723,7 +726,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -734,7 +737,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -745,7 +748,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -823,7 +826,7 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 29.5k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 33.2k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>

@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tsuki419.github.io/vue.html</loc>
+    
+    <lastmod>2022-03-25T12:20:07.278Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tsuki419.github.io/mall%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95.html</loc>
+    
+    <lastmod>2022-03-25T11:41:39.742Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tsuki419.github.io/My-Blog%E8%BF%90%E8%A1%8C%E8%AE%B0%E5%BD%95.html</loc>
+    
+    <lastmod>2022-03-25T11:34:03.287Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tsuki419.github.io/flappy-bird.html</loc>
     
-    <lastmod>2022-03-23T14:00:51.027Z</lastmod>
+    <lastmod>2022-03-24T01:52:59.301Z</lastmod>
     
   </url>
   
