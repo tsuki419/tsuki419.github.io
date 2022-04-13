@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="MySQL的底层基础补一下。先占个坑。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-03-22T14:10:52.678Z">
+<meta property="og:updated_time" content="2022-03-25T14:11:55.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL">
 <meta name="twitter:description" content="MySQL的底层基础补一下。先占个坑。">
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-03-22T22:10:52+08:00">
-                2022-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2022-03-25T22:11:55+08:00">
+                2022-03-25
               </time>
             
           </span>
@@ -480,7 +480,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  773
+                  1.1k
                 </span>
               
 
@@ -507,7 +507,16 @@
       
         <p>MySQL的底层基础补一下。先占个坑。</p>
 <a id="more"></a>
-<h2 id="连接步骤"><a href="#连接步骤" class="headerlink" title="连接步骤"></a>连接步骤</h2><h2 id="QueryCache"><a href="#QueryCache" class="headerlink" title="QueryCache"></a>QueryCache</h2><p><em><a href="https://mp.weixin.qq.com/s/LZBctWNWi3qehb-dgUCmxQ" target="_blank" rel="noopener">参考</a></em></p>
+<h2 id="执行步骤"><a href="#执行步骤" class="headerlink" title="执行步骤"></a>执行步骤</h2><p>先检查是否有权限，如果没有权限直接返回，如果有权限就去查询缓存QueryCache（如果开了的话，现在已经关掉了），命中直接返回结果否则进行词法分析，语法分析，优化器进行优化（语义优化，语法优化，执行优化），然后执行，返回结果。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>MySQL的存储采用了B+树的数据结构，建立的索引也是B+树。B+树是一种多路平衡树，最大搜索次数是树的深度。B+树支持全局搜索，相较二叉查找树更加矮胖，同样B树的非叶子节点存储数据信息，而B+树只存储键值，剩余的位置可以存储更多的键值，使得树更矮胖。因为叶子结点都在同一层，查询时间稳定。叶子结点由指针链接起来对范围查找非常有利。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>要不要建立索引要多方考虑，索引的类型很多。ElasticSearch中采用了倒排索引，而MySQL中主键是聚簇索引，属于一级索引。</p>
+<blockquote>
+<p>一级索引：B+树，叶子结点包含了行的全部数据（索引和数据存储），节点页只包含主键。</p>
+<p>二级索引：二级索引可以有0个，1个或者多个。二级索引的结点只存被索引列的值，而二级索引的叶子结点存索引列值和主键值。</p>
+</blockquote>
+<p>数据库容错</p>
+<p>主从复制</p>
+<h2 id="QueryCache"><a href="#QueryCache" class="headerlink" title="QueryCache"></a>QueryCache</h2><p><em><a href="https://mp.weixin.qq.com/s/LZBctWNWi3qehb-dgUCmxQ" target="_blank" rel="noopener">参考</a></em></p>
 <p>避免相同SQL的硬解析（语法分析&gt;语义分析&gt;生成执行计划），SQL执行结果缓存在RESULT CACHE内存组件中，有效将的将物理IO转化为逻辑IO，提高SQL执行效率。但是更新数据库使缓存失效，因此频繁更新操作并不适合开启QC。理想的情况是相同的查询由相同或者多个客户机重复发出，被访问的底层数据本质上是静态或者半静态，并发性和QPS(Query Per Second)都不高，然而实际的业务系统都是有CRUD的，数据更新比较频繁，查询接口的QPS比较高。开启后对数据库并发度和处理能力都会降低很多。同时查询缓存碎片化还会导致服务器的负载升高，影响数据库的稳定性。</p>
 <p>查询缓存分片数据块默认大小是4KB，如果有很多查询结果很小，那么默认数据块大小可能会导致内存碎片，由于内存不足，碎片可能会强制查询缓存从缓存中删除查询。在这种情况下，可以减小它的值，如果大量的查询有较大的结果集，可以增大该参数的值来<strong>提高性能</strong>。</p>
 <blockquote>
@@ -519,14 +528,11 @@
 <p>这其实也是内存管理内容，缓存的思想无处不在。</p>
 </blockquote>
 <h3 id="Change-Buffer"><a href="#Change-Buffer" class="headerlink" title="Change Buffer"></a>Change Buffer</h3><p>只在操作二级索引时才用，因为聚簇索引必须是唯一的。要修改的页不在内存里，就把要对页的修改先寄到Change Bufer中，同时记录redo log，再慢慢把数据load到内存，然后把Change Buffer中的修改应用到内存（Buffer Pool)中，这个动作叫merge。</p>
-<blockquote>
-<p>一级索引：B+树，叶子结点包含了行的全部数据（索引和数据存储），节点页只包含主键。</p>
-<p>二级索引：二级索引可以有0个，1个或者多个。二级索引的结点只存被索引列的值，而二级索引的叶子结点存索引列值和主键值。</p>
-</blockquote>
 <h3 id="Adaptive-Hash-Index"><a href="#Adaptive-Hash-Index" class="headerlink" title="Adaptive Hash Index"></a>Adaptive Hash Index</h3><p>MySQL索引在磁盘和内存都是B+树，频繁访问的数据用指针把数据位置记录下来。</p>
 <h3 id="Log-Buffer"><a href="#Log-Buffer" class="headerlink" title="Log Buffer"></a>Log Buffer</h3><p>redo log会刷到磁盘中。</p>
 <h3 id="Doublewrite-Buffer"><a href="#Doublewrite-Buffer" class="headerlink" title="Doublewrite Buffer"></a>Doublewrite Buffer</h3><p>用来保证数据页可靠性。</p>
 <p>MySQL在刷数据到磁盘之前，要先把数据写到Doublewrite Buffer, 写完之后再开始写磁盘。万一发生crash可以利用它来修复磁盘数据。</p>
+<h2 id="PageCache"><a href="#PageCache" class="headerlink" title="PageCache"></a>PageCache</h2><p>是操作系统层面的，在磁盘上提供的缓存区。</p>
 <h2 id="面试专题"><a href="#面试专题" class="headerlink" title="面试专题"></a>面试专题</h2><p>参考<a href="https://mp.weixin.qq.com/s/MaVYENapeJcLNpYcR7tqBQ" target="_blank" rel="noopener">1</a> <a href="https://mp.weixin.qq.com/s/vwHkXGNCdRdx8k7BeBMy9w" target="_blank" rel="noopener">2</a></p>
 
       
@@ -547,7 +553,7 @@
   <p><span>本文标题:</span><a href="/MySQL.html">MySQL</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2022.03.22 - 22:03</p>
-  <p><span>最后更新:</span>2022.03.22 - 22:10</p>
+  <p><span>最后更新:</span>2022.03.25 - 22:11</p>
   <p><span>原始链接:</span><a href="/MySQL.html" title="MySQL">https://tsuki419.github.io/MySQL.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/MySQL.html" aria-label="复制成功！"></i></span>
   </p>
@@ -720,7 +726,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -742,7 +748,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -797,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接步骤"><span class="nav-number">1.</span> <span class="nav-text">连接步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QueryCache"><span class="nav-number">2.</span> <span class="nav-text">QueryCache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB"><span class="nav-number">3.</span> <span class="nav-text">InnoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BufferPool"><span class="nav-number">3.1.</span> <span class="nav-text">BufferPool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Change-Buffer"><span class="nav-number">3.2.</span> <span class="nav-text">Change Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaptive-Hash-Index"><span class="nav-number">3.3.</span> <span class="nav-text">Adaptive Hash Index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log-Buffer"><span class="nav-number">3.4.</span> <span class="nav-text">Log Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Doublewrite-Buffer"><span class="nav-number">3.5.</span> <span class="nav-text">Doublewrite Buffer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试专题"><span class="nav-number">4.</span> <span class="nav-text">面试专题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#执行步骤"><span class="nav-number">1.</span> <span class="nav-text">执行步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">3.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QueryCache"><span class="nav-number">4.</span> <span class="nav-text">QueryCache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB"><span class="nav-number">5.</span> <span class="nav-text">InnoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BufferPool"><span class="nav-number">5.1.</span> <span class="nav-text">BufferPool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Change-Buffer"><span class="nav-number">5.2.</span> <span class="nav-text">Change Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaptive-Hash-Index"><span class="nav-number">5.3.</span> <span class="nav-text">Adaptive Hash Index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log-Buffer"><span class="nav-number">5.4.</span> <span class="nav-text">Log Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Doublewrite-Buffer"><span class="nav-number">5.5.</span> <span class="nav-text">Doublewrite Buffer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PageCache"><span class="nav-number">6.</span> <span class="nav-text">PageCache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试专题"><span class="nav-number">7.</span> <span class="nav-text">面试专题</span></a></li></ol></div>
             
 
           </div>
@@ -820,7 +826,7 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 33.2k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 40.9k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>

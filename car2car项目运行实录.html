@@ -130,18 +130,18 @@
 
 
 
-<meta name="description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，因此记录一下尝试的过程和途中遇到的bug…">
+<meta name="description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，记录一下尝试的过程和途中遇到的bug…">
 <meta name="keywords" content="Java,SpringBoot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="car2car项目运行实录">
 <meta property="og:url" content="https://tsuki419.github.io/car2car项目运行实录.html">
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
-<meta property="og:description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，因此记录一下尝试的过程和途中遇到的bug…">
+<meta property="og:description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，记录一下尝试的过程和途中遇到的bug…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-12-27T12:40:04.922Z">
+<meta property="og:updated_time" content="2022-04-11T10:49:58.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="car2car项目运行实录">
-<meta name="twitter:description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，因此记录一下尝试的过程和途中遇到的bug…">
+<meta name="twitter:description" content="在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，记录一下尝试的过程和途中遇到的bug…">
 
 
 
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-12-27T20:40:04+08:00">
-                2021-12-27
+              <time title="更新于" itemprop="dateModified" datetime="2022-04-11T18:49:58+08:00">
+                2022-04-11
               </time>
             
           </span>
@@ -502,7 +502,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.9k
+                  3.2k
                 </span>
               
 
@@ -527,9 +527,9 @@
       
 
       
-        <p>在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，因此记录一下尝试的过程和途中遇到的bug…</p>
+        <p>在尝试做项目，说是课题也不像课题，老师给的权限很宽，那就按我的想法来尝试，记录一下尝试的过程和途中遇到的bug…</p>
 <a id="more"></a> 
-<h2 id="car2car"><a href="#car2car" class="headerlink" title="car2car"></a>car2car</h2><p>本来是打算在原项目的基础上做的，所以最开始选择了导入jar包然后添加到项目中。jar包的下载就是度娘。然后导入项目。</p>
+<h2 id="陈年旧项目简介"><a href="#陈年旧项目简介" class="headerlink" title="陈年旧项目简介"></a>陈年旧项目简介</h2><p>本来是打算在原项目的基础上做的，所以最开始选择了导入jar包然后添加到项目中。jar包的下载就是度娘。然后导入项目。</p>
 <ul>
 <li><p>本项目用到了以下几个额外的jar包</p>
 <p>POI： 读取excel数据</p>
@@ -545,14 +545,12 @@
 </li>
 </ul>
 <blockquote>
-<p>如何判断什么时候需要抓异常。</p>
 <p><a href="https://lbs.amap.com/api/javascript-api/guide/abc/quickstart" target="_blank" rel="noopener">amap</a>的使用方法</p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage" target="_blank" rel="noopener">sessionStorage</a>对象</p>
-<p>GPS所获取的信息</p>
 </blockquote>
 <h2 id="修改为maven项目"><a href="#修改为maven项目" class="headerlink" title="修改为maven项目"></a>修改为maven项目</h2><p>但是导jar包配置各种东西真的太麻烦了，于是决定用maven管理老项目，pom.xml配置真香。</p>
-<ol>
-<li><p><a href="https://blog.csdn.net/weixin_30348133/article/details/114560553" target="_blank" rel="noopener">打包成maven项目</a></p>
+<ul>
+<li><p>打包成maven项目](<a href="https://blog.csdn.net/weixin_30348133/article/details/114560553" target="_blank" rel="noopener">https://blog.csdn.net/weixin_30348133/article/details/114560553</a>)</p>
 <ol>
 <li>.classpath 文件：指定了源文件位置，con容器为JRE，编译输出位置。指定了java项目在逻辑结构与文件系统的物理结构之间的对应关系。</li>
 <li>右键选择 JavaDemo（项目名称），选择“Configure –&gt; Convert to Maven Project”， 填写“Group ID”和“Artifact Id”都为“JavaDemo”</li>
@@ -569,53 +567,50 @@
 <li><p>报错2：<code>Skipping non-war project</code> tomcat没有启动，无tomcat日志信息，解决方法：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itheima<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven_web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> <span class="comment">&lt;!--加这一句--&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>到这里为止，终于部署到tomcat成功，但是页面乱码了，不要紧，肯定是编码问题。</p>
+<li><p>到这里为止，终于<font color="green"><strong>部署到tomcat成功</strong></font>，但是页面乱码了，不要紧，肯定是编码问题。</p>
 </li>
 <li><p>报错3：<a href="https://blog.csdn.net/qq_43682690/article/details/109364514" target="_blank" rel="noopener">Servlet不能正常访问</a>，论版本兼容的重要性。tomcat各版本的<a href="https://blog.csdn.net/qq_37651267/article/details/94592106" target="_blank" rel="noopener">兼容</a>，其实是在运行其他项目时遇到的问题，一并归纳。</p>
 </li>
 </ol>
 </li>
-<li><p>数据库设计</p>
+<li><p><strong>数据库设计</strong></p>
 <p>编码问题解决好了，那就进入数据库的连接。原本的数据库与前端页面的交互代码写得比较繁杂，这里可以优化为采用数据库连接池和Spring框架提供的JDBCTemplate来进行优化。</p>
 <p>数据库的设计方面，数值范围是一个讨论问题。</p>
 <ol>
 <li>报错：运行tomcat时无法连接到数据库，本地测试和连接其他的项目都可以，唯独这个项目不可以。尝试了给数据库更高的权限，尝试了改密码，都没有解决。啊卡了好久，<font color="red">解决无果</font>。</li>
 <li>本地测试了jdbc工具类和连接池工具类都没有问题。</li>
+<li>优化注解注入，简化web.xml的配置</li>
 </ol>
-</li>
-<li><p>优化注解注入，简化web.xml的配置</p>
-</li>
-<li><p><strong>了解已知代码的逻辑实现和已有的功能。</strong></p>
-</li>
-<li><p>功能设计</p>
+<p>目前的计划：</p>
 <ol>
-<li><strong>文献查询，聚类分析的基本方式和基于LoRa的应用</strong></li>
-<li>选取合适的模型进行坐标点的分类</li>
-<li>编写逻辑代码</li>
+<li>了解已知代码的逻辑实现和已有的功能。</li>
+<li>文献查询，聚类分析的基本方式和基于LoRa的应用</li>
+<li>取合适的模型进行坐标点的分类</li>
 </ol>
 </li>
-</ol>
-<h2 id="修改项目框架为Springboot"><a href="#修改项目框架为Springboot" class="headerlink" title="修改项目框架为Springboot"></a>修改项目框架为Springboot</h2><h3 id="新建一个模块module"><a href="#新建一个模块module" class="headerlink" title="新建一个模块module"></a>新建一个模块module</h3><h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><ol>
+</ul>
+<h2 id="修改项目框架为Springboot"><a href="#修改项目框架为Springboot" class="headerlink" title="修改项目框架为Springboot"></a>修改项目框架为Springboot</h2><p>更新为主流的应用框架。参考了开源项目-mall</p>
+<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><ol>
 <li>一边学一边做，首先使用之前新建的数据库，采用新学Mybatis框架</li>
 <li>编写实体类 domain.User/domain.Data</li>
 <li>编写dao接口 UserMapper/DataMapper</li>
 <li>测试</li>
-<li>数据库设计的<font color="red">三大范式</font></li>
 </ol>
 <h3 id="导入静态资源和页面"><a href="#导入静态资源和页面" class="headerlink" title="导入静态资源和页面"></a>导入静态资源和页面</h3><p>​        静态资源放在static.asserts下面，页面放置在templates下</p>
 <p>无法加载样式—莫名其妙又可以加载了</p>
 <ul>
 <li><p>代替jsp使用<a href="https://www.cainiaojc.com/springboot/springboot-thymeleaf-view.html" target="_blank" rel="noopener">Thymeleaf</a> ,不是前后端分离的。</p>
 </li>
-<li><p><a href="https://www.cnblogs.com/JeasonIsCoding/p/13232648.html" target="_blank" rel="noopener">前后端分离</a>都提到了解决跨域问题，所以什么事<strong>跨域问题</strong>？<strong>nginx</strong>是什么？如何使用<strong>redis</strong>？<em>参考<a href="https://blog.csdn.net/qq_43875413/article/details/107609745" target="_blank" rel="noopener">1</a></em></p>
+<li><p><a href="https://www.cnblogs.com/JeasonIsCoding/p/13232648.html" target="_blank" rel="noopener">前后端分离</a>都提到了解决跨域问题，所以什么是<strong>跨域问题</strong>？<strong>nginx</strong>是什么？如何使用<strong>redis</strong>？<em>参考<a href="https://blog.csdn.net/qq_43875413/article/details/107609745" target="_blank" rel="noopener">1</a></em></p>
 </li>
 <li><p>用json和ajax实现前后端分离—-原项目就是采用了前后端分离的做法，所以正好保留</p>
 </li>
 </ul>
-<h3 id="实现登录功能-伪"><a href="#实现登录功能-伪" class="headerlink" title="实现登录功能(伪)"></a>实现登录功能(伪)</h3><p>视图映射的优化 </p>
-<p>如何在最大化保留原有代码的情况下，实现项目运行？</p>
+<blockquote>
+<p>原项目实现登录功能(伪)：</p>
 <p>使用SpringMVC的话就直接砍掉了servlet，使用Contoller替换掉servlet，SpringMVC嵌入了自动的<strong>json</strong>转换，只需要加一个<strong>@ResponseBody</strong></p>
 <p>反正折腾了半天是可以实现登录成功了，但是跳转了wmap.html页面。</p>
+</blockquote>
 <h3 id="添加了lombok"><a href="#添加了lombok" class="headerlink" title="添加了lombok"></a>添加了lombok</h3><p>Lombok表达式—面向函数编程</p>
 <p><em>参考<a href="https://www.jianshu.com/p/2543c71a8e45" target="_blank" rel="noopener">1</a> <a href="https://www.cnblogs.com/zhangyinhua/p/8623018.html" target="_blank" rel="noopener">2</a></em></p>
 <h3 id="MybatisGenerator"><a href="#MybatisGenerator" class="headerlink" title="MybatisGenerator"></a>MybatisGenerator</h3><p>使用Mybatis Generator可以快速根据数据库中已经建立好的表来创建mybatis代码</p>
@@ -668,47 +663,26 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="SpringSecurity-JWT登录控制"><a href="#SpringSecurity-JWT登录控制" class="headerlink" title="SpringSecurity+JWT登录控制"></a>SpringSecurity+JWT登录控制</h2><p>学习了新项目有了新的想法，使用SpringSecurity实现登录功能。</p>
+<h2 id="Spring-Security登录认证"><a href="#Spring-Security登录认证" class="headerlink" title="Spring Security登录认证"></a>Spring Security登录认证</h2><p>学习了新项目有了新的想法，使用SpringSecurity实现登录功能。</p>
 <p>实现登录功能有的几个方式：<a href="https://www.cnblogs.com/greyzeng/p/12926834.html#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" target="_blank" rel="noopener">参考1</a>，<a href="https://blog.csdn.net/qq_45950109/article/details/116357184" target="_blank" rel="noopener">参考2</a></p>
-<h3 id="传统的Session认证方式"><a href="#传统的Session认证方式" class="headerlink" title="传统的Session认证方式"></a>传统的Session认证方式</h3><p>http协议本身是一种无状态的协议，也就是每发起一次请求就要进行一次用户密码验证。因此我们在服务器存储一份用户登录的信息，这份登录信息会在响应时传递给浏览器，告诉其保存为cookie，以便下次请求时发送应用，应用就能识别请求来自哪个用户了，这就是传统的基于<strong>session认证</strong>。</p>
-<p>总的来说登录验证就一下几步：</p>
-<ol>
-<li>获取用户信息</li>
-<li>调用service查询user</li>
-<li>判断用户是否存在：有（存到Session，并跳转首页） 否（跳转到登录页面）</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//吐槽一下老旧的代码，甚至逻辑也不太清晰</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br><span class="line">    PrintWriter out = response.getWriter();</span><br><span class="line">    <span class="comment">//从请求中获取用户名和密码</span></span><br><span class="line">    String name=request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">    String password=request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">    <span class="comment">//设置session信息</span></span><br><span class="line">    session.setAttribute(<span class="string">"name"</span>, name);</span><br><span class="line">    <span class="comment">//获取用户</span></span><br><span class="line">    UserDao ud=DaoFactory.getInstance().getUserDao();</span><br><span class="line">    JSONObject jsondata = <span class="keyword">new</span> JSONObject();</span><br><span class="line">    <span class="comment">//获取用户等级---查询user</span></span><br><span class="line">    jsondata=ud.getGrade(name, password);</span><br><span class="line">    <span class="comment">//判断用户是否存在</span></span><br><span class="line">    <span class="keyword">if</span>(jsondata.getString(<span class="string">"grade"</span>) !=<span class="string">"0"</span>)&#123;</span><br><span class="line">        out.write(jsondata.toString());</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        request.setAttribute(<span class="string">"msg"</span>, <span class="string">"您的用户名和密码不正确"</span>);</span><br><span class="line">        request.getRequestDispatcher(<span class="string">"/login.html"</span>).forward(request,response);</span><br><span class="line">    &#125;</span><br><span class="line">    out.write(jsondata.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通常认证的记录被保存在内存中，传统的方式存在服务器开销大，扩展性差等问题。</p>
-<h3 id="基于token控制"><a href="#基于token控制" class="headerlink" title="基于token控制"></a>基于token控制</h3><p>也是无状态的，但是它不需要在服务端去保留用户的认证信息或者会话信息。流程上是这样的：</p>
-<ul>
-<li>用户使用用户名密码来请求服务器</li>
-<li>服务器进行验证用户的信息</li>
-<li>服务器通过验证发送给用户一个token</li>
-<li>客户端存储token，并在每次请求时附送上这个token值</li>
-<li>服务端验证token值，并返回数据</li>
-</ul>
-<p>这个token必须要在每次请求时传递给服务端，它应该保存在请求头里， 另外，服务端要支持<code>CORS(跨来源资源共享)</code>策略，一般我们在服务端这么做就可以了<code>Access-Control-Allow-Origin: *</code>。</p>
-<p><em>以上分析参考自文章<a href="https://www.jianshu.com/p/576dbf44b2ae" target="_blank" rel="noopener">什么是JWT</a></em></p>
-<p>配合本篇博客<a href="https://zhuanlan.zhihu.com/p/349962352" target="_blank" rel="noopener">Spring Security-安全管理框架</a>，更好的进行验证。</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>Springboot使用pagehelper</p>
+<p><strong>Springboot使用pagehelper</strong></p>
 <p>pagehelper的<a href="https://blog.csdn.net/csdn_huzeliang/article/details/79350425" target="_blank" rel="noopener">使用方法</a>有两种，集成成功。</p>
 <ul>
 <li>错误：SpringBoot单元测试使用@Test没有run方法的问题  <a href="https://blog.csdn.net/qq374461948/article/details/106226475" target="_blank" rel="noopener">参考</a> 因为改成了2.1.7.RELEASE，版本不同，项目的结构也不同。测试方法的public没了。然后改回了2.6.0.版本，但是仍然有问题。pagehelper循环依赖的问题。项目启动不了，我版本又改回了<a href="https://blog.csdn.net/layonly/article/details/121436957" target="_blank" rel="noopener">2.5.6</a>，会标红但是可以运行。</li>
 <li>引发了新问题，需要登陆才能查看swagger文档，但是登录密码错误，<font color="red">待解决</font>，好像知道原因了，是因为添加了security和token，虽然还没有集成完全。</li>
 </ul>
-<p>继续完成security—-需要更改数据库</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>继续完成security—-需要更改数据库</p>
 <p>因为需要自定义</p>
 <ul>
 <li>UserDetailsService:SpringSecurity定义的核心接口，用于根据用户名获取用户信息，需要自行实现；</li>
 <li>UserDetails：SpringSecurity定义用于封装用户信息的类（主要是用户信息和权限），需要自行实现；</li>
 <li>设计数据库—用MybatisGenerator生成model和mapper—完成service—controller</li>
 </ul>
-<h3 id="SpringSecurity的核心类"><a href="#SpringSecurity的核心类" class="headerlink" title="SpringSecurity的核心类"></a>SpringSecurity的核心类</h3><p><a href="https://blog.csdn.net/qq_36882793/article/details/102568589" target="_blank" rel="noopener">Spring Security 使用、实现权限访问控制</a></p>
-<p><a href="https://blog.csdn.net/qq_22078107/article/details/106654924" target="_blank" rel="noopener">Spring Security的GrantedAuthority（已授予的权限）</a></p>
-<p><a href="https://blog.csdn.net/wangb_java/article/details/86579694" target="_blank" rel="noopener">UserDetails用户详情</a>：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDetails</span> <span class="keyword">extends</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	Collection&lt;? extends GrantedAuthority&gt; getAuthorities();<span class="comment">//权限 </span></span><br><span class="line">	<span class="function">String <span class="title">getPassword</span><span class="params">()</span></span>;    <span class="comment">//密码</span></span><br><span class="line">	<span class="function">String <span class="title">getUsername</span><span class="params">()</span></span>;    <span class="comment">//用户名</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isAccountNonExpired</span><span class="params">()</span></span>;   <span class="comment">//账号是否未过期</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isAccountNonLocked</span><span class="params">()</span></span>;    <span class="comment">//账号是否未锁定</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isCredentialsNonExpired</span><span class="params">()</span></span>;<span class="comment">//密码是否未过期</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isEnabled</span><span class="params">()</span></span>;        <span class="comment">//是否激活</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Hibernate-validator校验框架（待添加）"><a href="#Hibernate-validator校验框架（待添加）" class="headerlink" title="Hibernate-validator校验框架（待添加）"></a>Hibernate-validator校验框架（待添加）</h3><p><a href="http://159.138.37.243/article/weixin_34205076/92387445" target="_blank" rel="noopener">使用教程</a></p>
-<h3 id="角色权限"><a href="#角色权限" class="headerlink" title="角色权限"></a>角色权限</h3><ul>
+<blockquote>
+<p>Hibernate-validator校验框架（待添加）</p>
+</blockquote>
+<p><a href="http://159.138.37.243/article/weixin_34205076/92387445" target="_blank" rel="noopener">使用教程</a></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
 <li><p>错误：<code>Could not resolve placeholder &#39;jwt.secret&#39; in value &quot;${jwt.secret}&quot;</code> 忘记配置了</p>
 </li>
 <li><p>获取权限列表，因为我的项目是简化版本的权限只需要，mall项目是四表联查找到权限封装为Permission对象，Security究竟是如何读取权限的呢</p>
@@ -760,7 +734,7 @@
   <p><span>本文标题:</span><a href="/car2car项目运行实录.html">car2car项目运行实录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2021.12.27 - 20:40</p>
-  <p><span>最后更新:</span>2021.12.27 - 20:40</p>
+  <p><span>最后更新:</span>2022.04.11 - 18:49</p>
   <p><span>原始链接:</span><a href="/car2car项目运行实录.html" title="car2car项目运行实录">https://tsuki419.github.io/car2car项目运行实录.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/car2car项目运行实录.html" aria-label="复制成功！"></i></span>
   </p>
@@ -933,7 +907,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -955,7 +929,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1010,7 +984,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#car2car"><span class="nav-number">1.</span> <span class="nav-text">car2car</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改为maven项目"><span class="nav-number">2.</span> <span class="nav-text">修改为maven项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改项目框架为Springboot"><span class="nav-number">3.</span> <span class="nav-text">修改项目框架为Springboot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个模块module"><span class="nav-number">3.1.</span> <span class="nav-text">新建一个模块module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库连接"><span class="nav-number">3.2.</span> <span class="nav-text">数据库连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入静态资源和页面"><span class="nav-number">3.3.</span> <span class="nav-text">导入静态资源和页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现登录功能-伪"><span class="nav-number">3.4.</span> <span class="nav-text">实现登录功能(伪)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加了lombok"><span class="nav-number">3.5.</span> <span class="nav-text">添加了lombok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MybatisGenerator"><span class="nav-number">3.6.</span> <span class="nav-text">MybatisGenerator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swagger-UI"><span class="nav-number">3.7.</span> <span class="nav-text">Swagger-UI</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringSecurity-JWT登录控制"><span class="nav-number">4.</span> <span class="nav-text">SpringSecurity+JWT登录控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的Session认证方式"><span class="nav-number">4.1.</span> <span class="nav-text">传统的Session认证方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于token控制"><span class="nav-number">4.2.</span> <span class="nav-text">基于token控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">4.3.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringSecurity的核心类"><span class="nav-number">4.4.</span> <span class="nav-text">SpringSecurity的核心类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate-validator校验框架（待添加）"><span class="nav-number">4.5.</span> <span class="nav-text">Hibernate-validator校验框架（待添加）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#角色权限"><span class="nav-number">4.6.</span> <span class="nav-text">角色权限</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#陈年旧项目简介"><span class="nav-number">1.</span> <span class="nav-text">陈年旧项目简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改为maven项目"><span class="nav-number">2.</span> <span class="nav-text">修改为maven项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改项目框架为Springboot"><span class="nav-number">3.</span> <span class="nav-text">修改项目框架为Springboot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库连接"><span class="nav-number">3.1.</span> <span class="nav-text">数据库连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入静态资源和页面"><span class="nav-number">3.2.</span> <span class="nav-text">导入静态资源和页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加了lombok"><span class="nav-number">3.3.</span> <span class="nav-text">添加了lombok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MybatisGenerator"><span class="nav-number">3.4.</span> <span class="nav-text">MybatisGenerator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swagger-UI"><span class="nav-number">3.5.</span> <span class="nav-text">Swagger-UI</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Security登录认证"><span class="nav-number">4.</span> <span class="nav-text">Spring Security登录认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">4.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">4.2.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1033,7 +1007,7 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 33.2k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 40.9k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>

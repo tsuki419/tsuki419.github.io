@@ -1,0 +1,1568 @@
+﻿<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="tsuki's CodeLife" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本篇博客其实是课后作业，搬过来。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java,python,c#事件机制和常用库比较">
+<meta property="og:url" content="https://tsuki419.github.io/homework02.html">
+<meta property="og:site_name" content="tsuki&#39;s CodeLife">
+<meta property="og:description" content="本篇博客其实是课后作业，搬过来。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s2.loli.net/2022/04/13/cRrXeF3pjBQx96o.png">
+<meta property="og:updated_time" content="2022-04-13T03:34:28.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java,python,c#事件机制和常用库比较">
+<meta name="twitter:description" content="本篇博客其实是课后作业，搬过来。">
+<meta name="twitter:image" content="https://s2.loli.net/2022/04/13/cRrXeF3pjBQx96o.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"perspectiveLeftIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tsuki419.github.io/homework02.html">
+
+
+
+
+
+  <title>Java,python,c#事件机制和常用库比较 | tsuki's CodeLife</title>
+  
+
+
+
+
+
+
+
+
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/src/FunnyTitle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139938464-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139938464-1');
+</script>
+  
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!-- github-ribbon -->
+<a href="https://github.com/tsuki419"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_orange_ff7600.png?resize=149%2C149" class="github-ribbon" alt="Fork me on GitHub" data-recalc-dims="1"></a>			  
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+	<div class="top-scroll-bar"></div>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tsuki's CodeLife</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+	
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tsuki419.github.io/homework02.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tsuki">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tsuki's CodeLife">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Java,python,c#事件机制和常用库比较</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-06-02T16:48:14+08:00">
+                2021-06-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2022-04-13T11:34:28+08:00">
+                2022-04-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/homework02.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="homework02.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本篇博客其实是课后作业，搬过来。<a id="more"></a></p>
+<p>最近刷题，复习Java常用类是突然想起来以前做过的比较，不甚成熟，补充在一起。</p>
+<h2 id="作业1"><a href="#作业1" class="headerlink" title="作业1"></a>作业1</h2><p><strong>Java，Python和JavaScript中对事件机制的支持语法及使用方法</strong></p>
+<h3 id="在c-中"><a href="#在c-中" class="headerlink" title="在c#中"></a>在c#中</h3><p>事件在类中声明且生成，且通过使用同一个类或其他类中的委托与事件处理程序关联。</p>
+<p>包含事件的类用于发布事件。这被称为 <strong>发布器（publisher）</strong> 类。其他接受该事件的类被称为 <strong>订阅器（subscriber）</strong> 类。事件使用 <strong>发布-订阅（publisher-subscriber）</strong> 模型。</p>
+<p><strong>发布器（publisher）</strong> 是一个包含事件和委托定义的对象。事件和委托之间的联系也定义在这个对象中。发布器（publisher）类的对象调用这个事件，并通知其他的对象。</p>
+<p><strong>订阅器（subscriber）</strong> 是一个接受事件并提供事件处理程序的对象。在发布器（publisher）类中的委托调用订阅器（subscriber）类中的方法（事件处理程序）。</p>
+<p><strong>观察者模式</strong>是一种常用的设计模式，这种设计模式刚好可以用于事件驱动机制。</p>
+<h3 id="Python中的事件机制"><a href="#Python中的事件机制" class="headerlink" title="Python中的事件机制"></a>Python中的事件机制</h3><p><em>参考自博客(<a href="https://blog.csdn.net/brucewong0516/article/details/84031715" target="_blank" rel="noopener">https://blog.csdn.net/brucewong0516/article/details/84031715</a>)</em></p>
+<p>监听器（subscriber）监听了事件源（publisher），当事件源发送事件时，所有监听该事件的监听器（subscriber）都会接收到消息并作出响应。</p>
+<p>Python中也有event（事件），是线程threading模块中的一个类，它提供了简单的几个方法，set(), clear(), wait(timeout), isSet()。而我们要探讨的事件机制是以下的实现方法。</p>
+<p>已知Python中可直接传递函数名，实现类似c#中委托的功能，故可以在注册事件的回调时，代入一个参数callback，在注册函数实体内，存在一个list将callback添加进去，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">register_callback</span><span class="params">(self, cb)</span>:</span></span><br><span class="line">    self.callbacks.append(cb)</span><br></pre></td></tr></table></figure>
+<p>以下是一个稍显复杂的实现方法。通过eventManager可以实现事件触发，当事件触发时，推送事件到线程中运行。eventManager主要包含以下几个方法。</p>
+<p><code>run(), AddEventListener(), RemoveEventListener(), SendEvent()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue, Empty</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventManager</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__eventQueue = Queue()</span><br><span class="line">        self.__active = <span class="literal">False</span></span><br><span class="line">        self.__thread = Thread(target = self.__Run) <span class="comment">#事件处理线程，创建一个线程用于run()</span></span><br><span class="line">        self.__handlers = &#123;&#125;<span class="comment">#保存对应事件的响应函数</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__Run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> self.__active == <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment">#获取事件的阻塞时间设为1秒</span></span><br><span class="line">                event = self.__eventQueue.get(block = <span class="literal">True</span>, timeout = <span class="number">1</span>) </span><br><span class="line">                <span class="comment">#发出通知</span></span><br><span class="line">                <span class="keyword">if</span> event.type_ <span class="keyword">in</span> self.__handlers:</span><br><span class="line">                    <span class="keyword">for</span> handler <span class="keyword">in</span> self.__handlers[event.type_]:</span><br><span class="line">                        handler(event)</span><br><span class="line">            <span class="keyword">except</span> Empty:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">Start</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__active = <span class="literal">True</span></span><br><span class="line">        <span class="comment">#启动事件处理线程</span></span><br><span class="line">        self.__thread.start()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.__active = <span class="literal">False</span></span><br><span class="line">        <span class="comment">#等待事件处理进程退出</span></span><br><span class="line">        self.__thread.join()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">AddEventListener</span><span class="params">(self, type_, handler)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            handlerList = self.__handlers[type_]</span><br><span class="line">        <span class="keyword">except</span> KeyError:</span><br><span class="line">            handlerList = []</span><br><span class="line">            </span><br><span class="line">        self.handler[type_] = handlerList</span><br><span class="line">        <span class="keyword">if</span> handler <span class="keyword">not</span> <span class="keyword">in</span> handlerList:</span><br><span class="line">            handlerList.append(handler)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">RemoveEventListener</span><span class="params">(self, type_, handler)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">        	handlerList = self.__handlers[type_]</span><br><span class="line">            <span class="keyword">if</span> handler <span class="keyword">in</span> handlerList:</span><br><span class="line">                handlerList.remove(handler)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> handlerList:</span><br><span class="line">                <span class="keyword">del</span> self.handlers[type_]</span><br><span class="line">        <span class="keyword">except</span> KeyError:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">SendEvent</span><span class="params">(self, event)</span>:</span></span><br><span class="line">        self.__eventQueue.put(event)</span><br></pre></td></tr></table></figure>
+<p>实例调用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> eventManager <span class="keyword">import</span> *</span><br><span class="line"> </span><br><span class="line"><span class="comment">#事件名称 新文章</span></span><br><span class="line">EVENT_ARTICAL = <span class="string">"Event_Artical"</span> </span><br><span class="line"><span class="comment">#事件源 公众号</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PublicAccounts</span>:</span></span><br><span class="line"> 	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,eventManager)</span>:</span></span><br><span class="line">  		self.__eventManager = eventManager</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">WriteNewArtical</span><span class="params">(self)</span>:</span></span><br><span class="line">  	event = Event(type_=EVENT_ARTICAL)</span><br><span class="line">  	event.dict[<span class="string">"artical"</span>] = <span class="string">u'如何写出更优雅的代码\n'</span> </span><br><span class="line">  	self.__eventManager.SendEvent(event)  <span class="comment">#发送事件</span></span><br><span class="line">  	print(<span class="string">u'公众号发送新文章\n'</span>) </span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Listener</span>:</span></span><br><span class="line"> 	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,username)</span>:</span></span><br><span class="line">  		self.__username = username</span><br><span class="line">	<span class="comment">#监听器的处理函数 读文章</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">ReadArtical</span><span class="params">(self,event)</span>:</span></span><br><span class="line">        print(<span class="string">u'%s 收到新文章'</span> % self.__username)</span><br><span class="line">        print(<span class="string">u'正在阅读新文章内容：%s'</span> % event.dict[<span class="string">"artical"</span>])</span><br><span class="line"><span class="comment">#--------------------------------------------------------------------</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line"> <span class="comment"># 实例化监听器</span></span><br><span class="line">	listner1 = Listener(<span class="string">"thinkroom"</span>) <span class="comment">#订阅者1</span></span><br><span class="line">    listner2 = Listener(<span class="string">"steve"</span>)  <span class="comment">#订阅者2</span></span><br><span class="line">    eventManager = EventManager()</span><br><span class="line">    eventManager.AddEventListener(EVENT_ARTICAL, listner1.ReadArtical)</span><br><span class="line">    eventManager.AddEventListener(EVENT_ARTICAL, listner2.ReadArtical)</span><br><span class="line">    eventManager.Start()</span><br><span class="line"> </span><br><span class="line">    publicAcc = PublicAccounts(eventManager)</span><br><span class="line">    timer = Timer(<span class="number">2</span>, publicAcc.WriteNewArtical)</span><br><span class="line">    timer.start()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"> 	test()</span><br></pre></td></tr></table></figure>
+<h3 id="Java的事件机制"><a href="#Java的事件机制" class="headerlink" title="Java的事件机制"></a>Java的事件机制</h3><p><em>参考自博客(<a href="https://www.jianshu.com/p/ccd468c6be8a" target="_blank" rel="noopener">https://www.jianshu.com/p/ccd468c6be8a</a>) (<a href="https://www.cnblogs.com/liao13160678112/p/6596218.htm" target="_blank" rel="noopener">https://www.cnblogs.com/liao13160678112/p/6596218.htm</a>) (<a href="https://www.cnblogs.com/yulinfeng/p/5874015.html" target="_blank" rel="noopener">https://www.cnblogs.com/yulinfeng/p/5874015.html</a>)</em></p>
+<p>用<strong>观察者模式</strong>实现事件机制</p>
+<p>对于观察者模式，Java已经为我们提供了已有的接口和类。可以利用Java提供的Observer接口和Observable类实现观察者模式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Observable;</span><br><span class="line"><span class="keyword">import</span> java.util.Obsever;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subscribe</span> <span class="keyword">implements</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Subscribe</span> <span class="params">(Observable o)</span></span>&#123;</span><br><span class="line">        o.addObserver(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable o, Object arg)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"收到通知:"</span> + ((Publish)o).getData());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Publish</span> <span class="keyword">extends</span> <span class="title">Observable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String data = <span class="string">""</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getData</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> data; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(String data)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.data.equals(data))&#123;</span><br><span class="line">            <span class="keyword">this</span>.data = data;</span><br><span class="line">            setChanged();   <span class="comment">//改变通知者的状态</span></span><br><span class="line">        &#125;</span><br><span class="line">        notifyObservers();	<span class="comment">//调用父类Observable方法，通知所有观察者</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Publish publish = <span class="keyword">new</span> Publish();</span><br><span class="line">        Subscribe subscribe = <span class="keyword">new</span> Subscribe(publish);</span><br><span class="line">        publish.setData(<span class="string">"start!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以自己实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Event</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;Callback&gt; callbackList;<span class="comment">//与事件相关的事件处理函数</span></span><br><span class="line">    <span class="comment">//遍历所有的事件触发通知</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">emit</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(Callback cb : callbackList)&#123;</span><br><span class="line">            cb.run();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//注册事件处理函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">registerCallback</span><span class="params">(Callback cb)</span></span>&#123;</span><br><span class="line">        callbackList.add(cb);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//移除注册</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">removeCallback</span><span class="params">(Callback cb)</span></span>&#123;</span><br><span class="line">        callbackList.remove(cb);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*事件处理函数类*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callback</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnClick</span> <span class="keyword">implements</span> <span class="title">Callback</span> </span>&#123;</span><br><span class="line">    <span class="comment">//函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"you just clicked me!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;    </span><br><span class="line"><span class="comment">//test</span></span><br><span class="line">Event e = <span class="keyword">new</span> Event();  </span><br><span class="line">e.registerCallback(<span class="keyword">new</span> OnClick()); <span class="comment">//注册到队列中</span></span><br><span class="line">e.emit();<span class="comment">//do something</span></span><br></pre></td></tr></table></figure>
+<p>观察者模式存在不足之处，两个观察者模式的观察者都是实现了同一接口，如果两个观察者风马牛不相及又该怎么办。参考委托和事件的关系，我们可以用callback实现一个“委托”，即也可以用<strong>反射</strong>实现事件机制。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*事件处理类*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EventHandler</span> </span>&#123;</span><br><span class="line">    <span class="comment">//事件源</span></span><br><span class="line">    <span class="keyword">private</span> Object sender;</span><br><span class="line">    <span class="comment">//事件处理函数名称（用于反射）</span></span><br><span class="line">    <span class="keyword">private</span> String callback;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EventHandler</span><span class="params">(Object sender, String callback)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sender = sender;</span><br><span class="line">        <span class="keyword">this</span>.callback = callback;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//事件触发</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">emit</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Class senderType = <span class="keyword">this</span>.sender.getClass();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//获取并调用事件源sender的事件处理函数</span></span><br><span class="line">        Method method = senderType.getMethod(<span class="keyword">this</span>.callback);</span><br><span class="line">        method.invoke(<span class="keyword">this</span>.sender);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e2) &#123;</span><br><span class="line">            e2.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*事件源*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Button</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">/*可以在此设置Button类的相关属性，比如名字等*/</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    ...</span><br><span class="line">      </span><br><span class="line">    <span class="comment">//事件处理函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"you just clicked me!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br><span class="line"><span class="comment">/*实现事件驱动机制*/</span></span><br><span class="line">Button b = <span class="keyword">new</span> Button();</span><br><span class="line"><span class="keyword">if</span>(<span class="comment">/*收到按钮点击信号*/</span>)&#123;</span><br><span class="line">    EventHandler e = <span class="keyword">new</span> EventHandler(b, <span class="string">"onClick"</span>);</span><br><span class="line">    e.emit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript的事件机制"><a href="#JavaScript的事件机制" class="headerlink" title="JavaScript的事件机制"></a>JavaScript的事件机制</h3><p><em>参考自博客（<a href="https://blog.csdn.net/a2013126370/article/details/82290180）" target="_blank" rel="noopener">https://blog.csdn.net/a2013126370/article/details/82290180）</a></em></p>
+<p><strong>事件</strong>是将<strong>JavaScript</strong>和网页联系在一起的主要方式。</p>
+<p>事件：用户或浏览器自身执行的某种动作，换言之，文档或浏览器发生的一些特定的交互瞬间。</p>
+<p>事件处理程序：又称事件侦听器，事件发生时执行的代码段。</p>
+<p>事件流：事件流描述的是从页面中接收事件的顺序。</p>
+<p><strong>两种基本事件模型</strong></p>
+<p>事件冒泡：事件按照从最特定的事件目标到最不特定的事件目标(document对象)的顺序触发。</p>
+<p>事件捕获：事件从最不精确的对象(document 对象)开始触发，然后到最精确。</p>
+<p><strong>DOM事件流</strong></p>
+<p>同时支持 两种基本事件模型，规定事件流包括三个阶段：事件捕获阶段、处于目标阶段、事件冒泡阶段。</p>
+<p>DOM事件处理程序绑定时，程序员可以自己选择绑定事件时采用事件捕获还是事件冒泡。</p>
+<p><strong>IE事件流</strong></p>
+<p>IE只支持事件冒泡，不支持事件捕获。</p>
+<p><strong>事件处理程序绑定方式</strong></p>
+<p><strong>DOM事件处理方式</strong>，可以通过addEventListener方法</p>
+<p>addEventListener(“事件名”，事件处理程序，ture/false:在事件捕获/冒泡阶段调用模型)</p>
+<p>对应的事件处理程序移除方法：removeEventListener，参数必须相同。</p>
+<p><strong>IE事件处理程序</strong></p>
+<p>程序作用域为全局作用域，this指向window对象</p>
+<p>添加方法：attachEvent(“on+事件名”，事件处理程序)</p>
+<p>移除方法：detachEvent(“on+事件名”，事件处理程序)</p>
+<p>综合以上所述，写可跨浏览器的事件处理程序（构造EventUtil对象，为其添加可兼容各浏览器的事件处理方法），如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*可跨浏览器的事件处理程序</span></span><br><span class="line"><span class="comment">构造EventUtil对象，为其添加可兼容各浏览器的事件处理方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">var</span> EventUtil = &#123;</span><br><span class="line">  <span class="comment">/*添加事件处理程序*/</span></span><br><span class="line">  addHandler: <span class="function"><span class="keyword">function</span> (<span class="params">element, type, handler</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.addEventListener) &#123;</span><br><span class="line">      addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123;</span><br><span class="line">      attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/*移除事件处理程序*/</span></span><br><span class="line">  removeHandler: <span class="function"><span class="keyword">function</span> (<span class="params">element, type, handler</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.removeEventListener) &#123;</span><br><span class="line">      removeEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.detachEvent) &#123;</span><br><span class="line">      detachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      element[<span class="string">"on"</span> + type] = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/*获得事件对象*/</span></span><br><span class="line">  getEvent: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> event ? event : <span class="built_in">window</span>.event;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/*获得事件的目标*/</span></span><br><span class="line">  getTarget: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> event.target || event.scrElement;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/*取消事件的默认行为*/</span></span><br><span class="line">  preventDefault: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.preventDefault) &#123;</span><br><span class="line">      event.preventDefault;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.returValue = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/*阻止事件进一步冒泡*/</span></span><br><span class="line">  stopPropagation: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.stopPropagation) &#123;</span><br><span class="line">      event.stopPropagation;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="作业2"><a href="#作业2" class="headerlink" title="作业2"></a>作业2</h2><p><strong>简介Java和Python中对常用数据容器的支持库和使用方式</strong></p>
+<h3 id="Java的常用库"><a href="#Java的常用库" class="headerlink" title="Java的常用库"></a>Java的常用库</h3><p><em>参考自菜鸟教程，Java官方中文文档</em></p>
+<p><em><a href="https://mp.weixin.qq.com/s/bVOSat47L0Hskfx9akAN6Q" target="_blank" rel="noopener">2022年补充</a></em></p>
+<p>Java提供的数据集合主要涉及<strong>两部分</strong>，一部分是<code>java.util.Collection</code>的实现类，一部分是<code>java.util.Map</code>的实现类。</p>
+<p>Java框架主要包括两种类型的容器，一种是集合（Collection），存储一个元素集合，另一种是图（Map），存储键/值对映射。Collection 接口又有 3 种子类型，List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。</p>
+<p>因为相关类众多，这里做一个简单的示例。使用Java提供的类库是要使用<strong>import</strong>， 注意Java对大小写敏感。</p>
+<p><code>import java.util.*;</code></p>
+<h4 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a><strong>Collection接口</strong></h4><p><img src="https://s2.loli.net/2022/04/13/cRrXeF3pjBQx96o.png" alt="image-20220413103133807.png"></p>
+<p><em><a href="https://mp.weixin.qq.com/s/bVOSat47L0Hskfx9akAN6Q" target="_blank" rel="noopener">参考图来源</a></em></p>
+<p><strong>List接口</strong>是有序的collection。List最大的特点就是有序可重复。Set正与List相反，无序不可重复。</p>
+<p>List的子类，有Vector，ArrayList，LinkedList。</p>
+<p>1） ArrayList， 是基于数组实现的List类，它封装了一个动态的增长的，允许再分配的Object[]数组，允许对元素进行快速随机访问。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line">ArrayList&lt;String&gt; sites = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">sites.add(<span class="string">"Google"</span>);</span><br></pre></td></tr></table></figure>
+<p>2）Vector，是通过数组实现的，不同的是它支持线程的同步。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Vector;</span><br><span class="line">Vector v = <span class="keyword">new</span> Vector();</span><br><span class="line">v.addElement(<span class="keyword">new</span> Integer(<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<p>3）Stack，是Vector提供的一个子类，模拟栈的数据结构。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack</span><br><span class="line">Stack&lt;Integer&gt; st = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">st.push(<span class="keyword">new</span> Integer(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<div class="note default"><p>Vector已经建议弃用了，因为它加了太多的synchronized。Stack继承了Vector也弃用了</p></div>
+
+<p><strong>Vector和ArrayList的区别是什么</strong></p>
+<div class="note default"><p>一是线程安全问题，二是扩容问题，Vector默认扩容两倍，而ArrayList扩容实现用的算术右移，新容量是原来的1.5倍</p></div>
+
+<p>4）LinkedList是用链表结构存储数据的，很适合数据的动态插入和删除。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line">LinkedList&lt;Integer&gt; list = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<div class="note default"><p>List的实现方式有LinkedList和ArrayList两种，如何选择，要考虑到实现的功能和效率问题。链表和数组的最大区别就是数组是可以随机访问的。这部分的效率问题其实就是数据结构的内容。</p></div>
+
+<p><strong>Set接口</strong></p>
+<p>Set接口的实现类有HashSet，TreeSet，LinkedHashSet。</p>
+<p>1） HashSet类，用Hash算法来存储集合中的元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line">HashSet&lt;String&gt; sites = <span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">sites.add(<span class="string">"Google"</span>);</span><br></pre></td></tr></table></figure>
+<p>2）LinkedHashSet，也是根据元素的hashCode值来决定元素的存储位置，但和HashSet不同的是，它同时使用链表维护元素的次序，这样使得元素看起来是以插入的顺序保存的。</p>
+<p>3）EnumSet是一个专门为枚举类设计的集合类，EnumSet中所有元素都必须是指定枚举类型的枚举值，该枚举类型在创建EnumSet时显式、或隐式地指定。EnumSet的集合元素也是有序的</p>
+<p>4）TreeSet采用红黑树结构，特点是可以有序。</p>
+<p><strong>Queue接口</strong></p>
+<p>Queue有两组API，基本功能是一样的。根据需求选择一组统一使用。</p>
+<p>1) 提供了Deque接口，专门用于操作表头和表尾，可以当作堆栈，队列和双向队列使用。</p>
+<p>2) PriorityQueue，优先队列按照队列中某个属性的大小来排列。</p>
+<div class="note default"><p>在实现普通队列时建议使用ArrayDeque，效率更高。只要不是不需要存null值，就用ArrayDeque。</p></div>
+
+
+
+<h4 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a><strong>Map接口</strong></h4><p>用于保存具有映射关系的数据。</p>
+<p>Map的子类，子接口</p>
+<p>1）HashMap和HashSet集合不能保证元素的顺序一样，HashMap也不能保证key-value对的顺序。并且类似于HashSet判断两个key是否相等的标准一样: 两个key通过equals()方法比较返回true、 同时两个key的hashCode值也必须相等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line">HashMap&lt;Integer, String&gt; Sites = <span class="keyword">new</span> HashMap&lt;Integer, String&gt;();</span><br><span class="line">Sites.put(<span class="number">1</span>, <span class="string">"Google"</span>);</span><br></pre></td></tr></table></figure>
+<p>2）HashTable类是一个古老的Map实现类。</p>
+<p>3）SortedMap接口下的类，TreeMap类，是一个红黑树结构，每个键值对都作为红黑树的一个节点。TreeMap存储键值对时，需要根据key对节点进行排序，TreeMap可以保证所有的key-value对处于有序状态。 同时，TreeMap也有两种排序方式：自然排序、定制排序（类似于上面List的重写CompareTo()方法）。</p>
+<h3 id="Python的常用库"><a href="#Python的常用库" class="headerlink" title="Python的常用库"></a>Python的常用库</h3><p><em>参考自菜鸟教程， python中文手册</em></p>
+<p>Python中同样提供了一些基本容器，列表，元组，字典和集合，以及collections中几种已经预先实现的容器数据结构namedtuple(), deque, ChainMap, Counter, OderedDict, defaultdict等等</p>
+<p>同样的Python的每一数据类型都包含了很多的方法。以list为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">list.append(x)</span><br><span class="line">list.extend(L)</span><br><span class="line">list.insert(i,x)</span><br><span class="line">list.remove(x)</span><br><span class="line">list.pop()</span><br><span class="line">list.clear()</span><br><span class="line">list.index(x)</span><br><span class="line">list.count(x)</span><br><span class="line">list.sort()</span><br><span class="line">list.reverse()</span><br><span class="line">list.copy()</span><br></pre></td></tr></table></figure>
+<p>具体的使用说明可参考官方文档。</p>
+<h4 id="Python数据类型"><a href="#Python数据类型" class="headerlink" title="Python数据类型"></a>Python数据类型</h4><p>首先，Python中的基本顺序存储结构是列表和元组，在操作和复杂度上和数组完全相同，其中列表是可变数据类型，元组是不可变数据类型。</p>
+<p><strong>1）list</strong>是Python中最基本的数据结构，列表的数据项不需要具有相同的数据类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="number">12</span>]</span><br><span class="line">print(list[<span class="number">0</span>])</span><br><span class="line">list.append(<span class="string">'blue'</span>)</span><br><span class="line"><span class="keyword">del</span> list[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p>list也可以当作堆栈和队列来用。</p>
+<p><strong>2）元组</strong>与列表类似，不同之处在于元组的元素不能修改。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tup1 = (<span class="string">'physics'</span>, <span class="string">'chemistry'</span>, <span class="number">1997</span>, <span class="number">2000</span>)</span><br><span class="line">tup2 = (<span class="number">50</span>,)</span><br><span class="line">print(tup1[<span class="number">0</span>])</span><br><span class="line">tup3 = tup1 + tup2</span><br><span class="line"><span class="keyword">del</span> tup1</span><br></pre></td></tr></table></figure>
+<p><strong>3）字典</strong>是另一种可变容器模型，可存储任意类型对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line">print(dict[<span class="string">'a'</span>])</span><br><span class="line">dict[<span class="string">'a'</span>] = <span class="number">8</span></span><br><span class="line"><span class="keyword">del</span> dict[<span class="string">'a'</span>]</span><br><span class="line">dict.clear()</span><br></pre></td></tr></table></figure>
+<p><strong>4）集合set</strong>是一个无序的不重复元素序列。基本功能包括关系测试和消除重复元素。集合对象还支持 union（联合），intersection（交），difference（差）和 sysmmetric difference（对称差集）等数学运算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">thisset = set((<span class="string">"google"</span>, <span class="string">"runoob"</span>, <span class="string">"taobao"</span>))</span><br><span class="line">thisset.add(<span class="string">"facebook"</span>)</span><br><span class="line">thisset.update([<span class="number">1</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>])</span><br><span class="line">thisset.remove(<span class="string">"taobao"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="collections模块"><a href="#collections模块" class="headerlink" title="collections模块"></a>collections模块</h4><p>Python的<strong>collections模块</strong>实现了一些数据结构，使用时可以用<strong>import</strong>导入</p>
+<p><code>import collections</code></p>
+<p>栈和队列</p>
+<p><strong>1）namedtuple</strong>是继承自tuple的子类，namedtuple创建一个和tuple类似的对象，而且对象拥有可访问的属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line">Point = namedtuple(<span class="string">'point'</span>, [<span class="string">'x'</span>, <span class="string">'y'</span>])</span><br><span class="line">p = Point(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>2）队列</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line">Q = queue.Queue()</span><br><span class="line">Q.put(<span class="number">10</span>)</span><br><span class="line">print(Q.get())</span><br></pre></td></tr></table></figure>
+<p><strong>3）双端队列</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line">q = deque([<span class="number">1</span>, <span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<h2 id="作业3"><a href="#作业3" class="headerlink" title="作业3"></a>作业3</h2><p><strong>编写有序表合并算法代码，以及相应的单元测试代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">namespace demo</span><br><span class="line">&#123;</span><br><span class="line">    public class MyObject</span><br><span class="line">    &#123;</span><br><span class="line">        //升序的有序表合并</span><br><span class="line">        public int[] UpMerge(int[] l1, int[] l2)</span><br><span class="line">        &#123;</span><br><span class="line">            int[] L = new int[l1.Length + l2.Length];</span><br><span class="line">            int count = 0;</span><br><span class="line">            int i = 0, j = 0;</span><br><span class="line">            while (i &lt; l1.Length &amp;&amp; j &lt; l2.Length)</span><br><span class="line">            &#123;</span><br><span class="line">                if (l1[i] &lt; l2[j])//相对于升序的有序表合并，降序的有序表仅需改动此处符号</span><br><span class="line">                &#123;</span><br><span class="line">                    L[count++] = l1[i++];</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    L[count++] = l2[j++];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (i &lt; l1.Length)</span><br><span class="line">            &#123;</span><br><span class="line">                while (i &lt; l1.Length)</span><br><span class="line">                    L[count++] = l1[i++];</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                while (j &lt; l2.Length)</span><br><span class="line">                    L[count++] = l2[j++];</span><br><span class="line">            &#125;</span><br><span class="line">            return L;</span><br><span class="line">        &#125;</span><br><span class="line">		//降序的有序表合并，与以上代码基本相同</span><br><span class="line">        //public int[] DownMerge(int[] l1, int[] l2)</span><br><span class="line">        //&#123; </span><br><span class="line">        //&#125;</span><br><span class="line">    &#125;//MyObject</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using Microsoft.VisualStudio.TestTools.UnitTesting;</span><br><span class="line">using demo;</span><br><span class="line">namespace test01</span><br><span class="line">&#123;</span><br><span class="line">    [TestClass]</span><br><span class="line">    public class UnitTest4</span><br><span class="line">    &#123;</span><br><span class="line">        [TestMethod]</span><br><span class="line">        public void TestMethod1()</span><br><span class="line">        &#123;</span><br><span class="line">            int[] L1 = &#123; 2, 4, 6, 8 &#125;;</span><br><span class="line">            int[] L2 = &#123; 1, 3, 5, 7, 9, 10, 11, 12&#125;;</span><br><span class="line">            MyObject my = new MyObject();</span><br><span class="line">            int[] LU = my.UpMerge(L1, L2);</span><br><span class="line">            for(int i = 0; i &lt; 12; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                Assert.AreEqual(i + 1, LU[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        ﻿
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/homework02.html">Java,python,c#事件机制和常用库比较</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
+  <p><span>发布时间:</span>2021.06.02 - 16:48</p>
+  <p><span>最后更新:</span>2022.04.13 - 11:34</p>
+  <p><span>原始链接:</span><a href="/homework02.html" title="Java,python,c#事件机制和常用库比较">https://tsuki419.github.io/homework02.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/homework02.html" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+	</div>
+	
+    
+
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------THE END-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/动态规划.html" rel="next" title="动态规划">
+                <i class="fa fa-chevron-left"></i> 动态规划
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/latex.html" rel="prev" title="Latex">
+                Latex <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="homework02.html" data-title="Java,python,c#事件机制和常用库比较" data-url="https://tsuki419.github.io/homework02.html">
+      </div>
+    </div>
+
+  
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+			<a href="/about/">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="tsuki">
+            
+              <p class="site-author-name" itemprop="name">tsuki</p>
+			 </a>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tsuki419" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:nognoll@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作业1"><span class="nav-number">1.</span> <span class="nav-text">作业1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在c-中"><span class="nav-number">1.1.</span> <span class="nav-text">在c#中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python中的事件机制"><span class="nav-number">1.2.</span> <span class="nav-text">Python中的事件机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java的事件机制"><span class="nav-number">1.3.</span> <span class="nav-text">Java的事件机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript的事件机制"><span class="nav-number">1.4.</span> <span class="nav-text">JavaScript的事件机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业2"><span class="nav-number">2.</span> <span class="nav-text">作业2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java的常用库"><span class="nav-number">2.1.</span> <span class="nav-text">Java的常用库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Collection接口"><span class="nav-number">2.1.1.</span> <span class="nav-text">Collection接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Map接口"><span class="nav-number">2.1.2.</span> <span class="nav-text">Map接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python的常用库"><span class="nav-number">2.2.</span> <span class="nav-text">Python的常用库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python数据类型"><span class="nav-number">2.2.1.</span> <span class="nav-text">Python数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#collections模块"><span class="nav-number">2.2.2.</span> <span class="nav-text">collections模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业3"><span class="nav-number">3.</span> <span class="nav-text">作业3</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 40.9k</span>
+</div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tsuki</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/custom/custom.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bM139YnQtmQQ9kvJ6WWXNLtT-MdYXbMMI',
+        appKey: 'Q1UyAWdYhKPkkKfYoXQmyaVV',
+        placeholder: 'just go go!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 18431,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+    <!-- 点击烟花特效 -->
+	
+		<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+		<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+		<script type="text/javascript" src="/js/src/fireworks.js"></script>
+	
+  <!-- 背景图片更换 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script>
+  $("body").backstretch("https://i.loli.net/2019/05/10/5cd55b4dc91a0.jpg");
+  </script> 
+  
+  <!-- 雪花特效 -->
+<!--  <script type="text/javascript" src="/js/src/snow.js"></script> -->
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.95},"log":false});</script></body>
+</html>
+
+<!-- 样式二（飘动的彩带） -->
+<script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
+
+
+<!-- 页面点击小红心 -->
+<!--<script type="text/javascript" src="/js/src/clicklove.js"></script>-->
