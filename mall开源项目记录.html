@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="不算是学习的第一个开源项目，但是是第一个运行起来的开源项目。作者的说明文档真的写的太棒了，手把手教学。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-04-11T13:30:57.315Z">
+<meta property="og:updated_time" content="2022-04-26T08:00:16.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mall学习记录">
 <meta name="twitter:description" content="不算是学习的第一个开源项目，但是是第一个运行起来的开源项目。作者的说明文档真的写的太棒了，手把手教学。">
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-04-11T21:30:57+08:00">
-                2022-04-11
+              <time title="更新于" itemprop="dateModified" datetime="2022-04-26T16:00:16+08:00">
+                2022-04-26
               </time>
             
           </span>
@@ -491,7 +491,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  2.9k
                 </span>
               
 
@@ -606,7 +606,8 @@
 <h4 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h4><ul>
 <li>在 SpringBoot 中，使用 Elasticsearch Repositories 的衍生物查询来实现；查询结果的原理原理就是将规则方法名称的方法名称转换为 E 的查询 DSL 语句</li>
 </ul>
-<h4 id="复杂查询"><a href="#复杂查询" class="headerlink" title="复杂查询"></a>复杂查询</h4><h3 id="Mongodb实现文档操作"><a href="#Mongodb实现文档操作" class="headerlink" title="Mongodb实现文档操作"></a>Mongodb实现文档操作</h3><p>示例添加会员浏览记录</p>
+<h4 id="复杂查询"><a href="#复杂查询" class="headerlink" title="复杂查询"></a>复杂查询</h4><h3 id="Mongodb实现文档操作"><a href="#Mongodb实现文档操作" class="headerlink" title="Mongodb实现文档操作"></a>Mongodb实现文档操作</h3><p>使用场景： 各种应用服务的日志存储，敏捷开发，地理位置信息存储，json存储。</p>
+<p>示例添加会员浏览记录</p>
 <p>非关系型数据库，和elasticsearch的操作非常像，都是Spring Data类型的数据操作</p>
 <ol>
 <li>添加依赖，修改配置</li>
@@ -660,10 +661,34 @@
 <h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><p>mall-common, mall-mbg, mall-security都是被调用的模块。</p>
 <p>mall-portable调用了mall-mbg和mall-security.</p>
 <h3 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h3><p>角色管理</p>
-<p>角色的资源和菜单的分配，资源指的是对接口的访问。</p>
-<p>返回树形结构的数据，stream流可以很好解决嵌套问题。</p>
+<p>本项目的角色分为商品管理员，订单管理员，超级管理员，普通用户。</p>
+<p>角色——资源和菜单的分配，资源指的是对接口的访问。</p>
+<ul>
+<li>返回树形结构的数据，stream流可以很好解决嵌套问题。</li>
+</ul>
 <p>目录权限，菜单权限，按钮权限</p>
-<p>动态权限控制+redis缓存机制</p>
+<p>关于权限控制的内容写了一个总结，可以跳转，<a href="https://tsuki419.github.io/SpringSecurity-JWT.html#more">SpringSecurity-JWT</a></p>
+<h3 id="商品模块"><a href="#商品模块" class="headerlink" title="商品模块"></a>商品模块</h3><p>参考我们使用某宝的习惯，打开软件是首页推荐，可以分类分级选择商品分类，点击查看店铺详情，选择商品打开商品详情页，显示商品基本信息，促销信息，属性信息，关联推荐，已买用户评价。</p>
+<p>该模块实现了部分上述功能，商品分类属性，商品库存，店铺管理。</p>
+<p><font color="orange"><strong>可扩展的</strong></font>，还可以增加提问与回答模块，店铺自己的联想推荐，新增评价（评价管理），。</p>
+<p>在自己写代码的过程中总结的写业务流程大概是，<strong>先了解业务相关的名词，然后理清逻辑设计数据库，写出伪代码/流程图，最后实践写代码</strong>。</p>
+<p>参考这一流程浅析一下作者的实现。</p>
+<p>这一模块中最复杂的service应该是<code>PmsProductService</code>，也是最核心的服务之一，每次下单的操作都是对商品的操作。如何计算商品优惠后的价格，下单后对库存进行操作在<code>mall-portal</code>中实现。</p>
+<h3 id="订单模块"><a href="#订单模块" class="headerlink" title="订单模块"></a>订单模块</h3><p>订单模块包括下单到选地址，计算优惠，到形成订单预览，选择支付方式，订单处理，售后服务。</p>
+<p><code>OmsOrderService</code>订单管理启用了Spring事务，在上一个模块中也有新建和删除操作采用了事务管理，批量发货，批量关闭订单，修改订单收货人信息，修改订单费用信息，修改订单备注这几个方法都加了<code>@Transactional</code>的注解，每个操作中注意更新订单操作历史。</p>
+<p><code>OmsOrderSettingService</code>可以设置订单超时时间。</p>
+<p>已经实现的功能偏向于店铺管理人员操作，批量处理订单，处理退货申请，查看订单详情。</p>
+<p><font color="orange"><strong>可选的</strong></font>，新增订单，提交退货申请，用户的商品浏览历史，从使用者的角度增加业务功能。</p>
+<h3 id="营销模块"><a href="#营销模块" class="headerlink" title="营销模块"></a>营销模块</h3><p>首页专题推荐，首页新/商品推荐，首页品牌推荐，首页广告。促销活动场次添加，商品添加。优惠券管理。</p>
+<p>这里的推荐算法是简单的使用了数据库字段的推荐值排序。要涉及实际情况的推荐算法又是一个大坑了。</p>
+<p>有时间写一个推荐算法调研。</p>
+<p><font color="orange"><strong>可扩展的</strong></font>，秒杀模块，直播模块，消息模块。</p>
+<p>以上几个模块都是在后台管理服务<strong>mall-admin</strong>模块下的，所以没有软件使用者角度的方法，接下来<strong>mall-portal</strong>模块，实现了客户端的请求处理。</p>
+<p>收藏，关注，浏览历史，购物车管理，退货管理，前台订单管理，促销管理（计算购物车价格）。</p>
+<p>收藏关注浏览历史都用MongoDB来存储。</p>
+<p>MongoRepository</p>
+<h2 id="进阶篇-微服务项目"><a href="#进阶篇-微服务项目" class="headerlink" title="进阶篇-微服务项目"></a>进阶篇-微服务项目</h2><p>Spring Cloud系列在我看来目前用不到，跟着作者的学习用例浅浅试用了一下，自己搭建的单体小项目用不到，接触不到公司项目就只能浅浅了解一下。</p>
+<p>挖坑，分布式调研。</p>
 
       
     </div>
@@ -683,7 +708,7 @@
   <p><span>本文标题:</span><a href="/mall开源项目记录.html">mall学习记录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2022.03.25 - 19:42</p>
-  <p><span>最后更新:</span>2022.04.11 - 21:30</p>
+  <p><span>最后更新:</span>2022.04.26 - 16:00</p>
   <p><span>原始链接:</span><a href="/mall开源项目记录.html" title="mall学习记录">https://tsuki419.github.io/mall开源项目记录.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/mall开源项目记录.html" aria-label="复制成功！"></i></span>
   </p>
@@ -862,7 +887,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -884,7 +909,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -939,7 +964,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动记录"><span class="nav-number">1.</span> <span class="nav-text">启动记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础技术补充"><span class="nav-number">2.</span> <span class="nav-text">基础技术补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建基本骨架"><span class="nav-number">2.1.</span> <span class="nav-text">搭建基本骨架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lombok"><span class="nav-number">2.1.1.</span> <span class="nav-text">Lombok</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatisGenerator"><span class="nav-number">2.1.2.</span> <span class="nav-text">MyBatisGenerator</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swagger-UI实现在线API文档"><span class="nav-number">2.2.</span> <span class="nav-text">Swagger-UI实现在线API文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Security-JWT-认证和授权"><span class="nav-number">2.3.</span> <span class="nav-text">Security+JWT 认证和授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elasticsearch实现商品搜索"><span class="nav-number">2.4.</span> <span class="nav-text">Elasticsearch实现商品搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单查询"><span class="nav-number">2.4.1.</span> <span class="nav-text">简单查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂查询"><span class="nav-number">2.4.2.</span> <span class="nav-text">复杂查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mongodb实现文档操作"><span class="nav-number">2.5.</span> <span class="nav-text">Mongodb实现文档操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis"><span class="nav-number">2.6.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#StringBuilder"><span class="nav-number">2.6.1.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RabbitMQ-实现延迟消息"><span class="nav-number">2.7.</span> <span class="nav-text">RabbitMQ 实现延迟消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSS-实现文件上传"><span class="nav-number">2.8.</span> <span class="nav-text">OSS 实现文件上传</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务熟悉：数据库设计"><span class="nav-number">3.</span> <span class="nav-text">业务熟悉：数据库设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码解析"><span class="nav-number">4.</span> <span class="nav-text">源码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权限控制"><span class="nav-number">4.1.</span> <span class="nav-text">权限控制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动记录"><span class="nav-number">1.</span> <span class="nav-text">启动记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础技术补充"><span class="nav-number">2.</span> <span class="nav-text">基础技术补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建基本骨架"><span class="nav-number">2.1.</span> <span class="nav-text">搭建基本骨架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lombok"><span class="nav-number">2.1.1.</span> <span class="nav-text">Lombok</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatisGenerator"><span class="nav-number">2.1.2.</span> <span class="nav-text">MyBatisGenerator</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swagger-UI实现在线API文档"><span class="nav-number">2.2.</span> <span class="nav-text">Swagger-UI实现在线API文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Security-JWT-认证和授权"><span class="nav-number">2.3.</span> <span class="nav-text">Security+JWT 认证和授权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elasticsearch实现商品搜索"><span class="nav-number">2.4.</span> <span class="nav-text">Elasticsearch实现商品搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单查询"><span class="nav-number">2.4.1.</span> <span class="nav-text">简单查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂查询"><span class="nav-number">2.4.2.</span> <span class="nav-text">复杂查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mongodb实现文档操作"><span class="nav-number">2.5.</span> <span class="nav-text">Mongodb实现文档操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis"><span class="nav-number">2.6.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#StringBuilder"><span class="nav-number">2.6.1.</span> <span class="nav-text">StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RabbitMQ-实现延迟消息"><span class="nav-number">2.7.</span> <span class="nav-text">RabbitMQ 实现延迟消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSS-实现文件上传"><span class="nav-number">2.8.</span> <span class="nav-text">OSS 实现文件上传</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务熟悉：数据库设计"><span class="nav-number">3.</span> <span class="nav-text">业务熟悉：数据库设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码解析"><span class="nav-number">4.</span> <span class="nav-text">源码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权限控制"><span class="nav-number">4.1.</span> <span class="nav-text">权限控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#商品模块"><span class="nav-number">4.2.</span> <span class="nav-text">商品模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#订单模块"><span class="nav-number">4.3.</span> <span class="nav-text">订单模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#营销模块"><span class="nav-number">4.4.</span> <span class="nav-text">营销模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶篇-微服务项目"><span class="nav-number">5.</span> <span class="nav-text">进阶篇-微服务项目</span></a></li></ol></div>
             
 
           </div>
@@ -962,7 +987,7 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 40.9k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 48.1k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
