@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="系列三来了…这次是Mybatis 写此系列的目的是做一个学习笔记管理，方便以后复习用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-12-27T11:52:47.758Z">
+<meta property="og:updated_time" content="2022-11-23T12:36:03.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis">
 <meta name="twitter:description" content="系列三来了…这次是Mybatis 写此系列的目的是做一个学习笔记管理，方便以后复习用。">
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-12-27T19:52:47+08:00">
-                2021-12-27
+              <time title="更新于" itemprop="dateModified" datetime="2022-11-23T20:36:03+08:00">
+                2022-11-23
               </time>
             
           </span>
@@ -502,7 +502,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  940
+                  1.2k
                 </span>
               
 
@@ -623,6 +623,22 @@
 <p>复杂查询</p>
 <p><code>@Result @Results @One(一对一) @Many(一对多，多对多)</code></p>
 <p>套娃</p>
+<h2 id="原理探究"><a href="#原理探究" class="headerlink" title="原理探究"></a>原理探究</h2><p><a href="https://blog.csdn.net/tianjindong0804/article/details/98482648" target="_blank" rel="noopener">MyBatis两级缓存机制详解</a></p>
+<p><a href="http://m.biancheng.net/mybatis/cache.html" target="_blank" rel="noopener">Mybatis缓存-C语言中文网</a></p>
+<p>两级缓存</p>
+<p><strong>一级缓存</strong></p>
+<p>一级缓存是相对同一个SqlSession而言的，一级缓存又叫本地缓存，在参数和sql完全一样的情况下，使用同一个SqlSession对象调用一个Mapper方法，往往只执行一次SQL。</p>
+<p>Mybatis默认开启一级缓存。MyBatis在开启一个数据库会话时会创建一个新的SqlSession对象，SqlSession对象中会有一个新的Executor对象，Executor对象中有一个新的<code>PerpetualCache</code>对象，HashMap本地缓存，所以当会话结束时就会释放掉。</p>
+<ul>
+<li><code>SqlSession.close()</code></li>
+<li><p><code>SqlSession.clearCache()</code></p>
+</li>
+<li><p><code>SqlSession</code>执行了update操作也会清空<code>PerpetualCache</code>对象的数据。</p>
+</li>
+</ul>
+<p><strong>二级缓存</strong></p>
+<p>二级缓存是全局缓存，被所有的SqlSession共享。二级缓存要求对象是<code>可序列化的</code>。二级缓存需要手动开启。</p>
+<p>在一级缓存关闭的时候会将查询的结果缓存到二级缓存中，查询时先从二级缓存中取，如果没查到再去SqlSession中，最后没查到再去数据区取。</p>
 <h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><ol>
 <li>java.lang.ClassCastException: com.github.pagehelper.PageHelper cannot be cast to org.apache.ibatis. 探究plugins分页插件时的问题，多半是<a href="https://blog.csdn.net/weixin_39183543/article/details/85933600" target="_blank" rel="noopener">版本问题</a>—-论springboot的好处，内置版本号</li>
 <li>is not known to the MapperRegistry, 原因是namespace没有修改为全包名</li>
@@ -647,7 +663,7 @@
   <p><span>本文标题:</span><a href="/MyBatis.html">Mybatis</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2021.12.24 - 16:27</p>
-  <p><span>最后更新:</span>2021.12.27 - 19:52</p>
+  <p><span>最后更新:</span>2022.11.23 - 20:36</p>
   <p><span>原始链接:</span><a href="/MyBatis.html" title="Mybatis">https://tsuki419.github.io/MyBatis.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/MyBatis.html" aria-label="复制成功！"></i></span>
   </p>
@@ -698,19 +714,6 @@
       
 
       
-      
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-        </div>
       
       
 
@@ -820,7 +823,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -831,7 +834,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -842,7 +845,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -897,7 +900,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速入门"><span class="nav-number">1.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心配置文件"><span class="nav-number">2.</span> <span class="nav-text">核心配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射配置文件深入"><span class="nav-number">3.</span> <span class="nav-text">映射配置文件深入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-常用标签"><span class="nav-number">3.1.</span> <span class="nav-text">1. 常用标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-动态sql"><span class="nav-number">3.2.</span> <span class="nav-text">2. 动态sql</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多表操作"><span class="nav-number">4.</span> <span class="nav-text">多表操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解"><span class="nav-number">5.</span> <span class="nav-text">注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错"><span class="nav-number">6.</span> <span class="nav-text">报错</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速入门"><span class="nav-number">1.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心配置文件"><span class="nav-number">2.</span> <span class="nav-text">核心配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射配置文件深入"><span class="nav-number">3.</span> <span class="nav-text">映射配置文件深入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-常用标签"><span class="nav-number">3.1.</span> <span class="nav-text">1. 常用标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-动态sql"><span class="nav-number">3.2.</span> <span class="nav-text">2. 动态sql</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多表操作"><span class="nav-number">4.</span> <span class="nav-text">多表操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解"><span class="nav-number">5.</span> <span class="nav-text">注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理探究"><span class="nav-number">6.</span> <span class="nav-text">原理探究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错"><span class="nav-number">7.</span> <span class="nav-text">报错</span></a></li></ol></div>
             
 
           </div>
@@ -920,10 +923,10 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 48.1k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 56.5k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2026</span>
   <span class="with-love" id="heart">
     <i class="fa fa-heart"></i>
   </span>
@@ -1514,23 +1517,6 @@
   </script>
 
   
-  <script type="text/javascript">
-  wpac_init = window.wpac_init || [];
-  wpac_init.push({widget: 'Rating', id: 18431,
-    el: 'wpac-rating',
-    color: 'fc6423'
-  });
-  (function() {
-    if ('WIDGETPACK_LOADED' in window) return;
-    WIDGETPACK_LOADED = true;
-    var mc = document.createElement('script');
-    mc.type = 'text/javascript';
-    mc.async = true;
-    mc.src = '//embed.widgetpack.com/widget.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-  })();
-  </script>
-
 
   
 

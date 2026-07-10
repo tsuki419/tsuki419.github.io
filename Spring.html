@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="写此系列的目的是做一个学习笔记管理，方便以后复习用。 Spring是轻代码，重配置的框架。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-12-27T11:52:04.314Z">
+<meta property="og:updated_time" content="2022-10-13T12:36:30.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring笔记">
 <meta name="twitter:description" content="写此系列的目的是做一个学习笔记管理，方便以后复习用。 Spring是轻代码，重配置的框架。">
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-12-27T19:52:04+08:00">
-                2021-12-27
+              <time title="更新于" itemprop="dateModified" datetime="2022-10-13T20:36:30+08:00">
+                2022-10-13
               </time>
             
           </span>
@@ -502,7 +502,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  3.3k
                 </span>
               
 
@@ -530,7 +530,7 @@
         <p>写此系列的目的是做一个学习笔记管理，方便以后复习用。</p>
 <p>Spring是<strong>轻代码，重配置</strong>的框架。</p>
 <a id="more"></a> 
-<p>Spring是分层的 Java SE/EE应用 full-stack 轻量级开源框架，以 IoC（Inverse Of Control：反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核。</p>
+<p>Spring是分层的 Java SE/EE应用 full-stack 轻量级（重量级）开源框架，以 IoC（Inverse Of Control：反转控制）和 AOP（Aspect Oriented Programming：面向切面编程）为内核。</p>
 <p>提供了展现层 SpringMVC 和持久层 Spring JDBCTemplate 以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，逐渐成为使用最多的Java EE 企业应用开源框架。</p>
 <p>Spring框架的核心功能：</p>
 <p><strong>创建管理所有的Java对象</strong>，这些对象被称为Bean。</p>
@@ -640,7 +640,89 @@
 <li><p>创建测试方法进行测试</p>
 </li>
 </ol>
-<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><h2 id="事务控制"><a href="#事务控制" class="headerlink" title="事务控制"></a>事务控制</h2><p>未完待续。。。</p>
+<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><p>作用：在程序运行期间，在不修改源码的情况下对方法进行功能增强</p>
+<p>优势：减少重复代码，提高开发效率，并且便于维护</p>
+<p>用到了<strong>代理模式</strong>，AOP 的底层是通过 Spring 提供的的<strong>动态代理</strong>技术实现的。</p>
+<p>常见的动态代理技术有JDK代理和cglib代理，代码上的区别就是需不需要接口。</p>
+<p>动态代理代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Target target = <span class="keyword">new</span> Target(); <span class="comment">//创建目标对象</span></span><br><span class="line">Enhancer enhancer = <span class="keyword">new</span> Enhancer();   <span class="comment">//创建增强器</span></span><br><span class="line">enhancer.setSuperclass(Target.class); <span class="comment">//设置父类</span></span><br><span class="line">enhancer.setCallback(<span class="keyword">new</span> MethodInterceptor() &#123; <span class="comment">//设置回调</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] objects, </span></span></span><br><span class="line"><span class="function"><span class="params">    MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"前置代码增强...."</span>);</span><br><span class="line">        Object invoke = method.invoke(target, objects);</span><br><span class="line">        System.out.println(<span class="string">"后置代码增强...."</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">Target proxy = (Target) enhancer.create(); <span class="comment">//创建代理对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//测试,当调用接口的任何方法时，代理对象的代码都无序修改</span></span><br><span class="line">proxy.method();</span><br></pre></td></tr></table></figure>
+<h3 id="基于xml"><a href="#基于xml" class="headerlink" title="基于xml"></a>基于xml</h3><h4 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h4><ol>
+<li><p>导入坐标</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--导入spring的context坐标，context依赖aop--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.0.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- aspectj的织入 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.aspectj<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aspectjweaver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建目标接口和目标类（内部有切点）</p>
+</li>
+<li><p>创建切面类（内部有增强方法）</p>
+</li>
+<li><p>将目标类和切面类的对象创造权交给spring</p>
+</li>
+<li><p>在applicationContext.xml配置织入关系</p>
+</li>
+<li><p>测试</p>
+</li>
+</ol>
+<h4 id="重要标签"><a href="#重要标签" class="headerlink" title="重要标签"></a>重要标签</h4><p>切点表达式的写法</p>
+<p><code>execution(public void com.tsuki.aop.Target.method())</code></p>
+<p>通知的类型： <code>aop:before</code>  <code>aop:after-returning</code> <code>aop:around</code> <code>aop:throwing</code> <code>aop:after</code></p>
+<p>织入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">ref</span>=<span class="string">“切面类”</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">method</span>=<span class="string">“通知方法名称”</span> <span class="attr">pointcut</span>=<span class="string">“切点表达式</span>"&gt;</span><span class="tag">&lt;/<span class="name">aop:before</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="基于注解"><a href="#基于注解" class="headerlink" title="基于注解"></a>基于注解</h3><h4 id="快速入门-1"><a href="#快速入门-1" class="headerlink" title="快速入门"></a>快速入门</h4><ol>
+<li><p>创建目标接口和目标类</p>
+</li>
+<li><p>创建切面类</p>
+</li>
+<li><p>将目标类和切面类的对象创建交给spring</p>
+</li>
+<li><p>在切面类中使用注解配置织入关系</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(<span class="string">"myAspect"</span>)<span class="comment">//步骤3</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAspect</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(* com.itheima.aop.*.*(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"前置代码增强....."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在配置文件中开启组件扫描和AOP自动代理</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--组件扫描--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.itheima.aop"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--aop的自动代理--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:aspectj-autoproxy</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+</li>
+</ol>
+<h4 id="重要标签-1"><a href="#重要标签-1" class="headerlink" title="重要标签"></a>重要标签</h4><p>注解通知常见的类型</p>
+<p><code>@Before @AfterReturning @Around @AfterThrowing @After</code></p>
+<h2 id="事务控制"><a href="#事务控制" class="headerlink" title="事务控制"></a>事务控制</h2><p><strong>编程式事务控制</strong>三大对象</p>
+<ul>
+<li>PlatformTransactionManager</li>
+<li>TransactionDefinition</li>
+<li>TransactionStatus</li>
+</ul>
+<p><strong>声明式事务控制</strong></p>
+<p><strong>Spring 声明式事务控制底层就是AOP。</strong></p>
+<p>Spring并不直接管理事务，通过这个接口，Spring为各个平台如JDBC、Hibernate等都提供了对应的事务管理器，也就是将事务管理的职责委托给Hibernate或者JTA等持久化机制所提供的相关平台框架的事务来实现。</p>
+<p>基于注解和xml方式实现。</p>
+<h3 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h3><ul>
+<li><p>ISOLATION_DEFAULT</p>
+</li>
+<li><p>ISOLATION_READ_UNCOMMITTED 未提交读</p>
+</li>
+<li><p>ISOLATION_READ_COMMITTED 已提交读</p>
+</li>
+<li><p>ISOLATION_REPEATABLE_READ 可重复读</p>
+</li>
+<li><p>ISOLATION_SERIALIZABLE 串行化（通过加锁来实现）</p>
+</li>
+</ul>
+<h3 id="事务传播行为"><a href="#事务传播行为" class="headerlink" title="事务传播行为"></a>事务传播行为</h3><p>参考<a href="https://mp.weixin.qq.com/s/IglQITCkmx7Lpz60QOW7HA" target="_blank" rel="noopener">对Spring事务传播行为的理解</a></p>
+<ul>
+<li><p><strong>REQUIRED：如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。一般的选择（默认值）</strong></p>
+<p>通过这两个方法我们证明了在外围方法未开启事务的情况下<code>Propagation.REQUIRED</code>修饰的内部方法会新开启自己的事务，且开启的事务相互独立，互不干扰。</p>
+<p>以上试验结果我们证明在外围方法开启事务的情况下<code>Propagation.REQUIRED</code>修饰的内部方法会加入到外围方法的事务中，所有<code>Propagation.REQUIRED</code>修饰的内部方法和外围方法均属于同一事务，只要一个方法回滚，整个事务均回滚。</p>
+</li>
+<li><p><strong>SUPPORTS：支持当前事务，如果当前没有事务，就以非事务方式执行（没有事务）</strong></p>
+</li>
+<li><p><strong>REQUERS_NEW：新建事务，如果当前在事务中，把当前事务挂起。</strong></p>
+<p>通过这两个方法我们证明了在外围方法未开启事务的情况下<code>Propagation.REQUIRES_NEW</code>修饰的内部方法会新开启自己的事务，且开启的事务相互独立，互不干扰。</p>
+<p>在外围方法开启事务的情况下<code>Propagation.REQUIRES_NEW</code>修饰的内部方法依然会单独开启独立事务，且与外部方法事务也独立，内部方法之间、内部方法和外部方法事务均相互独立，互不干扰。</p>
+</li>
+<li><p><strong>NESTED：如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行 REQUIRED 类似的操作</strong></p>
+<p>通过这两个方法我们证明了在外围方法未开启事务的情况下<code>Propagation.NESTED</code>和<code>Propagation.REQUIRED</code>作用相同，修饰的内部方法都会新开启自己的事务，且开启的事务相互独立，互不干扰</p>
+<p>以上试验结果我们证明在外围方法开启事务的情况下<code>Propagation.NESTED</code>修饰的内部方法属于外部事务的子事务，外围主事务回滚，子事务一定回滚，而内部子事务可以单独回滚而不影响外围主事务和其他子事务</p>
+</li>
+</ul>
 
       
     </div>
@@ -660,7 +742,7 @@
   <p><span>本文标题:</span><a href="/Spring.html">Spring笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2021.12.24 - 16:27</p>
-  <p><span>最后更新:</span>2021.12.27 - 19:52</p>
+  <p><span>最后更新:</span>2022.10.13 - 20:36</p>
   <p><span>原始链接:</span><a href="/Spring.html" title="Spring笔记">https://tsuki419.github.io/Spring.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/Spring.html" aria-label="复制成功！"></i></span>
   </p>
@@ -711,19 +793,6 @@
       
 
       
-      
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-        </div>
       
       
 
@@ -833,7 +902,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -844,7 +913,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -855,7 +924,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -910,7 +979,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring快速入门"><span class="nav-number">1.</span> <span class="nav-text">Spring快速入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring配置文件"><span class="nav-number">2.</span> <span class="nav-text">Spring配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重要配置标签"><span class="nav-number">2.1.</span> <span class="nav-text">重要配置标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean实例化的三种方式"><span class="nav-number">2.2.</span> <span class="nav-text">Bean实例化的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean的依赖注入"><span class="nav-number">2.3.</span> <span class="nav-text">Bean的依赖注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关API"><span class="nav-number">3.</span> <span class="nav-text">相关API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring配置数据源（连接池）"><span class="nav-number">4.</span> <span class="nav-text">Spring配置数据源（连接池）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解开发"><span class="nav-number">5.</span> <span class="nav-text">注解开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Junit的集成"><span class="nav-number">5.1.</span> <span class="nav-text">Junit的集成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP"><span class="nav-number">6.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务控制"><span class="nav-number">7.</span> <span class="nav-text">事务控制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring快速入门"><span class="nav-number">1.</span> <span class="nav-text">Spring快速入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring配置文件"><span class="nav-number">2.</span> <span class="nav-text">Spring配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重要配置标签"><span class="nav-number">2.1.</span> <span class="nav-text">重要配置标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean实例化的三种方式"><span class="nav-number">2.2.</span> <span class="nav-text">Bean实例化的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean的依赖注入"><span class="nav-number">2.3.</span> <span class="nav-text">Bean的依赖注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关API"><span class="nav-number">3.</span> <span class="nav-text">相关API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring配置数据源（连接池）"><span class="nav-number">4.</span> <span class="nav-text">Spring配置数据源（连接池）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解开发"><span class="nav-number">5.</span> <span class="nav-text">注解开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Junit的集成"><span class="nav-number">5.1.</span> <span class="nav-text">Junit的集成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP"><span class="nav-number">6.</span> <span class="nav-text">AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于xml"><span class="nav-number">6.1.</span> <span class="nav-text">基于xml</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#快速入门"><span class="nav-number">6.1.1.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重要标签"><span class="nav-number">6.1.2.</span> <span class="nav-text">重要标签</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于注解"><span class="nav-number">6.2.</span> <span class="nav-text">基于注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#快速入门-1"><span class="nav-number">6.2.1.</span> <span class="nav-text">快速入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重要标签-1"><span class="nav-number">6.2.2.</span> <span class="nav-text">重要标签</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务控制"><span class="nav-number">7.</span> <span class="nav-text">事务控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务隔离级别"><span class="nav-number">7.1.</span> <span class="nav-text">事务隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务传播行为"><span class="nav-number">7.2.</span> <span class="nav-text">事务传播行为</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -933,10 +1002,10 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 48.1k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 56.5k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2026</span>
   <span class="with-love" id="heart">
     <i class="fa fa-heart"></i>
   </span>
@@ -1527,23 +1596,6 @@
   </script>
 
   
-  <script type="text/javascript">
-  wpac_init = window.wpac_init || [];
-  wpac_init.push({widget: 'Rating', id: 18431,
-    el: 'wpac-rating',
-    color: 'fc6423'
-  });
-  (function() {
-    if ('WIDGETPACK_LOADED' in window) return;
-    WIDGETPACK_LOADED = true;
-    var mc = document.createElement('script');
-    mc.type = 'text/javascript';
-    mc.async = true;
-    mc.src = '//embed.widgetpack.com/widget.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-  })();
-  </script>
-
 
   
 

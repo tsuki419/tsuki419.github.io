@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="算是数据库实战篇简单实现篇，包括了安装MySQL，使用JDBC和数据库连接池。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-03-22T14:11:20.753Z">
+<meta property="og:updated_time" content="2022-10-13T06:34:25.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC和Druid">
 <meta name="twitter:description" content="算是数据库实战篇简单实现篇，包括了安装MySQL，使用JDBC和数据库连接池。">
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-03-22T22:11:20+08:00">
-                2022-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2022-10-13T14:34:25+08:00">
+                2022-10-13
               </time>
             
           </span>
@@ -480,7 +480,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.5k
                 </span>
               
 
@@ -599,7 +599,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">driverClassName=com.mysql.jdbc.Driver</span><br><span class="line">url=jdbc:mysql:<span class="comment">//localhost:3306/db1</span></span><br><span class="line">username=root</span><br><span class="line">password=root</span><br><span class="line">initialSize=<span class="number">5</span></span><br><span class="line">maxActive=<span class="number">10</span></span><br><span class="line">maxWait=<span class="number">3000</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><ul>
+<h2 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h2><p>spring框架为我们提供了很多的操作模板类。例如：操作关系型数据的JdbcTemplate和HibernateTemplate，操作nosql数据库的RedisTemplate，操作消息队列的JmsTemplate等等。</p>
+<ul>
 <li>Spring框架提供的对JDBC的简单封装</li>
 <li>步骤：<ol>
 <li>导入jar包</li>
@@ -608,6 +609,8 @@
 </ol>
 </li>
 </ul>
+<p>我们可以将<code>JdbcTemplate</code>的创建权交给Spring，将数据源<code>DataSource</code>的创建权也交给Spring，在Spring容器内部将数据源<code>DataSource</code>注入到<code>JdbcTemplate</code>模版对象中,然后通过Spring容器获得<code>JdbcTemplate</code>对象来执行操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="comment">//测试Spring产生jdbcTemplate对象</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> <span class="keyword">throws</span> PropertyVetoException </span>&#123;</span><br><span class="line">       <span class="comment">//容器获取对象JdbcTemplate</span></span><br><span class="line">       ApplicationContext app = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">       JdbcTemplate jdbcTemplate = app.getBean(JdbcTemplate.class);</span><br><span class="line">       <span class="keyword">int</span> row = jdbcTemplate.update(<span class="string">"insert into account values(?,?)"</span>, <span class="string">"lisi"</span>, <span class="number">5000</span>);</span><br><span class="line">       System.out.println(row);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -627,7 +630,7 @@
   <p><span>本文标题:</span><a href="/数据库II.html">JDBC和Druid</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2022.03.22 - 21:47</p>
-  <p><span>最后更新:</span>2022.03.22 - 22:11</p>
+  <p><span>最后更新:</span>2022.10.13 - 14:34</p>
   <p><span>原始链接:</span><a href="/数据库II.html" title="JDBC和Druid">https://tsuki419.github.io/数据库II.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/数据库II.html" aria-label="复制成功！"></i></span>
   </p>
@@ -680,19 +683,6 @@
       
 
       
-      
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-        </div>
       
       
 
@@ -802,7 +792,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -813,7 +803,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -824,7 +814,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -902,10 +892,10 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 48.1k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 56.5k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2026</span>
   <span class="with-love" id="heart">
     <i class="fa fa-heart"></i>
   </span>
@@ -1496,23 +1486,6 @@
   </script>
 
   
-  <script type="text/javascript">
-  wpac_init = window.wpac_init || [];
-  wpac_init.push({widget: 'Rating', id: 18431,
-    el: 'wpac-rating',
-    color: 'fc6423'
-  });
-  (function() {
-    if ('WIDGETPACK_LOADED' in window) return;
-    WIDGETPACK_LOADED = true;
-    var mc = document.createElement('script');
-    mc.type = 'text/javascript';
-    mc.async = true;
-    mc.src = '//embed.widgetpack.com/widget.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-  })();
-  </script>
-
 
   
 

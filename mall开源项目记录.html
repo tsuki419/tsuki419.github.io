@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="不算是学习的第一个开源项目，但是是第一个运行起来的开源项目。作者的说明文档真的写的太棒了，手把手教学。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-04-26T08:00:16.505Z">
+<meta property="og:updated_time" content="2022-09-29T02:59:11.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mall学习记录">
 <meta name="twitter:description" content="不算是学习的第一个开源项目，但是是第一个运行起来的开源项目。作者的说明文档真的写的太棒了，手把手教学。">
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-04-26T16:00:16+08:00">
-                2022-04-26
+              <time title="更新于" itemprop="dateModified" datetime="2022-09-29T10:59:11+08:00">
+                2022-09-29
               </time>
             
           </span>
@@ -654,6 +654,13 @@
 <p>Erlang下载，记得安装完成配置环境变量，<a href="https://www.cnblogs.com/chensisi/p/13203111.html" target="_blank" rel="noopener">安装教程</a></p>
 <p><a href="https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.14" target="_blank" rel="noopener">Rabbitmq下载路径</a></p>
 <p><a href="http://localhost:15672/" target="_blank" rel="noopener">http://localhost:15672/</a></p>
+<p>启动</p>
+<ol>
+<li>先安装ErLang, <code>erl -version</code> 检查是否安装好</li>
+<li>进入rabbitmq安装目录sbin，<code>rabbitmq-plugins enable rabbitmq_management</code> 安装插件</li>
+<li>双击 <code>rabbitmq-server.bat</code> </li>
+<li>访问网址 <a href="http://localhost:15672/" target="_blank" rel="noopener">http://localhost:15672/</a></li>
+</ol>
 <h3 id="OSS-实现文件上传"><a href="#OSS-实现文件上传" class="headerlink" title="OSS 实现文件上传"></a>OSS 实现文件上传</h3><h2 id="业务熟悉：数据库设计"><a href="#业务熟悉：数据库设计" class="headerlink" title="业务熟悉：数据库设计"></a>业务熟悉：数据库设计</h2><p>整个看了一遍。还是挺复杂的。</p>
 <p>商品模块：主页面的商品分类，商品品牌（店铺），商品属性选择（属性和描述参数）；编辑商品（商品基本信息，促销信息，属性信息，关联），库存表，打折表（满减方式，打折方式，会员积分抵扣方式），商品评价和回复，商品操作记录;</p>
 <p>订单模块：不同状态下的订单，订单表，订单商品表（一个订单包含不同的商品），订单操作记录表；从下单到选地址，计算优惠，到形成订单预览，选择支付方式，订单处理，售后服务（订单退货，退货原因管理，退货地址管理）。</p>
@@ -687,8 +694,7 @@
 <p>收藏，关注，浏览历史，购物车管理，退货管理，前台订单管理，促销管理（计算购物车价格）。</p>
 <p>收藏关注浏览历史都用MongoDB来存储。</p>
 <p>MongoRepository</p>
-<h2 id="进阶篇-微服务项目"><a href="#进阶篇-微服务项目" class="headerlink" title="进阶篇-微服务项目"></a>进阶篇-微服务项目</h2><p>Spring Cloud系列在我看来目前用不到，跟着作者的学习用例浅浅试用了一下，自己搭建的单体小项目用不到，接触不到公司项目就只能浅浅了解一下。</p>
-<p>挖坑，分布式调研。</p>
+<h2 id="进阶篇-微服务项目"><a href="#进阶篇-微服务项目" class="headerlink" title="进阶篇-微服务项目"></a>进阶篇-微服务项目</h2><p>Spring Cloud系列学习提上日程，已经用在了课题中，待整理完整发布。</p>
 
       
     </div>
@@ -708,7 +714,7 @@
   <p><span>本文标题:</span><a href="/mall开源项目记录.html">mall学习记录</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2022.03.25 - 19:42</p>
-  <p><span>最后更新:</span>2022.04.26 - 16:00</p>
+  <p><span>最后更新:</span>2022.09.29 - 10:59</p>
   <p><span>原始链接:</span><a href="/mall开源项目记录.html" title="mall学习记录">https://tsuki419.github.io/mall开源项目记录.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/mall开源项目记录.html" aria-label="复制成功！"></i></span>
   </p>
@@ -765,19 +771,6 @@
       
 
       
-      
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-        </div>
       
       
 
@@ -887,7 +880,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -898,7 +891,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -909,7 +902,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -987,10 +980,10 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 48.1k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 56.5k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2026</span>
   <span class="with-love" id="heart">
     <i class="fa fa-heart"></i>
   </span>
@@ -1581,23 +1574,6 @@
   </script>
 
   
-  <script type="text/javascript">
-  wpac_init = window.wpac_init || [];
-  wpac_init.push({widget: 'Rating', id: 18431,
-    el: 'wpac-rating',
-    color: 'fc6423'
-  });
-  (function() {
-    if ('WIDGETPACK_LOADED' in window) return;
-    WIDGETPACK_LOADED = true;
-    var mc = document.createElement('script');
-    mc.type = 'text/javascript';
-    mc.async = true;
-    mc.src = '//embed.widgetpack.com/widget.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-  })();
-  </script>
-
 
   
 

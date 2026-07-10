@@ -138,7 +138,7 @@
 <meta property="og:site_name" content="tsuki&#39;s CodeLife">
 <meta property="og:description" content="单调栈。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2022-08-16T08:09:01.997Z">
+<meta property="og:updated_time" content="2022-08-20T14:39:24.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单调栈">
 <meta name="twitter:description" content="单调栈。">
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-08-16T16:09:01+08:00">
-                2022-08-16
+              <time title="更新于" itemprop="dateModified" datetime="2022-08-20T22:39:24+08:00">
+                2022-08-20
               </time>
             
           </span>
@@ -491,7 +491,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  223
+                  791
                 </span>
               
 
@@ -526,9 +526,19 @@
 <p>思路是while（栈不空&amp;&amp;当前温度大于栈顶温度），计算ans[]，栈顶出栈。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> length = temperatures.length;</span><br><span class="line">Deque&lt;Integer&gt; stack = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line"><span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[length];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</span><br><span class="line">    <span class="keyword">int</span> temperature = temperatures[i];</span><br><span class="line">    <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; temperature &gt; temperatures[stack.peek()])&#123;</span><br><span class="line">        <span class="keyword">int</span> preIndex = stack.pop();</span><br><span class="line">        ans[preIndex] = i - preIndex;</span><br><span class="line">    &#125;</span><br><span class="line">    stack.push(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://leetcode.cn/problems/next-greater-element-i/" target="_blank" rel="noopener">496. 下一个更大元素 I</a> 单调栈+哈希</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Deque&lt;Integer&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p><code>ArrayDeque</code>是<code>Deque</code>接口的一个实现，使用了可变数组，容量上没有限制。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">Deque&lt;Integer&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = nums2.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">    <span class="keyword">int</span> num = nums2[i];</span><br><span class="line">    <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; num &gt;= stack.peek())&#123;</span><br><span class="line">        stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    map.put(num, stack.isEmpty()? -<span class="number">1</span>: stack.peek());</span><br><span class="line">    stack.push(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums1.length];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.length; i++)&#123;</span><br><span class="line">    res[i] = map.get(nums1[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://leetcode.cn/problems/next-greater-element-ii/" target="_blank" rel="noopener">503. 下一个更大元素 II</a> 单调栈+循环数组</p>
+<p>循环数组实际上就是将前n - 1个元素拼接到原数组后面，<code>i % n</code> (pusu)</p>
+<p>这题是类似每日温度的题，要用到preIndex，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = nums.length;</span><br><span class="line"><span class="keyword">int</span>[] ret = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">Arrays.fill(ret, -<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">Deque&lt;Integer&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;(); <span class="comment">//存数组下标</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">int</span> num = nums[i % n];</span><br><span class="line">    <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; nums[stack.peek()] &lt; num )&#123;</span><br><span class="line">        ret[stack.pop()] = num;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    stack.push(i % n); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> ret;</span><br></pre></td></tr></table></figure>
 <p><a href="https://leetcode.cn/problems/trapping-rain-water/" target="_blank" rel="noopener">42. 接雨水</a></p>
+<p>有左墙右墙和低洼就可以接雨水，比当前位置高的第一个位置，就是右墙。参考<a href="https://leetcode.cn/problems/trapping-rain-water/solution/trapping-rain-water-by-ikaruga/" target="_blank" rel="noopener">题解评论区</a>，写的非常清楚。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">trap</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(height == <span class="keyword">null</span> || height.length &lt;= <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = height.length;</span><br><span class="line">    <span class="keyword">int</span> water = <span class="number">0</span>;</span><br><span class="line">    Deque&lt;Integer&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();<span class="comment">//存下标</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> right = <span class="number">0</span>; right &lt; n; right++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; height[right] &gt; height[stack.peek()])&#123;</span><br><span class="line">            <span class="keyword">int</span> bottom = stack.pop();<span class="comment">//底</span></span><br><span class="line">            <span class="keyword">if</span>(stack.isEmpty())&#123;<span class="comment">//无左墙，没法接雨水</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> left = stack.peek();</span><br><span class="line">            water += (right - left - <span class="number">1</span>) * (Math.min(height[left], height[right]) - height[bottom]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stack.push(right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> water;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://leetcode.cn/problems/largest-rectangle-in-histogram/" target="_blank" rel="noopener">84. 柱状图中最大的矩形</a></p>
+<p>理解题意，可以枚举高度和枚举宽度。枚举高度时，是当前位置i向左向右延伸，找到第一个低于<code>height[i]</code>的位置，<code>right[i]</code>和<code>left[i]</code>，两者之间的长度就是矩形的宽。因为是找左右第一个比当前位置小的数，可以用到单调栈。优化之后可以一次遍历找到左右的位置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = heights.length;</span><br><span class="line"><span class="keyword">int</span>[] left = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="keyword">int</span>[] right = <span class="keyword">new</span> <span class="keyword">int</span>[n];<span class="comment">//存位置下标</span></span><br><span class="line">Arrays.fill(right, n);<span class="comment">//初始化</span></span><br><span class="line"></span><br><span class="line">Deque&lt;Integer&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n; i++)&#123;</span><br><span class="line">    <span class="keyword">while</span>(!stack.isEmpty() &amp;&amp; heights[i] &lt;= heights[stack.peek()])&#123;</span><br><span class="line">        right[stack.peek()] = i;</span><br><span class="line">        stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    left[i] = (stack.isEmpty()? -<span class="number">1</span> : stack.peek());</span><br><span class="line">    stack.push(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    ans = Math.max(ans, (right[i] - left[i] - <span class="number">1</span>) * heights[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -548,7 +558,7 @@
   <p><span>本文标题:</span><a href="/单调栈.html">单调栈</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 tsuki 的个人博客">tsuki</a></p>
   <p><span>发布时间:</span>2022.08.06 - 22:01</p>
-  <p><span>最后更新:</span>2022.08.16 - 16:09</p>
+  <p><span>最后更新:</span>2022.08.20 - 22:39</p>
   <p><span>原始链接:</span><a href="/单调栈.html" title="单调栈">https://tsuki419.github.io/单调栈.html</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://tsuki419.github.io/单调栈.html" aria-label="复制成功！"></i></span>
   </p>
@@ -602,19 +612,6 @@
 
       
       
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-			<div style="color: rgba(0,0,0,0.75);font-size:13px;letter-spacing: 3px">(&gt;点击下方有星星糖果吃哦（雾）&lt;)</div>
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-        </div>
-      
       
 
       
@@ -630,6 +627,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Spring-Cloud-Oauth2.html" rel="prev" title="Spring Cloud Oauth2">
+                Spring Cloud Oauth2 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -719,7 +720,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -730,7 +731,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -741,7 +742,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -819,10 +820,10 @@
         ﻿ 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-area-chart"></i><span class="post-count">: 48.1k</span>
+  <i class="fa fa-area-chart"></i><span class="post-count">: 56.5k</span>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2022</span>
+<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2026</span>
   <span class="with-love" id="heart">
     <i class="fa fa-heart"></i>
   </span>
@@ -1413,23 +1414,6 @@
   </script>
 
   
-  <script type="text/javascript">
-  wpac_init = window.wpac_init || [];
-  wpac_init.push({widget: 'Rating', id: 18431,
-    el: 'wpac-rating',
-    color: 'fc6423'
-  });
-  (function() {
-    if ('WIDGETPACK_LOADED' in window) return;
-    WIDGETPACK_LOADED = true;
-    var mc = document.createElement('script');
-    mc.type = 'text/javascript';
-    mc.async = true;
-    mc.src = '//embed.widgetpack.com/widget.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-  })();
-  </script>
-
 
   
 
